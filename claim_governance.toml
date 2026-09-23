@@ -1,0 +1,54 @@
+# Initial claim-governance policy for tiling-theory-research.
+# This is a scaffold compatible in vocabulary with the PSC estate.
+# It states no mathematics.
+
+[repository]
+name = "larsbx/tiling-theory-research"
+
+[scan]
+prose = ["README.md", "docs/**/*.md"]
+source = ["mojo/**/*.mojo", "src/**/*.py"]
+exclude = ["archive/**"]
+
+[status]
+classes = ["proved", "imported", "finite-domain", "conditional", "open", "bridge", "evidence", "retired"]
+
+[status.synonyms]
+"[PROVED]" = "proved"
+"[IMPORTED]" = "imported"
+"[FINITE-DOMAIN]" = "finite-domain"
+"[CONDITIONAL]" = "conditional"
+"[OPEN]" = "open"
+"[BRIDGE]" = "bridge"
+"[EVIDENCE]" = "evidence"
+"[RETIRED]" = "retired"
+
+[terminology]
+risky_phrases = ["obvious isomorphism", "canonical analogy", "essentially the same", "nothing but", "proof by analogy"]
+negating_context = ["not ", "no ", "without ", "unless ", "must not", "cannot", "does not", "is not", "never"]
+
+[promotion]
+proving_phrases = ["is proved", "are proved", "is now proved", "has been proved", "we prove", "is a theorem", "is established", "completes the proof", "settles", "is closed"]
+negating_context = ["not ", "no ", "remains open", "open ", "would", "conditional", "without", "if ", "once ", "unless", "cannot", "target", "obligation", "evidence", "calibration"]
+settled_classes = ["proved", "imported", "finite-domain", "conditional"]
+radius = 120
+
+[[claim]]
+name = "T1RepresentationBridge"
+status = "open"
+aliases = ["representation bridge", "overlap completeness bridge"]
+
+[[claim]]
+name = "T2AutomaticCoincidence"
+status = "open"
+aliases = ["automatic coincidence", "class-wide coincidence theorem"]
+
+[[claim]]
+name = "T3PureDiscreteSpectrum"
+status = "conditional"
+aliases = ["spectral consequence", "pure discrete spectrum for C"]
+
+[[claim]]
+name = "CalibrationCorpus"
+status = "evidence"
+aliases = ["T0 calibration"]
