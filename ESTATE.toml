@@ -1,0 +1,71 @@
+version = 2
+template = "estate-repository-v2"
+
+[repo]
+id = "tiling-theory-research"
+slug = "larsbx/tiling-theory-research"
+class = "research"
+layer = 3
+band = "EXPLORE"
+stage = "candidate"           # written by estate CI only
+inv = []
+default_branch = "main"
+
+[origin]
+decided_by = "proposed"       # agent-authored; the owner adopts it by decision record
+chats = []
+artifacts = []
+
+[[dep]]
+id = "estate-governance"
+rev = "5ea47dec8086eab6a1dad6fd239688d20ea89891"
+pin = "sha256:412a64dea58d709aae21e5a0315b8e7e96488c310a9d999267927ba3d8146a30"   # set by estate-governance tools/pin_estate.py
+
+[exports]
+names = []
+
+[layout]
+status = "transitional"
+
+[principles]
+ordering = ["authority", "domain", "language"]
+empty_silos = "forbidden"
+cross_language_disagreement = "fail_closed"
+generated_surfaces = "derived_only"
+vendor_code = "non_local"
+experimental_code = "non_authoritative"
+
+[[plane]]
+id = "policy"
+target = "policy"
+authority = "governance"
+required = true
+current = ["ESTATE.toml"]
+
+[[plane]]
+id = "kernel"
+target = "kernel"
+authority = "canonical_executable"
+required = false
+current = []
+
+[[plane]]
+id = "docs"
+target = "docs"
+authority = "exposition"
+required = true
+current = ["README.md", "ARCHITECTURE.md"]
+
+[[language]]
+name = "Python"
+authority = "canonical"
+roles = ["kernel"]
+acceptance_authority = false
+
+[migration]
+mode = "boundary_first"
+mass_move = false
+next = [
+  "Owner to confirm class, INV prefix and canonical language (Python is a provisional default).",
+  "Add planes only as content lands; empty silos are forbidden.",
+]
