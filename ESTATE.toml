@@ -1,0 +1,75 @@
+version = 1
+template = "estate-repository-lite-v1"
+
+[repo]
+id = "tiling-theory-research"
+slug = "larsbx/tiling-theory-research"
+class = "research"
+layer = 3
+band = "EXPLORE"
+stage = "candidate"
+default_branch = "main"
+
+[origin]
+decided_by = "proposed"
+chats = ["2026-10-11 Katz/AKN matching-rules salvage thread"]
+artifacts = []
+
+[principles]
+no_unregistered_claims = true
+no_perfection_claim_without_global_proof = true
+finite_local_checks_are_not_global_perfection = true
+experimental_code_is_non_authoritative = true
+source_data_required_for_certification = true
+
+[[plane]]
+id = "policy"
+target = "ESTATE.toml"
+authority = "governance"
+required = true
+current = ["ESTATE.toml", "claim_governance.toml"]
+
+[[plane]]
+id = "research"
+target = "docs/research"
+authority = "claim_state"
+required = true
+current = ["docs/research"]
+
+[[plane]]
+id = "evidence"
+target = "research"
+authority = "evidence_registry"
+required = true
+current = ["research/candidates.json"]
+
+[[plane]]
+id = "docs"
+target = "docs"
+authority = "exposition"
+required = true
+current = ["README.md", "docs/roadmap.md"]
+
+[[status_class]]
+name = "candidate"
+meaning = "Research direction captured, not yet established."
+
+[[status_class]]
+name = "open"
+meaning = "Precise obligation or problem with no accepted proof or certificate."
+
+[[status_class]]
+name = "finite-domain"
+meaning = "Finite claim backed by committed exhaustive enumeration/certificate."
+
+[[status_class]]
+name = "conditional"
+meaning = "Claim valid only under stated hypotheses or pending external source data."
+
+[[status_class]]
+name = "imported"
+meaning = "External result used as background, with source required in the dossier."
+
+[[status_class]]
+name = "retired"
+meaning = "Claim abandoned, superseded, or falsified."
