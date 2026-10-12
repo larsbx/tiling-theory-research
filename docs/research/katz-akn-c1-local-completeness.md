@@ -51,13 +51,11 @@ subject to:
 3. face-gluing legality is defined over oriented rhombic faces of prolate/oblate cells;
 4. symmetry-equivalent decorations are quotiented by the icosahedral action where possible.
 
-The resulting inequality is only:
+No ordering between `m*(C1)` and `m*(perfect)` is established here. A globally perfect decoration may admit a non-AKN vertex corona that cannot extend to an infinite tiling satisfying the decoration; that locally admitted corona does not contradict global perfection. Thus perfection need not imply `C1(D)`. Conversely, `C1(D)` alone does not imply global perfection. Neither feasible set is known to contain the other.
 
-```text
-m*(C1) <= m*(perfect) <= 22.
-```
+In particular, using `m*(C1) <= m*(perfect)` would require a separately justified implication from perfection to `C1`. A sufficient set of additional hypotheses would be that, for every decoration counted as perfect, **(a)** every locally admitted vertex corona extends to a globally legal decorated tiling, and **(b)** every AKN atlas corona has a decorated lift (for example, because it occurs in an intended AKN tiling admitted by that decoration). No such local-extension or coverage theorem is assumed or proved here.
 
-The upper bound records the Katz-style `14 + 8` benchmark as imported background, not as newly proved here.
+The Katz-style `14 + 8 = 22` decoration count remains a source-pending imported benchmark, not a certified upper bound for `m*(C1)`. It could bound `m*(perfect)` only after its global perfection and the shared decoration-counting convention are independently verified.
 
 ## Thread-derived observations to preserve
 
