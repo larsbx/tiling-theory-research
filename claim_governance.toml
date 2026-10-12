@@ -1,0 +1,53 @@
+[repository]
+name = "larsbx/tiling-theory-research"
+
+[scan]
+prose = ["README.md", "docs/**/*.md"]
+source = ["src/**/*.py", "experiments/**/*.py", "scripts/**/*.py"]
+exclude = ["vendor/**"]
+
+[status]
+classes = ["candidate", "open", "finite-domain", "conditional", "imported", "retired"]
+
+[status.synonyms]
+"pending" = "open"
+"experimental" = "candidate"
+"verified finite computation" = "finite-domain"
+"background" = "imported"
+
+[claims]
+paths = ["docs/**/*.md"]
+statement_kinds = ["Definition", "Problem", "Conjecture", "Theorem", "Proposition", "Lemma", "Corollary"]
+window_lines = 6
+file_status_marker = "**Status:**"
+file_status_lines = 5
+
+[promotion]
+proving_phrases = ["is proved", "we prove", "has been proved", "is a theorem", "establishes", "settles"]
+negating_context = ["not ", "no ", "never", "until", "only after", "await", "pending", "would", "without", "if ", "does not"]
+settled_classes = ["finite-domain"]
+radius = 120
+
+[[claim]]
+name = "KATZ-AKN-C1"
+status = "candidate"
+[[claim.surfaces]]
+path = "README.md"
+anchor = "| KATZ-AKN-C1 |"
+window_lines = 0
+[[claim.surfaces]]
+path = "docs/research/katz-akn-c1-local-completeness.md"
+anchor = "**Status:** candidate"
+window_lines = 0
+[[claim.surfaces]]
+path = "research/candidates.json"
+anchor = '"id": "KATZ-AKN-C1"'
+window_lines = 2
+
+[[claim]]
+name = "KATZ-AKN-PERFECT"
+status = "open"
+[[claim.surfaces]]
+path = "docs/research/katz-akn-c1-local-completeness.md"
+anchor = "KATZ-AKN-PERFECT"
+window_lines = 3
