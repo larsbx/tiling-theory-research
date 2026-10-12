@@ -10,6 +10,13 @@ exclude = ["vendor/**"]
 classes = ["candidate", "open", "finite-domain", "conditional", "imported", "retired"]
 
 [status.synonyms]
+# Recognize the canonical status spellings in the registered surfaces.
+"candidate" = "candidate"
+"open" = "open"
+"finite-domain" = "finite-domain"
+"conditional" = "conditional"
+"imported" = "imported"
+"retired" = "retired"
 "pending" = "open"
 "experimental" = "candidate"
 "verified finite computation" = "finite-domain"
@@ -51,3 +58,15 @@ status = "open"
 path = "docs/research/katz-akn-c1-local-completeness.md"
 anchor = "KATZ-AKN-PERFECT"
 window_lines = 3
+[[claim.surfaces]]
+path = "README.md"
+anchor = "| KATZ-AKN-PERFECT |"
+window_lines = 0
+[[claim.surfaces]]
+path = "docs/roadmap.md"
+anchor = "| KATZ-AKN-PERFECT |"
+window_lines = 0
+[[claim.surfaces]]
+path = "research/candidates.json"
+anchor = '"id": "KATZ-AKN-PERFECT"'
+window_lines = 2
