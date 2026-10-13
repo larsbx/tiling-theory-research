@@ -19,3 +19,22 @@ This repository uses lightweight estate governance:
 - `docs/roadmap.md` records next obligations.
 
 No finite local search result should be promoted to a global perfect matching-rule theorem without a separately registered proof obligation.
+
+## Governance validation
+
+The shared checker is `larsbx/finite-math-kernels`, validated at commit
+`1887777d815656034d0fb9e5a68ef473b652b75b`. With a checkout of that commit
+beside this repository, run from this repository root:
+
+```sh
+PYTHONPATH=../finite-math-kernels/tools python -m claim_governance.cli --root .
+PYTHONPATH=../finite-math-kernels/tools python -m unittest discover -s tests -v
+```
+
+The regression suite audits the unchanged repository and independently mutates
+all eight registered status surfaces in temporary copies. Each mutation must
+produce a status mismatch for that exact claim and path. It also checks unique
+anchors, windows containing only the intended status class, canonical spellings,
+existing aliases, and word boundaries. JSON surfaces are explicitly checked even
+though they are outside the prose scan. These tests validate governance coverage;
+they do not certify either mathematical claim.

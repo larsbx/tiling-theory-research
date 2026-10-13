@@ -10,6 +10,13 @@ exclude = ["vendor/**"]
 classes = ["candidate", "open", "finite-domain", "conditional", "imported", "retired"]
 
 [status.synonyms]
+# Recognize the canonical status spellings in the registered surfaces.
+"candidate" = "candidate"
+"open" = "open"
+"finite-domain" = "finite-domain"
+"conditional" = "conditional"
+"imported" = "imported"
+"retired" = "retired"
 "pending" = "open"
 "experimental" = "candidate"
 "verified finite computation" = "finite-domain"
@@ -37,17 +44,34 @@ anchor = "| KATZ-AKN-C1 |"
 window_lines = 0
 [[claim.surfaces]]
 path = "docs/research/katz-akn-c1-local-completeness.md"
-anchor = "**Status:** candidate"
-window_lines = 0
+anchor = "**Claim ID:** KATZ-AKN-C1"
+window_lines = 1
 [[claim.surfaces]]
 path = "research/candidates.json"
 anchor = '"id": "KATZ-AKN-C1"'
-window_lines = 2
+window_lines = 1
+
+[[claim.surfaces]]
+path = "docs/roadmap.md"
+anchor = "| KATZ-AKN-C1 |"
+window_lines = 0
 
 [[claim]]
 name = "KATZ-AKN-PERFECT"
 status = "open"
 [[claim.surfaces]]
 path = "docs/research/katz-akn-c1-local-completeness.md"
-anchor = "KATZ-AKN-PERFECT"
-window_lines = 3
+anchor = '`KATZ-AKN-PERFECT`'
+window_lines = 0
+[[claim.surfaces]]
+path = "README.md"
+anchor = "| KATZ-AKN-PERFECT |"
+window_lines = 0
+[[claim.surfaces]]
+path = "docs/roadmap.md"
+anchor = "| KATZ-AKN-PERFECT |"
+window_lines = 0
+[[claim.surfaces]]
+path = "research/candidates.json"
+anchor = '"id": "KATZ-AKN-PERFECT"'
+window_lines = 1
