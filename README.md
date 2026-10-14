@@ -38,3 +38,10 @@ anchors, windows containing only the intended status class, canonical spellings,
 existing aliases, and word boundaries. JSON surfaces are explicitly checked even
 though they are outside the prose scan. These tests validate governance coverage;
 they do not certify either mathematical claim.
+
+The `Claim governance` GitHub workflow runs the audit and mutation regressions
+on pull requests, pushes to `main`, and manual dispatch. It fetches the shared
+checker at the exact commit above, verifies the checkout, and uses read-only
+repository permissions. No dependency installation is needed beyond Python 3.11
+or later. A failed audit or regression fails the job. This supplies a CI check;
+requiring it for merges is a separate repository branch-protection setting.

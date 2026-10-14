@@ -1,0 +1,39 @@
+name: Claim governance
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  claim-governance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      CHECKER_COMMIT: 1887777d815656034d0fb9e5a68ef473b652b75b
+    steps:
+      - name: Check out research repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Fetch pinned shared checker
+        shell: bash
+        run: |
+          set -euo pipefail
+          checker_root="$RUNNER_TEMP/finite-math-kernels"
+          git init "$checker_root"
+          git -C "$checker_root" remote add origin https://github.com/larsbx/finite-math-kernels.git
+          git -C "$checker_root" fetch --depth=1 origin "$CHECKER_COMMIT"
+          git -C "$checker_root" checkout --detach FETCH_HEAD
+          test "$(git -C "$checker_root" rev-parse HEAD)" = "$CHECKER_COMMIT"
+      - name: Audit claims and exercise every status surface
+        shell: bash
+        run: |
+          set -euo pipefail
+          export PYTHONPATH="$RUNNER_TEMP/finite-math-kernels/tools"
+          python3 -m claim_governance.cli --root .
+          python3 -m unittest discover -s tests -v
