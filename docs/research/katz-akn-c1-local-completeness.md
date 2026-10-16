@@ -72,8 +72,9 @@ These observations should be treated as candidate evidence requirements, not as 
 
 Update 2026-10-16: items 3, 4, 5 and the `I_h` orbit count in item 6 (10 prolate and 10 oblate axis
 triples, `|I_h| = 120`) are now reproduced by `research/akn/` (atlas of 24 vertex stars, each with
-an exact AKN witness). The atlas is admissible-side only; the non-AKN corona universe is still
-missing. See `docs/research/akn-vertex-atlas-periodic-approximant.md`: the undecorated atlas admits
+an exact AKN witness). The non-AKN side is now committed too: `research/akn/corona_universe.json`
+lists all 5450 vertex configurations (24 AKN, 5426 outside the atlas); see
+`docs/research/akn-vertex-configuration-universe.md`. See `docs/research/akn-vertex-atlas-periodic-approximant.md`: the undecorated atlas admits
 a periodic tiling, which is why decorations are needed at all.
 
 ## Constraint-search plan
@@ -96,7 +97,7 @@ A robust implementation should use a counterexample-guided loop rather than trus
 
 - the exact cut/window or combinatorial source for the rhombohedral cells;
 - a deterministic face-gluing extraction;
-- the complete vertex-corona atlas, including non-AKN coronae considered by the exclusion check;
+- the complete vertex-corona atlas, including non-AKN coronae considered by the exclusion check (vertex radius: committed, `AKN-CORONA-UNIVERSE`);
 - a solver-independent certificate or reproducible exhaustive search log;
 - symmetry-reduction documentation showing which duplicates are quotiented;
 - regression tests checking the reported face counts, gluing classes, and corona counts.

@@ -95,3 +95,23 @@ window_lines = 0
 path = "research/candidates.json"
 anchor = '"id": "AKN-ATLAS-PERIODIC"'
 window_lines = 1
+
+[[claim]]
+name = "AKN-CORONA-UNIVERSE"
+status = "finite-domain"
+[[claim.surfaces]]
+path = "docs/research/akn-vertex-configuration-universe.md"
+anchor = "**Claim ID:** AKN-CORONA-UNIVERSE"
+window_lines = 1
+[[claim.surfaces]]
+path = "README.md"
+anchor = "| AKN-CORONA-UNIVERSE |"
+window_lines = 0
+[[claim.surfaces]]
+path = "docs/roadmap.md"
+anchor = "| AKN-CORONA-UNIVERSE |"
+window_lines = 0
+[[claim.surfaces]]
+path = "research/candidates.json"
+anchor = '"id": "AKN-CORONA-UNIVERSE"'
+window_lines = 1

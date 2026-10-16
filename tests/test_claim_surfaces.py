@@ -20,7 +20,8 @@ class ClaimSurfaces(unittest.TestCase):
         shared = {'README.md', 'docs/roadmap.md', 'research/candidates.json'}
         dossier = {'KATZ-AKN-C1': 'docs/research/katz-akn-c1-local-completeness.md',
                    'KATZ-AKN-PERFECT': 'docs/research/katz-akn-c1-local-completeness.md',
-                   'AKN-ATLAS-PERIODIC': 'docs/research/akn-vertex-atlas-periodic-approximant.md'}
+                   'AKN-ATLAS-PERIODIC': 'docs/research/akn-vertex-atlas-periodic-approximant.md',
+                   'AKN-CORONA-UNIVERSE': 'docs/research/akn-vertex-configuration-universe.md'}
         self.assertEqual({claim.name for claim in policy.ledger}, set(dossier))
         for claim in policy.ledger:
             self.assertEqual({s.path for s in claim.surfaces}, shared | {dossier[claim.name]})
