@@ -95,3 +95,43 @@ window_lines = 0
 path = "research/candidates.json"
 anchor = '"id": "AKN-ATLAS-PERIODIC"'
 window_lines = 1
+
+[[claim]]
+name = "PH4-OVERLAP-GRAPH"
+status = "finite-domain"
+[[claim.surfaces]]
+path = "README.md"
+anchor = '| PH4-OVERLAP-GRAPH |'
+window_lines = 0
+[[claim.surfaces]]
+path = "docs/roadmap.md"
+anchor = '| PH4-OVERLAP-GRAPH |'
+window_lines = 0
+[[claim.surfaces]]
+path = "docs/research/phase4-exact-overlap-coverage.md"
+anchor = '**Claim ID:** PH4-OVERLAP-GRAPH'
+window_lines = 1
+[[claim.surfaces]]
+path = "research/candidates.json"
+anchor = '"id": "PH4-OVERLAP-GRAPH"'
+window_lines = 1
+
+[[claim]]
+name = "PH4-LEGAL-COVERAGE"
+status = "conditional"
+[[claim.surfaces]]
+path = "README.md"
+anchor = '| PH4-LEGAL-COVERAGE |'
+window_lines = 0
+[[claim.surfaces]]
+path = "docs/roadmap.md"
+anchor = '| PH4-LEGAL-COVERAGE |'
+window_lines = 0
+[[claim.surfaces]]
+path = "docs/research/phase4-exact-overlap-coverage.md"
+anchor = '**Claim ID:** PH4-LEGAL-COVERAGE'
+window_lines = 1
+[[claim.surfaces]]
+path = "research/candidates.json"
+anchor = '"id": "PH4-LEGAL-COVERAGE"'
+window_lines = 1

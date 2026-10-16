@@ -36,6 +36,32 @@
       "title": "Global perfection of Katz/AKN matching-rule decorations",
       "summary": "Separate global matching-rule problem: every locally legal tiling must belong to the intended AKN class. Not implied by C1.",
       "primary_surface": "docs/research/katz-akn-c1-local-completeness.md"
+    },
+    {
+      "id": "PH4-OVERLAP-GRAPH",
+      "status": "finite-domain",
+      "title": "Exact 64-state potential-overlap graph; every state reaches coincidence within five steps.",
+      "primary_surface": "docs/research/phase4-exact-overlap-coverage.md",
+      "evidence": [
+        "research/phase4_exact.py",
+        "research/phase4_overlap_coverage.py",
+        "research/phase4_overlap_certificate.json",
+        "tests/test_phase4_overlap.py"
+      ],
+      "scope": "Retain the exact packet and provenance regressions."
+    },
+    {
+      "id": "PH4-LEGAL-COVERAGE",
+      "status": "conditional",
+      "title": "Prefix-derived bound covers legal return-vector overlaps for the specified substitution-language tilings.",
+      "primary_surface": "docs/research/phase4-exact-overlap-coverage.md",
+      "evidence": [
+        "research/phase4_exact.py",
+        "research/phase4_overlap_coverage.py",
+        "research/phase4_overlap_certificate.json",
+        "tests/test_phase4_overlap.py"
+      ],
+      "scope": "Audit any spectral transfer separately; no minimal-bound or exact-legality claim."
     }
   ]
 }

@@ -9,6 +9,8 @@ This repository tracks tiling-theory research candidates under lightweight estat
 | KATZ-AKN-C1 | candidate | Local-complete Katz/AKN rhombohedral matching-rule minimization | Commit the exact source atlas, then implement deterministic face/corona extraction. |
 | AKN-ATLAS-PERIODIC | finite-domain | Periodic tiling with only AKN vertex stars | Literature search for priority; extend to radius-2 stars via non-cubic approximants or SAT over periodic boxes. |
 | KATZ-AKN-PERFECT | open | Global perfection of a matching-rule decoration | Requires a global/topological proof or an explicit defect search framework; not implied by C1. |
+| PH4-OVERLAP-GRAPH | finite-domain | Exact 64-state potential-overlap graph; every state reaches coincidence within five steps. | Retain the exact packet and provenance regressions. |
+| PH4-LEGAL-COVERAGE | conditional | Prefix-derived bound covers legal return-vector overlaps for the specified substitution-language tilings. | Audit any spectral transfer separately; no minimal-bound or exact-legality claim. |
 
 ## Near-term work
 
