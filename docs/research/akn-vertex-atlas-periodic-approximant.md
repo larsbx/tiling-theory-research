@@ -130,3 +130,12 @@ python approximant.py 3 2 40 0 certificate_3_2.json        # numpy, ~45 s
 - A. Katz, *Some local properties of the three-dimensional Penrose tilings*, in M. Jarić (ed.), *Introduction to the Mathematics of Quasicrystals*, Aperiodicity and Order vol. 2, ch. 4, Academic Press (1989).
 - J. E. S. Socolar, *Weak matching rules for quasicrystals*, Comm. Math. Phys. 129 (1990) 599-619, doi:10.1007/BF02097107.
 - C. Hann, J. E. S. Socolar, P. J. Steinhardt, *Local growth of icosahedral quasicrystalline tilings*, arXiv:1604.02479 (2016).
+
+Consulted in the 2026-10-16 search (context only; none states or refutes item 3):
+
+- *Regular and defective vertex configurations in icosahedral structures* (1993), abstract: https://cris.bgu.ac.il/en/publications/regular-and-defective-vertex-configurations-in-icosahedral-struct-2/
+- *Non-spiky density of states of an icosahedral quasicrystal*, arXiv:cond-mat/0006018 (cubic `F_{n+1}/F_n` approximants, `Pa-3`).
+- *The atomic structure of the Bergman-type icosahedral quasicrystal based on the Ammann-Kramer-Neri tiling*, Acta Cryst. A76 (2020) 180-196, doi:10.1107/S2053273319017339 (search summary only; full text returned 403).
+- *Canonical-Cell Tilings and their Atomic Decorations*, https://www.researchgate.net/publication/379318523 (search summary only).
+- *Random tiling quasicrystals in three dimensions*, arXiv:cond-mat/9706117 (24 canonical vs 5450 random-tiling vertices; search summary only).
+- *Cluster packing geometry for Al-based F-type icosahedral alloys*, arXiv:1301.6823 (3/2 cubic packing; search summary only).
