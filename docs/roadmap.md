@@ -7,7 +7,7 @@ This repository tracks tiling-theory research candidates under lightweight estat
 | ID | Status | Topic | Next obligation |
 | --- | --- | --- | --- |
 | KATZ-AKN-C1 | candidate | Local-complete Katz/AKN rhombohedral matching-rule minimization | Commit the exact source atlas, then implement deterministic face/corona extraction. |
-| AKN-ATLAS-PERIODIC | finite-domain | Periodic tiling with only AKN vertex stars | Close the literature search (Katz 1989 ch. 4, J. Non-Cryst. Solids 1993 body); extend to radius-2 stars via non-cubic approximants or SAT over periodic boxes. |
+| AKN-ATLAS-PERIODIC | finite-domain | Periodic tiling with only AKN vertex stars | Close the literature search (Katz 1989 ch. 4, Kramer-Neri 1984, J. Non-Cryst. Solids 1993 body); extend to radius-2 stars via non-cubic approximants or SAT over periodic boxes. |
 | KATZ-AKN-PERFECT | open | Global perfection of a matching-rule decoration | Requires a global/topological proof or an explicit defect search framework; not implied by C1. |
 
 ## Near-term work

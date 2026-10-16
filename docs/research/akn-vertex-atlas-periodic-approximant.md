@@ -81,23 +81,24 @@ contradicts it. Findings, by what was actually read:
 
 - *Read in full text:* Hann, Socolar, Steinhardt (2016) state that Ammann's markings are "known to
   be at least weak matching rules" [Levitov 1988; Socolar 1990], are not rigorously proven perfect,
-  and that Katz's closely related rules are. They count **24 vertex geometries but 39 decorated
-  vertex configurations**, citing Katz (1989), and grow tilings from the 39-entry decorated catalog.
+  and that Katz's closely related rules are. They count **24 vertex geometries** (attributed to Katz
+  (1989)) **but 39 decorated vertex configurations** (from their own subdivision of perp space), and
+  grow tilings from the 39-entry decorated catalog.
   This is consistent with item 3 and the Consequence section: the decoration splits atlas classes,
   so the undecorated atlas carries strictly less information than the rule they use.
 - *Abstract only:* the 1993 J. Non-Cryst. Solids paper builds all 5450 combinatorially possible
   Ammann-rhombohedron vertex configurations and ranks them by a perp-space penalty; its abstract
   does not mention periodic tilings.
-- *Not read (paywalled / not found online):* Katz (1989), the chapter where the 24/39 count
-  originates and the likeliest place for this observation; Kramer-Neri (1984) on periodic space
+- *Not read (paywalled / not found online):* Katz (1989), the source HSS cite for the 24 count
+  and the likeliest place for this observation; Kramer-Neri (1984) on periodic space
   fillings by projection.
 - *Context:* cubic `F_{n+1}/F_n` approximants of the 3D Penrose tiling are standard in the
   quasicrystal literature (e.g. the nonsymmorphic `Pa-3` cubic approximants reached by an extra
   internal-space shift), but the sources seen do not discuss whether their vertex stars stay inside
   the AKN atlas.
 
-Obligation to close the search: read Katz (1989) ch. 4 and the 1993 paper's body; if neither
-states the result, record it as "not found in the standard references" rather than as new.
+Obligation to close the search: read Katz (1989) ch. 4, Kramer-Neri (1984) and the 1993 paper's
+body; if none states the result, record it as "not found in the standard references" rather than as new.
 
 ## Thread observations not reproduced here
 
