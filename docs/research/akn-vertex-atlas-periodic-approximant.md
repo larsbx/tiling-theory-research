@@ -70,8 +70,35 @@ finite-domain status covers items 1-3 above.
   for 5/3 in 14/200, and for 2/1 in 0/200. The 1/1 slope `x = -1` has coplanar perp triples, so
   canonical selection is degenerate. These rates are non-authoritative float screens; only the
   committed certificate is exact.
-- **Novelty.** Plausibly folklore. No priority is claimed until a literature search is
-  recorded.
+- **Novelty.** Plausibly folklore; no priority is claimed. A first literature search is recorded
+  below; it found no explicit prior statement, but two primary sources were not read in full.
+
+## Literature search (2026-10-16)
+
+Web search plus full-text reading where open access. Result: **no explicit prior statement found**
+that the 24 undecorated AKN vertex geometries admit a periodic tiling; equally, nothing found that
+contradicts it. Findings, by what was actually read:
+
+- *Read in full text:* Hann, Socolar, Steinhardt (2016) state that Ammann's markings are "known to
+  be at least weak matching rules" [Levitov 1988; Socolar 1990], are not rigorously proven perfect,
+  and that Katz's closely related rules are. They count **24 vertex geometries** (attributed to Katz
+  (1989)) **but 39 decorated vertex configurations** (from their own subdivision of perp space), and
+  grow tilings from the 39-entry decorated catalog.
+  This is consistent with item 3 and the Consequence section: the decoration splits atlas classes,
+  so the undecorated atlas carries strictly less information than the rule they use.
+- *Abstract only:* the 1993 J. Non-Cryst. Solids paper builds all 5450 combinatorially possible
+  Ammann-rhombohedron vertex configurations and ranks them by a perp-space penalty; its abstract
+  does not mention periodic tilings.
+- *Not read (paywalled / not found online):* Katz (1989), the source HSS cite for the 24 count
+  and the likeliest place for this observation; Kramer-Neri (1984) on periodic space
+  fillings by projection.
+- *Context:* cubic `F_{n+1}/F_n` approximants of the 3D Penrose tiling are standard in the
+  quasicrystal literature (e.g. the nonsymmorphic `Pa-3` cubic approximants reached by an extra
+  internal-space shift), but the sources seen do not discuss whether their vertex stars stay inside
+  the AKN atlas.
+
+Obligation to close the search: read Katz (1989) ch. 4, Kramer-Neri (1984) and the 1993 paper's
+body; if none states the result, record it as "not found in the standard references" rather than as new.
 
 ## Thread observations not reproduced here
 
@@ -101,3 +128,15 @@ python approximant.py 3 2 40 0 certificate_3_2.json        # numpy, ~45 s
 - A. Katz, *Theory of matching rules for the 3-dimensional Penrose tilings*, Comm. Math. Phys. 118 (1988), doi:10.1007/BF01218580.
 - L. S. Levitov, *Local rules for quasicrystals*, Comm. Math. Phys. 119 (1988), doi:10.1007/BF01218348.
 - *Regular and defective vertex configurations in icosahedral structures*, J. Non-Cryst. Solids 153-154 (1993).
+- A. Katz, *Some local properties of the three-dimensional Penrose tilings*, in M. Jarić (ed.), *Introduction to the Mathematics of Quasicrystals*, Aperiodicity and Order vol. 2, ch. 4, Academic Press (1989).
+- J. E. S. Socolar, *Weak matching rules for quasicrystals*, Comm. Math. Phys. 129 (1990) 599-619, doi:10.1007/BF02097107.
+- C. Hann, J. E. S. Socolar, P. J. Steinhardt, *Local growth of icosahedral quasicrystalline tilings*, arXiv:1604.02479 (2016).
+
+Consulted in the 2026-10-16 search (context only; none states or refutes item 3):
+
+- *Regular and defective vertex configurations in icosahedral structures* (1993), abstract: https://cris.bgu.ac.il/en/publications/regular-and-defective-vertex-configurations-in-icosahedral-struct-2/
+- *Non-spiky density of states of an icosahedral quasicrystal*, arXiv:cond-mat/0006018 (cubic `F_{n+1}/F_n` approximants, `Pa-3`).
+- *The atomic structure of the Bergman-type icosahedral quasicrystal based on the Ammann-Kramer-Neri tiling*, Acta Cryst. A76 (2020) 180-196, doi:10.1107/S2053273319017339 (search summary only; full text returned 403).
+- *Canonical-Cell Tilings and their Atomic Decorations*, https://www.researchgate.net/publication/379318523 (search summary only).
+- *Random tiling quasicrystals in three dimensions*, arXiv:cond-mat/9706117 (24 canonical vs 5450 random-tiling vertices; search summary only).
+- *Cluster packing geometry for Al-based F-type icosahedral alloys*, arXiv:1301.6823 (3/2 cubic packing; search summary only).
