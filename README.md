@@ -7,6 +7,7 @@ Governed research notes, candidate claims, and finite-computation plans for tili
 | ID | Status | Summary | Surface |
 | --- | --- | --- | --- |
 | KATZ-AKN-C1 | candidate | Minimal local-complete decoration problem for Katz/AKN rhombohedral vertex atlases. This is a finite local condition, not a perfect matching-rule proof. | `docs/research/katz-akn-c1-local-completeness.md` |
+| AKN-ATLAS-PERIODIC | finite-domain | The 24 AKN vertex stars admit a periodic tiling (3/2 cubic approximant, 576 vertices per period), exactly certified; so the undecorated vertex atlas is not a local rule. | `docs/research/akn-vertex-atlas-periodic-approximant.md` |
 | KATZ-AKN-PERFECT | open | Global perfection of a Katz/AKN matching rule: every everywhere-locally-legal tiling belongs to the intended AKN class. | `docs/research/katz-akn-c1-local-completeness.md` |
 
 ## Governance
@@ -32,12 +33,15 @@ PYTHONPATH=../finite-math-kernels/tools python -m unittest discover -s tests -v
 ```
 
 The regression suite audits the unchanged repository and independently mutates
-all eight registered status surfaces in temporary copies. Each mutation must
+all twelve registered status surfaces in temporary copies. Each mutation must
 produce a status mismatch for that exact claim and path. It also checks unique
 anchors, windows containing only the intended status class, canonical spellings,
 existing aliases, and word boundaries. JSON surfaces are explicitly checked even
 though they are outside the prose scan. These tests validate governance coverage;
-they do not certify either mathematical claim.
+they do not certify any mathematical claim. The separate stdlib-only suite
+`tests/test_akn_approximant.py` re-runs the exact AKN-ATLAS-PERIODIC certificate
+check, re-derives every atlas class from its exact witness, and checks that the
+certificate checker rejects corrupted input.
 
 The `Claim governance` GitHub workflow runs the audit and mutation regressions
 on pull requests, pushes to `main`, and manual dispatch. It fetches the shared

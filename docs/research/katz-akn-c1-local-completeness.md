@@ -70,6 +70,12 @@ The following items are potentially valuable, but are **not certified** until th
 
 These observations should be treated as candidate evidence requirements, not as repository facts.
 
+Update 2026-10-16: items 3, 4, 5 and the `I_h` orbit count in item 6 (10 prolate and 10 oblate axis
+triples, `|I_h| = 120`) are now reproduced by `research/akn/` (atlas of 24 vertex stars, each with
+an exact AKN witness). The atlas is admissible-side only; the non-AKN corona universe is still
+missing. See `docs/research/akn-vertex-atlas-periodic-approximant.md`: the undecorated atlas admits
+a periodic tiling, which is why decorations are needed at all.
+
 ## Constraint-search plan
 
 A robust implementation should use a counterexample-guided loop rather than trusting one monolithic SAT instance.
