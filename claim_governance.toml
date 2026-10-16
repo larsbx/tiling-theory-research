@@ -75,3 +75,23 @@ window_lines = 0
 path = "research/candidates.json"
 anchor = '"id": "KATZ-AKN-PERFECT"'
 window_lines = 1
+
+[[claim]]
+name = "AKN-ATLAS-PERIODIC"
+status = "finite-domain"
+[[claim.surfaces]]
+path = "docs/research/akn-vertex-atlas-periodic-approximant.md"
+anchor = "**Claim ID:** AKN-ATLAS-PERIODIC"
+window_lines = 1
+[[claim.surfaces]]
+path = "README.md"
+anchor = "| AKN-ATLAS-PERIODIC |"
+window_lines = 0
+[[claim.surfaces]]
+path = "docs/roadmap.md"
+anchor = "| AKN-ATLAS-PERIODIC |"
+window_lines = 0
+[[claim.surfaces]]
+path = "research/candidates.json"
+anchor = '"id": "AKN-ATLAS-PERIODIC"'
+window_lines = 1

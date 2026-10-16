@@ -18,6 +18,19 @@
       ]
     },
     {
+      "id": "AKN-ATLAS-PERIODIC",
+      "status": "finite-domain",
+      "title": "Periodic tiling whose vertex stars all lie in the AKN atlas",
+      "summary": "3/2 cubic approximant (tau' -> -2/3) with 576 vertices, 356 prolate and 220 oblate cells per period; every vertex star is one of the AKN atlas classes. Certified exactly by research/akn/certify.py.",
+      "primary_surface": "docs/research/akn-vertex-atlas-periodic-approximant.md",
+      "evidence": [
+        "research/akn/certificate_3_2.json",
+        "research/akn/atlas.json",
+        "research/akn/certify.py",
+        "tests/test_akn_approximant.py"
+      ]
+    },
+    {
       "id": "KATZ-AKN-PERFECT",
       "status": "open",
       "title": "Global perfection of Katz/AKN matching-rule decorations",

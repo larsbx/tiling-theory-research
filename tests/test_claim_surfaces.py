@@ -17,10 +17,13 @@ class ClaimSurfaces(unittest.TestCase):
     def test_baseline_and_normalization(self):
         policy = load_policy(ROOT / 'claim_governance.toml')
         self.assertEqual(run(policy, ROOT, []), ())
-        expected = {'README.md', 'docs/roadmap.md',
-                    'docs/research/katz-akn-c1-local-completeness.md', 'research/candidates.json'}
+        shared = {'README.md', 'docs/roadmap.md', 'research/candidates.json'}
+        dossier = {'KATZ-AKN-C1': 'docs/research/katz-akn-c1-local-completeness.md',
+                   'KATZ-AKN-PERFECT': 'docs/research/katz-akn-c1-local-completeness.md',
+                   'AKN-ATLAS-PERIODIC': 'docs/research/akn-vertex-atlas-periodic-approximant.md'}
+        self.assertEqual({claim.name for claim in policy.ledger}, set(dossier))
         for claim in policy.ledger:
-            self.assertEqual({s.path for s in claim.surfaces}, expected)
+            self.assertEqual({s.path for s in claim.surfaces}, shared | {dossier[claim.name]})
         for label, status in policy.status.synonyms.items():
             self.assertEqual(policy.status.classes_in(label), frozenset({status}))
         for status in policy.status.classes:
