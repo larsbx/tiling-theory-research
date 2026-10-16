@@ -1,49 +1,19 @@
 #!/usr/bin/env python3
 """Independent finite-state audit for substitution a -> aab, b -> ba.
 
-Reproduces the truncated (zero-seeded) overlap graph and exhibits an exact
-finite-word counterexample to the claim that its c-bound contains all legal
-return-vector overlaps. The bounded-graph enumeration uses floats, whereas
-the finite-word positions and Parikh vectors are integers; the decisive
-quadratic-field inequalities can be checked exactly from the printed formulae.
-This is NOT a complete overlap-coincidence verifier.
+Reproduces the truncated graph using exact quadratic-field comparisons and
+exhibits an exact finite-word counterexample to its claimed source coverage.
+This is NOT a complete overlap-coincidence verifier; see phase4_overlap_coverage.py.
 """
 from collections import Counter, defaultdict, deque
-from math import sqrt
-
-T = (1 + sqrt(5)) / 2
-TP = (1 - sqrt(5)) / 2
-R = sqrt(5) * T
-length = {"a": T, "b": 1.0}
-child = {
-    "a": [("a", (0, 0)), ("a", (1, 0)), ("b", (2, 0))],
-    "b": [("b", (0, 0)), ("a", (0, 1))],
-}
-
-
-def E(v):
-    return T * v[0] + v[1]
-
-
-def C(v):
-    return TP * v[0] + v[1]
-
-
-def M(v):
-    return (2 * v[0] + v[1], v[0] + v[1])
-
-
-def overlap(i, j, v):
-    return -length[j] + 1e-10 < E(v) < length[i] - 1e-10
+try:
+    from .phase4_exact import T, TP, R, LENGTH as length, CHILD as child, E, C, M, overlap, vectors
+except ImportError:
+    from phase4_exact import T, TP, R, LENGTH as length, CHILD as child, E, C, M, overlap, vectors
 
 
 # SC/pruned bound for paths initiated at displacement zero only.
-sc_vectors = {
-    (x, y)
-    for x in range(-10, 11)
-    for y in range(-15, 16)
-    if abs(E((x, y))) <= 2 + 1e-9 and abs(C((x, y))) <= R + 1e-9
-}
+sc_vectors = vectors(2, R)
 truncated = {
     (i, j, v)
     for i in length

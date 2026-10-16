@@ -5,6 +5,14 @@
 **Scope:** independent critical audit of the Phase 4 algebraic-kernel synthesis and the two-letter computations for σ(a) = aab, σ(b) = ba. This document preserves negative findings and proof obligations; it is **not** a new pure-point theorem or a certificate of full overlap-coincidence coverage.  
 **Reproducer:** [research/phase4_thread_audit.py](../../research/phase4_thread_audit.py) (finite, partial graph and explicit omitted-overlap witness).
 
+## Subsequent coverage repair (2026-10-16)
+
+The [exact follow-up](phase4-exact-overlap-coverage.md) gives a separate
+prefix/return-vector bound and a 64-state covering supergraph for the stated
+substitution-language tilings. The old 32-state coverage claim remains refuted.
+The reproducer now uses exact quadratic-field comparisons throughout. The
+sections below retain the original audit and its broader outstanding obligations.
+
 ## Executive finding
 
 The strong-coincidence (SC) arithmetic and the depth-two word witness withstand checking. The reported 32-state strand calculation also checks **as a finite truncated graph**, with 30 noncoincident states and maximum shortest coincidence depth four. However, an explicit legal return-vector overlap lies outside the graph's assumed contracting bound. Thus the 32-state result **cannot certify the complete overlap-coincidence criterion** until a coverage proof is supplied.
@@ -197,7 +205,7 @@ No new pure-point theorem, general correspondence theorem, or counterexample to 
 ## Evidence and research provenance
 
 - Original working synthesis: *Algebraic Kernel for Substitution Tilings — Phase 4 Synthesis* (uploaded discussion artifact \`phase4-synthesis.md\`, not currently a committed repository file).
-- Reproducer in this PR: [research/phase4_thread_audit.py](../../research/phase4_thread_audit.py). It uses floating-point comparisons for the bounded graph count; the word positions and Parikh-vector identity are integer-exact, while the algebraic inequalities above admit direct exact verification.
+- Reproducer in this PR: [research/phase4_thread_audit.py](../../research/phase4_thread_audit.py). It now uses exact quadratic-field comparisons for the bounded graph count and inequalities; word positions and Parikh-vector identities remain integer-exact.
 - Contextual sources to audit, not automatic imports: Akiyama–Lee on overlap coincidence (arXiv:1003.2898); Akiyama–Lee on coincidence relations (arXiv:1403.0377); Goodman–Strauss on matching rules; Hollander–Solomyak on two-symbol Pisot pure discreteness; weak-model-set results on extremal density.
 
 **Promotion rule:** leave the full 3b overlap result **open** until the complete geometric state universe is proved and checked. Preserve independently verified finite calculations under their restricted domains.
