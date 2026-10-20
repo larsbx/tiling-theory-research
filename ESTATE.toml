@@ -1,5 +1,5 @@
-version = 1
-template = "estate-repository-lite-v1"
+version = 2
+template = "estate-repository-v2"
 
 [repo]
 id = "tiling-theory-research"
@@ -8,14 +8,33 @@ class = "research"
 layer = 3
 band = "EXPLORE"
 stage = "candidate"
+inv = []
 default_branch = "main"
 
 [origin]
 decided_by = "proposed"
-chats = ["2026-10-11 Katz/AKN matching-rules salvage thread"]
+# Origin: 2026-10-11 Katz/AKN matching-rules salvage thread (no durable chat URL recorded).
+chats = []
 artifacts = []
 
+[[dep]]
+id = "estate-governance"
+rev = "5ea47dec8086eab6a1dad6fd239688d20ea89891"
+pin = "sha256:412a64dea58d709aae21e5a0315b8e7e96488c310a9d999267927ba3d8146a30"
+
+[exports]
+names = []
+
+[layout]
+status = "transitional"
+
 [principles]
+ordering = ["authority", "domain", "language"]
+empty_silos = "forbidden"
+cross_language_disagreement = "fail_closed"
+generated_surfaces = "derived_only"
+vendor_code = "non_local"
+experimental_code = "non_authoritative"
 no_unregistered_claims = true
 no_perfection_claim_without_global_proof = true
 finite_local_checks_are_not_global_perfection = true
@@ -39,7 +58,7 @@ current = ["docs/research"]
 [[plane]]
 id = "evidence"
 target = "research"
-authority = "evidence_registry"
+authority = "evidence"
 required = true
 current = ["research/candidates.json"]
 
@@ -49,6 +68,32 @@ target = "docs"
 authority = "exposition"
 required = true
 current = ["README.md", "docs/roadmap.md"]
+
+[[plane]]
+id = "kernel"
+target = "kernel"
+authority = "canonical_executable"
+required = false
+
+[[plane]]
+id = "conformance"
+target = "tests"
+authority = "evidence"
+required = true
+current = ["tests"]
+
+[[language]]
+name = "Python"
+authority = "canonical"
+roles = ["kernel", "experiment"]
+acceptance_authority = false
+
+[migration]
+mode = "boundary_first"
+mass_move = false
+next = [
+  "Decide whether the exact certificate checkers in research/akn/ become the kernel plane or stay evidence.",
+]
 
 [[status_class]]
 name = "candidate"
