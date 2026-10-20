@@ -1,28 +1,36 @@
 # Repository architecture
 
-Estate repository `larsbx/tiling-theory-research`, scaffolded to the estate template before any content landed.
+Governed research notes, candidate claims and exact finite computations for
+tiling theory (Katz/AKN matching rules, phase-4 overlap coverage).
 
 The machine-readable source of repository structure and authority is
 [`ESTATE.toml`](ESTATE.toml), validated by the estate audit pinned there
-(`larsbx/estate-governance`, contract `estate-repository-v2`). The layout is
-`transitional`: planes name their target directory and the paths that
-currently fill them.
+(`larsbx/estate-governance`, contract `estate-repository-v2`). Claim surfaces
+and status classes are registered in [`claim_governance.toml`](claim_governance.toml)
+and checked by the shared `claim_governance` checker from `larsbx/finite-math-kernels`.
+The layout is `transitional`.
 
 | Plane | Target | Current | Content |
 | --- | --- | --- | --- |
-| policy | `policy/` | `ESTATE.toml` | estate manifest |
-| kernel | `kernel/` | — (not yet populated) | no kernel yet; create kernel/ with its first module |
-| docs | `docs/` | `README.md`, `ARCHITECTURE.md` | README and this architecture entrypoint |
+| policy | `ESTATE.toml` | `ESTATE.toml`, `claim_governance.toml` | estate manifest; claim registry and status classes |
+| research | `docs/research/` | `docs/research` | claim dossiers (claim state) |
+| evidence | `research/` | `research/candidates.json` | candidate metadata; exact certificates and their checkers |
+| docs | `docs/` | `README.md`, `docs/roadmap.md` | README and roadmap |
+| kernel | `kernel/` | — (not yet populated) | no canonical kernel yet |
+| conformance | `tests/` | `tests` | claim-surface mutation tests and certificate re-checks |
 
 ## Authority boundary
 
-Python is the canonical language and declares
-`acceptance_authority = false`: the repository owns no acceptance boundary and holds no executable code yet. Nothing here may emit an
-`accepted`, `proved`, `authorized` or deployment verdict.
+Python is the canonical language and declares `acceptance_authority = false`:
+the repository owns no acceptance boundary. Claim status is decided by the
+registered dossiers under review and audited by the external claim-governance
+checker; the exact certificate checks in `research/` are evidence for
+finite-domain claims and never promote a finite local check to a global
+perfection theorem. Nothing here may emit an `accepted`, `proved`,
+`authorized` or deployment verdict.
 
 ## Migration
 
 Boundary first, no mass move. Pending steps:
 
-1. Owner to confirm class, INV prefix and canonical language (Python is a provisional default).
-2. Add planes only as content lands; empty silos are forbidden.
+1. Decide whether the exact certificate checkers in `research/akn/` become the kernel plane or stay evidence.

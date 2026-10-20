@@ -7,19 +7,20 @@ slug = "larsbx/tiling-theory-research"
 class = "research"
 layer = 3
 band = "EXPLORE"
-stage = "candidate"           # written by estate CI only
+stage = "candidate"
 inv = []
 default_branch = "main"
 
 [origin]
-decided_by = "proposed"       # agent-authored; the owner adopts it by decision record
+decided_by = "proposed"
+# Origin: 2026-10-11 Katz/AKN matching-rules salvage thread (no durable chat URL recorded).
 chats = []
 artifacts = []
 
 [[dep]]
 id = "estate-governance"
 rev = "5ea47dec8086eab6a1dad6fd239688d20ea89891"
-pin = "sha256:412a64dea58d709aae21e5a0315b8e7e96488c310a9d999267927ba3d8146a30"   # set by estate-governance tools/pin_estate.py
+pin = "sha256:412a64dea58d709aae21e5a0315b8e7e96488c310a9d999267927ba3d8146a30"
 
 [exports]
 names = []
@@ -34,38 +35,86 @@ cross_language_disagreement = "fail_closed"
 generated_surfaces = "derived_only"
 vendor_code = "non_local"
 experimental_code = "non_authoritative"
+no_unregistered_claims = true
+no_perfection_claim_without_global_proof = true
+finite_local_checks_are_not_global_perfection = true
+experimental_code_is_non_authoritative = true
+source_data_required_for_certification = true
 
 [[plane]]
 id = "policy"
-target = "policy"
+target = "ESTATE.toml"
 authority = "governance"
 required = true
-current = ["ESTATE.toml"]
+current = ["ESTATE.toml", "claim_governance.toml"]
 
 [[plane]]
-id = "kernel"
-target = "kernel"
-authority = "canonical_executable"
-required = false
-current = []
+id = "research"
+target = "docs/research"
+authority = "claim_state"
+required = true
+current = ["docs/research"]
+
+[[plane]]
+id = "evidence"
+target = "research"
+authority = "evidence"
+required = true
+current = ["research/candidates.json"]
 
 [[plane]]
 id = "docs"
 target = "docs"
 authority = "exposition"
 required = true
-current = ["README.md", "ARCHITECTURE.md"]
+current = ["README.md", "docs/roadmap.md"]
+
+[[plane]]
+id = "kernel"
+target = "kernel"
+authority = "canonical_executable"
+required = false
+
+[[plane]]
+id = "conformance"
+target = "tests"
+authority = "evidence"
+required = true
+current = ["tests"]
 
 [[language]]
 name = "Python"
 authority = "canonical"
-roles = ["kernel"]
+roles = ["kernel", "experiment"]
 acceptance_authority = false
 
 [migration]
 mode = "boundary_first"
 mass_move = false
 next = [
-  "Owner to confirm class, INV prefix and canonical language (Python is a provisional default).",
-  "Add planes only as content lands; empty silos are forbidden.",
+  "Decide whether the exact certificate checkers in research/akn/ become the kernel plane or stay evidence.",
 ]
+
+[[status_class]]
+name = "candidate"
+meaning = "Research direction captured, not yet established."
+
+[[status_class]]
+name = "open"
+meaning = "Precise obligation or problem with no accepted proof or certificate."
+
+[[status_class]]
+name = "finite-domain"
+meaning = "Finite claim backed by committed exhaustive enumeration/certificate."
+
+[[status_class]]
+name = "conditional"
+meaning = "Claim valid only under stated hypotheses or pending external source data."
+
+[[status_class]]
+name = "imported"
+meaning = "External result used as background, with source required in the dossier."
+
+[[status_class]]
+name = "retired"
+meaning = "Claim abandoned, superseded, or falsified."
