@@ -34,3 +34,4 @@ perfection theorem. Nothing here may emit an `accepted`, `proved`,
 Boundary first, no mass move. Pending steps:
 
 1. Decide whether the exact certificate checkers in `research/akn/` become the kernel plane or stay evidence.
+2. Estate policy: every repository with a kernel holds acceptance authority; this one switches `acceptance_authority` to true in the change that lands its first kernel.
