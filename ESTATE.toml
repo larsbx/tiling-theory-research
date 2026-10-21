@@ -12,7 +12,7 @@ inv = []
 default_branch = "main"
 
 [origin]
-decided_by = "proposed"
+decided_by = "stated"         # adopted by the owner: larsbx/estate-governance DR-0001
 # Origin: 2026-10-11 Katz/AKN matching-rules salvage thread (no durable chat URL recorded).
 chats = []
 artifacts = []
