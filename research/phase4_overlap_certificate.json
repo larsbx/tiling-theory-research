@@ -1,0 +1,6516 @@
+{
+  "schema": 1,
+  "scope": "Exact forward-closed potential-overlap superset; legal source coverage uses the prefix/return bound proof, not finite-word saturation.",
+  "substitution": {
+    "a": "aab",
+    "b": "ba"
+  },
+  "initial_internal_bound": {
+    "rational": "5",
+    "sqrt5": "1"
+  },
+  "lattice_box": [
+    4,
+    6
+  ],
+  "state_count": 64,
+  "edge_count": 142,
+  "distance_counts": {
+    "0": 2,
+    "1": 8,
+    "2": 28,
+    "3": 16,
+    "4": 8,
+    "5": 2
+  },
+  "states": [
+    {
+      "state": [
+        "a",
+        "a",
+        [
+          -3,
+          4
+        ]
+      ],
+      "successors": [
+        5,
+        23,
+        27
+      ],
+      "coincidence_distance": 2,
+      "next_to_coincidence": 5
+    },
+    {
+      "state": [
+        "a",
+        "a",
+        [
+          -3,
+          5
+        ]
+      ],
+      "successors": [
+        2,
+        6,
+        37,
+        56
+      ],
+      "coincidence_distance": 2,
+      "next_to_coincidence": 37
+    },
+    {
+      "state": [
+        "a",
+        "a",
+        [
+          -2,
+          2
+        ]
+      ],
+      "successors": [
+        26
+      ],
+      "coincidence_distance": 3,
+      "next_to_coincidence": 26
+    },
+    {
+      "state": [
+        "a",
+        "a",
+        [
+          -2,
+          3
+        ]
+      ],
+      "successors": [
+        5,
+        10,
+        27,
+        55
+      ],
+      "coincidence_distance": 2,
+      "next_to_coincidence": 5
+    },
+    {
+      "state": [
+        "a",
+        "a",
+        [
+          -2,
+          4
+        ]
+      ],
+      "successors": [
+        6,
+        37,
+        41
+      ],
+      "coincidence_distance": 2,
+      "next_to_coincidence": 37
+    },
+    {
+      "state": [
+        "a",
+        "a",
+        [
+          -1,
+          1
+        ]
+      ],
+      "successors": [
+        9,
+        26
+      ],
+      "coincidence_distance": 1,
+      "next_to_coincidence": 9
+    },
+    {
+      "state": [
+        "a",
+        "a",
+        [
+          -1,
+          2
+        ]
+      ],
+      "successors": [
+        5,
+        10,
+        40
+      ],
+      "coincidence_distance": 2,
+      "next_to_coincidence": 5
+    },
+    {
+      "state": [
+        "a",
+        "a",
+        [
+          -1,
+          3
+        ]
+      ],
+      "successors": [
+        41
+      ],
+      "coincidence_distance": 2,
+      "next_to_coincidence": 41
+    },
+    {
+      "state": [
+        "a",
+        "a",
+        [
+          0,
+          -1
+        ]
+      ],
+      "successors": [
+        8,
+        29
+      ],
+      "coincidence_distance": 4,
+      "next_to_coincidence": 29
+    },
+    {
+      "state": [
+        "a",
+        "a",
+        [
+          0,
+          0
+        ]
+      ],
+      "successors": [
+        9,
+        57
+      ],
+      "coincidence_distance": 0
+    },
+    {
+      "state": [
+        "a",
+        "a",
+        [
+          0,
+          1
+        ]
+      ],
+      "successors": [
+        10,
+        40
+      ],
+      "coincidence_distance": 4,
+      "next_to_coincidence": 40
+    },
+    {
+      "state": [
+        "a",
+        "a",
+        [
+          1,
+          -3
+        ]
+      ],
+      "successors": [
+        28
+      ],
+      "coincidence_distance": 2,
+      "next_to_coincidence": 28
+    },
+    {
+      "state": [
+        "a",
+        "a",
+        [
+          1,
+          -2
+        ]
+      ],
+      "successors": [
+        8,
+        13,
+        29
+      ],
+      "coincidence_distance": 2,
+      "next_to_coincidence": 13
+    },
+    {
+      "state": [
+        "a",
+        "a",
+        [
+          1,
+          -1
+        ]
+      ],
+      "successors": [
+        9,
+        43
+      ],
+      "coincidence_distance": 1,
+      "next_to_coincidence": 9
+    },
+    {
+      "state": [
+        "a",
+        "a",
+        [
+          2,
+          -4
+        ]
+      ],
+      "successors": [
+        12,
+        28,
+        32
+      ],
+      "coincidence_distance": 2,
+      "next_to_coincidence": 28
+    },
+    {
+      "state": [
+        "a",
+        "a",
+        [
+          2,
+          -3
+        ]
+      ],
+      "successors": [
+        8,
+        13,
+        42,
+        59
+      ],
+      "coincidence_distance": 2,
+      "next_to_coincidence": 13
+    },
+    {
+      "state": [
+        "a",
+        "a",
+        [
+          2,
+          -2
+        ]
+      ],
+      "successors": [
+        43
+      ],
+      "coincidence_distance": 3,
+      "next_to_coincidence": 43
+    },
+    {
+      "state": [
+        "a",
+        "a",
+        [
+          3,
+          -5
+        ]
+      ],
+      "successors": [
+        12,
+        16,
+        32,
+        58
+      ],
+      "coincidence_distance": 2,
+      "next_to_coincidence": 32
+    },
+    {
+      "state": [
+        "a",
+        "a",
+        [
+          3,
+          -4
+        ]
+      ],
+      "successors": [
+        13,
+        42,
+        46
+      ],
+      "coincidence_distance": 2,
+      "next_to_coincidence": 13
+    },
+    {
+      "state": [
+        "a",
+        "b",
+        [
+          -3,
+          4
+        ]
+      ],
+      "successors": [
+        2
+      ],
+      "coincidence_distance": 4,
+      "next_to_coincidence": 2
+    },
+    {
+      "state": [
+        "a",
+        "b",
+        [
+          -3,
+          5
+        ]
+      ],
+      "successors": [
+        3,
+        7,
+        24
+      ],
+      "coincidence_distance": 3,
+      "next_to_coincidence": 3
+    },
+    {
+      "state": [
+        "a",
+        "b",
+        [
+          -2,
+          3
+        ]
+      ],
+      "successors": [
+        2,
+        6,
+        23
+      ],
+      "coincidence_distance": 3,
+      "next_to_coincidence": 6
+    },
+    {
+      "state": [
+        "a",
+        "b",
+        [
+          -2,
+          4
+        ]
+      ],
+      "successors": [
+        7,
+        24,
+        38
+      ],
+      "coincidence_distance": 2,
+      "next_to_coincidence": 38
+    },
+    {
+      "state": [
+        "a",
+        "b",
+        [
+          -1,
+          1
+        ]
+      ],
+      "successors": [
+        5
+      ],
+      "coincidence_distance": 2,
+      "next_to_coincidence": 5
+    },
+    {
+      "state": [
+        "a",
+        "b",
+        [
+          -1,
+          2
+        ]
+      ],
+      "successors": [
+        6,
+        23,
+        27,
+        37
+      ],
+      "coincidence_distance": 2,
+      "next_to_coincidence": 37
+    },
+    {
+      "state": [
+        "a",
+        "b",
+        [
+          -1,
+          3
+        ]
+      ],
+      "successors": [
+        56
+      ],
+      "coincidence_distance": 4,
+      "next_to_coincidence": 56
+    },
+    {
+      "state": [
+        "a",
+        "b",
+        [
+          0,
+          0
+        ]
+      ],
+      "successors": [
+        5,
+        10,
+        26
+      ],
+      "coincidence_distance": 2,
+      "next_to_coincidence": 5
+    },
+    {
+      "state": [
+        "a",
+        "b",
+        [
+          0,
+          1
+        ]
+      ],
+      "successors": [
+        27,
+        41,
+        55
+      ],
+      "coincidence_distance": 2,
+      "next_to_coincidence": 41
+    },
+    {
+      "state": [
+        "a",
+        "b",
+        [
+          1,
+          -2
+        ]
+      ],
+      "successors": [
+        9
+      ],
+      "coincidence_distance": 1,
+      "next_to_coincidence": 9
+    },
+    {
+      "state": [
+        "a",
+        "b",
+        [
+          1,
+          -1
+        ]
+      ],
+      "successors": [
+        10,
+        26,
+        40
+      ],
+      "coincidence_distance": 3,
+      "next_to_coincidence": 26
+    },
+    {
+      "state": [
+        "a",
+        "b",
+        [
+          2,
+          -4
+        ]
+      ],
+      "successors": [
+        8
+      ],
+      "coincidence_distance": 5,
+      "next_to_coincidence": 8
+    },
+    {
+      "state": [
+        "a",
+        "b",
+        [
+          2,
+          -3
+        ]
+      ],
+      "successors": [
+        9,
+        29
+      ],
+      "coincidence_distance": 1,
+      "next_to_coincidence": 9
+    },
+    {
+      "state": [
+        "a",
+        "b",
+        [
+          2,
+          -2
+        ]
+      ],
+      "successors": [
+        57
+      ],
+      "coincidence_distance": 1,
+      "next_to_coincidence": 57
+    },
+    {
+      "state": [
+        "a",
+        "b",
+        [
+          3,
+          -5
+        ]
+      ],
+      "successors": [
+        8,
+        13,
+        28
+      ],
+      "coincidence_distance": 2,
+      "next_to_coincidence": 13
+    },
+    {
+      "state": [
+        "a",
+        "b",
+        [
+          3,
+          -4
+        ]
+      ],
+      "successors": [
+        29,
+        43
+      ],
+      "coincidence_distance": 3,
+      "next_to_coincidence": 43
+    },
+    {
+      "state": [
+        "b",
+        "a",
+        [
+          -3,
+          4
+        ]
+      ],
+      "successors": [
+        26,
+        40
+      ],
+      "coincidence_distance": 3,
+      "next_to_coincidence": 26
+    },
+    {
+      "state": [
+        "b",
+        "a",
+        [
+          -3,
+          5
+        ]
+      ],
+      "successors": [
+        5,
+        10,
+        41
+      ],
+      "coincidence_distance": 2,
+      "next_to_coincidence": 5
+    },
+    {
+      "state": [
+        "b",
+        "a",
+        [
+          -2,
+          2
+        ]
+      ],
+      "successors": [
+        57
+      ],
+      "coincidence_distance": 1,
+      "next_to_coincidence": 57
+    },
+    {
+      "state": [
+        "b",
+        "a",
+        [
+          -2,
+          3
+        ]
+      ],
+      "successors": [
+        9,
+        40
+      ],
+      "coincidence_distance": 1,
+      "next_to_coincidence": 9
+    },
+    {
+      "state": [
+        "b",
+        "a",
+        [
+          -2,
+          4
+        ]
+      ],
+      "successors": [
+        10
+      ],
+      "coincidence_distance": 5,
+      "next_to_coincidence": 10
+    },
+    {
+      "state": [
+        "b",
+        "a",
+        [
+          -1,
+          1
+        ]
+      ],
+      "successors": [
+        8,
+        29,
+        43
+      ],
+      "coincidence_distance": 3,
+      "next_to_coincidence": 43
+    },
+    {
+      "state": [
+        "b",
+        "a",
+        [
+          -1,
+          2
+        ]
+      ],
+      "successors": [
+        9
+      ],
+      "coincidence_distance": 1,
+      "next_to_coincidence": 9
+    },
+    {
+      "state": [
+        "b",
+        "a",
+        [
+          0,
+          -1
+        ]
+      ],
+      "successors": [
+        28,
+        42,
+        59
+      ],
+      "coincidence_distance": 2,
+      "next_to_coincidence": 28
+    },
+    {
+      "state": [
+        "b",
+        "a",
+        [
+          0,
+          0
+        ]
+      ],
+      "successors": [
+        8,
+        13,
+        43
+      ],
+      "coincidence_distance": 2,
+      "next_to_coincidence": 13
+    },
+    {
+      "state": [
+        "b",
+        "a",
+        [
+          1,
+          -3
+        ]
+      ],
+      "successors": [
+        58
+      ],
+      "coincidence_distance": 4,
+      "next_to_coincidence": 58
+    },
+    {
+      "state": [
+        "b",
+        "a",
+        [
+          1,
+          -2
+        ]
+      ],
+      "successors": [
+        12,
+        32,
+        42,
+        46
+      ],
+      "coincidence_distance": 2,
+      "next_to_coincidence": 32
+    },
+    {
+      "state": [
+        "b",
+        "a",
+        [
+          1,
+          -1
+        ]
+      ],
+      "successors": [
+        13
+      ],
+      "coincidence_distance": 2,
+      "next_to_coincidence": 13
+    },
+    {
+      "state": [
+        "b",
+        "a",
+        [
+          2,
+          -4
+        ]
+      ],
+      "successors": [
+        11,
+        31,
+        45
+      ],
+      "coincidence_distance": 2,
+      "next_to_coincidence": 31
+    },
+    {
+      "state": [
+        "b",
+        "a",
+        [
+          2,
+          -3
+        ]
+      ],
+      "successors": [
+        12,
+        16,
+        46
+      ],
+      "coincidence_distance": 3,
+      "next_to_coincidence": 12
+    },
+    {
+      "state": [
+        "b",
+        "a",
+        [
+          3,
+          -5
+        ]
+      ],
+      "successors": [
+        11,
+        15,
+        45
+      ],
+      "coincidence_distance": 3,
+      "next_to_coincidence": 11
+    },
+    {
+      "state": [
+        "b",
+        "a",
+        [
+          3,
+          -4
+        ]
+      ],
+      "successors": [
+        16
+      ],
+      "coincidence_distance": 4,
+      "next_to_coincidence": 16
+    },
+    {
+      "state": [
+        "b",
+        "b",
+        [
+          -3,
+          4
+        ]
+      ],
+      "successors": [
+        37
+      ],
+      "coincidence_distance": 2,
+      "next_to_coincidence": 37
+    },
+    {
+      "state": [
+        "b",
+        "b",
+        [
+          -3,
+          5
+        ]
+      ],
+      "successors": [
+        6,
+        23,
+        56
+      ],
+      "coincidence_distance": 3,
+      "next_to_coincidence": 6
+    },
+    {
+      "state": [
+        "b",
+        "b",
+        [
+          -2,
+          3
+        ]
+      ],
+      "successors": [
+        5,
+        41,
+        55
+      ],
+      "coincidence_distance": 2,
+      "next_to_coincidence": 5
+    },
+    {
+      "state": [
+        "b",
+        "b",
+        [
+          -2,
+          4
+        ]
+      ],
+      "successors": [
+        27
+      ],
+      "coincidence_distance": 3,
+      "next_to_coincidence": 27
+    },
+    {
+      "state": [
+        "b",
+        "b",
+        [
+          -1,
+          1
+        ]
+      ],
+      "successors": [
+        40
+      ],
+      "coincidence_distance": 4,
+      "next_to_coincidence": 40
+    },
+    {
+      "state": [
+        "b",
+        "b",
+        [
+          -1,
+          2
+        ]
+      ],
+      "successors": [
+        10,
+        26
+      ],
+      "coincidence_distance": 3,
+      "next_to_coincidence": 26
+    },
+    {
+      "state": [
+        "b",
+        "b",
+        [
+          0,
+          0
+        ]
+      ],
+      "successors": [
+        9,
+        57
+      ],
+      "coincidence_distance": 0
+    },
+    {
+      "state": [
+        "b",
+        "b",
+        [
+          1,
+          -2
+        ]
+      ],
+      "successors": [
+        8,
+        43
+      ],
+      "coincidence_distance": 3,
+      "next_to_coincidence": 43
+    },
+    {
+      "state": [
+        "b",
+        "b",
+        [
+          1,
+          -1
+        ]
+      ],
+      "successors": [
+        29
+      ],
+      "coincidence_distance": 4,
+      "next_to_coincidence": 29
+    },
+    {
+      "state": [
+        "b",
+        "b",
+        [
+          2,
+          -4
+        ]
+      ],
+      "successors": [
+        42
+      ],
+      "coincidence_distance": 3,
+      "next_to_coincidence": 42
+    },
+    {
+      "state": [
+        "b",
+        "b",
+        [
+          2,
+          -3
+        ]
+      ],
+      "successors": [
+        13,
+        28,
+        59
+      ],
+      "coincidence_distance": 2,
+      "next_to_coincidence": 13
+    },
+    {
+      "state": [
+        "b",
+        "b",
+        [
+          3,
+          -5
+        ]
+      ],
+      "successors": [
+        12,
+        46,
+        58
+      ],
+      "coincidence_distance": 3,
+      "next_to_coincidence": 12
+    },
+    {
+      "state": [
+        "b",
+        "b",
+        [
+          3,
+          -4
+        ]
+      ],
+      "successors": [
+        32
+      ],
+      "coincidence_distance": 2,
+      "next_to_coincidence": 32
+    }
+  ],
+  "finite_word_enumerations": [
+    {
+      "root": "a",
+      "depth": 4,
+      "word_length": 55,
+      "distinct_return_vectors": 223,
+      "source_state_count": 32,
+      "witnesses": [
+        {
+          "root": "a",
+          "depth": 4,
+          "word_length": 55,
+          "return_positions": [
+            38,
+            4
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -20,
+            -14
+          ],
+          "overlap_positions": [
+            51,
+            17
+          ],
+          "prefixes": [
+            [
+              23,
+              15
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              32,
+              19
+            ],
+            [
+              10,
+              7
+            ]
+          ],
+          "state": [
+            "a",
+            "a",
+            [
+              -2,
+              2
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 4,
+          "word_length": 55,
+          "return_positions": [
+            53,
+            2
+          ],
+          "return_type": "b",
+          "return_vector": [
+            -31,
+            -20
+          ],
+          "overlap_positions": [
+            51,
+            0
+          ],
+          "prefixes": [
+            [
+              33,
+              20
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              32,
+              19
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "state": [
+            "a",
+            "a",
+            [
+              -1,
+              1
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 4,
+          "word_length": 55,
+          "return_positions": [
+            54,
+            9
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -27,
+            -18
+          ],
+          "overlap_positions": [
+            51,
+            7
+          ],
+          "prefixes": [
+            [
+              33,
+              21
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              32,
+              19
+            ],
+            [
+              4,
+              3
+            ]
+          ],
+          "state": [
+            "a",
+            "a",
+            [
+              -1,
+              2
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 4,
+          "word_length": 55,
+          "return_positions": [
+            43,
+            25
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -10,
+            -8
+          ],
+          "overlap_positions": [
+            33,
+            17
+          ],
+          "prefixes": [
+            [
+              26,
+              17
+            ],
+            [
+              16,
+              9
+            ],
+            [
+              21,
+              12
+            ],
+            [
+              10,
+              7
+            ]
+          ],
+          "state": [
+            "a",
+            "a",
+            [
+              -1,
+              3
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 4,
+          "word_length": 55,
+          "return_positions": [
+            50,
+            0
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -31,
+            -19
+          ],
+          "overlap_positions": [
+            54,
+            3
+          ],
+          "prefixes": [
+            [
+              31,
+              19
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              33,
+              21
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "state": [
+            "a",
+            "a",
+            [
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 4,
+          "word_length": 55,
+          "return_positions": [
+            54,
+            0
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -33,
+            -21
+          ],
+          "overlap_positions": [
+            54,
+            0
+          ],
+          "prefixes": [
+            [
+              33,
+              21
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              33,
+              21
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "state": [
+            "a",
+            "a",
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 4,
+          "word_length": 55,
+          "return_positions": [
+            53,
+            2
+          ],
+          "return_type": "b",
+          "return_vector": [
+            -31,
+            -20
+          ],
+          "overlap_positions": [
+            50,
+            0
+          ],
+          "prefixes": [
+            [
+              33,
+              20
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              31,
+              19
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "state": [
+            "a",
+            "a",
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 4,
+          "word_length": 55,
+          "return_positions": [
+            33,
+            17
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -11,
+            -5
+          ],
+          "overlap_positions": [
+            43,
+            25
+          ],
+          "prefixes": [
+            [
+              21,
+              12
+            ],
+            [
+              10,
+              7
+            ],
+            [
+              26,
+              17
+            ],
+            [
+              16,
+              9
+            ]
+          ],
+          "state": [
+            "a",
+            "a",
+            [
+              1,
+              -3
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 4,
+          "word_length": 55,
+          "return_positions": [
+            51,
+            7
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -28,
+            -16
+          ],
+          "overlap_positions": [
+            54,
+            9
+          ],
+          "prefixes": [
+            [
+              32,
+              19
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              33,
+              21
+            ],
+            [
+              6,
+              3
+            ]
+          ],
+          "state": [
+            "a",
+            "a",
+            [
+              1,
+              -2
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 4,
+          "word_length": 55,
+          "return_positions": [
+            51,
+            0
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -32,
+            -19
+          ],
+          "overlap_positions": [
+            54,
+            3
+          ],
+          "prefixes": [
+            [
+              32,
+              19
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              33,
+              21
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "state": [
+            "a",
+            "a",
+            [
+              1,
+              -1
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 4,
+          "word_length": 55,
+          "return_positions": [
+            51,
+            17
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -22,
+            -12
+          ],
+          "overlap_positions": [
+            38,
+            4
+          ],
+          "prefixes": [
+            [
+              32,
+              19
+            ],
+            [
+              10,
+              7
+            ],
+            [
+              23,
+              15
+            ],
+            [
+              3,
+              1
+            ]
+          ],
+          "state": [
+            "a",
+            "a",
+            [
+              2,
+              -2
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 4,
+          "word_length": 55,
+          "return_positions": [
+            54,
+            9
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -27,
+            -18
+          ],
+          "overlap_positions": [
+            51,
+            6
+          ],
+          "prefixes": [
+            [
+              33,
+              21
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              32,
+              19
+            ],
+            [
+              4,
+              2
+            ]
+          ],
+          "state": [
+            "a",
+            "b",
+            [
+              -1,
+              1
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 4,
+          "word_length": 55,
+          "return_positions": [
+            43,
+            25
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -10,
+            -8
+          ],
+          "overlap_positions": [
+            33,
+            16
+          ],
+          "prefixes": [
+            [
+              26,
+              17
+            ],
+            [
+              16,
+              9
+            ],
+            [
+              21,
+              12
+            ],
+            [
+              10,
+              6
+            ]
+          ],
+          "state": [
+            "a",
+            "b",
+            [
+              -1,
+              2
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 4,
+          "word_length": 55,
+          "return_positions": [
+            50,
+            1
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -30,
+            -19
+          ],
+          "overlap_positions": [
+            51,
+            2
+          ],
+          "prefixes": [
+            [
+              31,
+              19
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              32,
+              19
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "state": [
+            "a",
+            "b",
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 4,
+          "word_length": 55,
+          "return_positions": [
+            54,
+            4
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -30,
+            -20
+          ],
+          "overlap_positions": [
+            51,
+            2
+          ],
+          "prefixes": [
+            [
+              33,
+              21
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              32,
+              19
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "state": [
+            "a",
+            "b",
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 4,
+          "word_length": 55,
+          "return_positions": [
+            51,
+            0
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -32,
+            -19
+          ],
+          "overlap_positions": [
+            54,
+            2
+          ],
+          "prefixes": [
+            [
+              32,
+              19
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              33,
+              21
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "state": [
+            "a",
+            "b",
+            [
+              1,
+              -2
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 4,
+          "word_length": 55,
+          "return_positions": [
+            50,
+            1
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -30,
+            -19
+          ],
+          "overlap_positions": [
+            54,
+            5
+          ],
+          "prefixes": [
+            [
+              31,
+              19
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              33,
+              21
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "state": [
+            "a",
+            "b",
+            [
+              1,
+              -1
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 4,
+          "word_length": 55,
+          "return_positions": [
+            33,
+            17
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -11,
+            -5
+          ],
+          "overlap_positions": [
+            43,
+            26
+          ],
+          "prefixes": [
+            [
+              21,
+              12
+            ],
+            [
+              10,
+              7
+            ],
+            [
+              26,
+              17
+            ],
+            [
+              17,
+              9
+            ]
+          ],
+          "state": [
+            "a",
+            "b",
+            [
+              2,
+              -3
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 4,
+          "word_length": 55,
+          "return_positions": [
+            51,
+            7
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -28,
+            -16
+          ],
+          "overlap_positions": [
+            54,
+            10
+          ],
+          "prefixes": [
+            [
+              32,
+              19
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              33,
+              21
+            ],
+            [
+              7,
+              3
+            ]
+          ],
+          "state": [
+            "a",
+            "b",
+            [
+              2,
+              -2
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 4,
+          "word_length": 55,
+          "return_positions": [
+            54,
+            9
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -27,
+            -18
+          ],
+          "overlap_positions": [
+            52,
+            7
+          ],
+          "prefixes": [
+            [
+              33,
+              21
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              33,
+              19
+            ],
+            [
+              4,
+              3
+            ]
+          ],
+          "state": [
+            "b",
+            "a",
+            [
+              -2,
+              2
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 4,
+          "word_length": 55,
+          "return_positions": [
+            43,
+            25
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -10,
+            -8
+          ],
+          "overlap_positions": [
+            34,
+            17
+          ],
+          "prefixes": [
+            [
+              26,
+              17
+            ],
+            [
+              16,
+              9
+            ],
+            [
+              22,
+              12
+            ],
+            [
+              10,
+              7
+            ]
+          ],
+          "state": [
+            "b",
+            "a",
+            [
+              -2,
+              3
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 4,
+          "word_length": 55,
+          "return_positions": [
+            54,
+            1
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -32,
+            -21
+          ],
+          "overlap_positions": [
+            53,
+            0
+          ],
+          "prefixes": [
+            [
+              33,
+              21
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              33,
+              20
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "state": [
+            "b",
+            "a",
+            [
+              -1,
+              1
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 4,
+          "word_length": 55,
+          "return_positions": [
+            54,
+            1
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -32,
+            -21
+          ],
+          "overlap_positions": [
+            52,
+            0
+          ],
+          "prefixes": [
+            [
+              33,
+              21
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              33,
+              19
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "state": [
+            "b",
+            "a",
+            [
+              -1,
+              2
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 4,
+          "word_length": 55,
+          "return_positions": [
+            51,
+            0
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -32,
+            -19
+          ],
+          "overlap_positions": [
+            53,
+            1
+          ],
+          "prefixes": [
+            [
+              32,
+              19
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              33,
+              20
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "state": [
+            "b",
+            "a",
+            [
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 4,
+          "word_length": 55,
+          "return_positions": [
+            51,
+            0
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -32,
+            -19
+          ],
+          "overlap_positions": [
+            52,
+            1
+          ],
+          "prefixes": [
+            [
+              32,
+              19
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              33,
+              19
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "state": [
+            "b",
+            "a",
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 4,
+          "word_length": 55,
+          "return_positions": [
+            33,
+            17
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -11,
+            -5
+          ],
+          "overlap_positions": [
+            42,
+            25
+          ],
+          "prefixes": [
+            [
+              21,
+              12
+            ],
+            [
+              10,
+              7
+            ],
+            [
+              26,
+              16
+            ],
+            [
+              16,
+              9
+            ]
+          ],
+          "state": [
+            "b",
+            "a",
+            [
+              1,
+              -2
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 4,
+          "word_length": 55,
+          "return_positions": [
+            51,
+            7
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -28,
+            -16
+          ],
+          "overlap_positions": [
+            53,
+            9
+          ],
+          "prefixes": [
+            [
+              32,
+              19
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              33,
+              20
+            ],
+            [
+              6,
+              3
+            ]
+          ],
+          "state": [
+            "b",
+            "a",
+            [
+              1,
+              -1
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 4,
+          "word_length": 55,
+          "return_positions": [
+            54,
+            4
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -30,
+            -20
+          ],
+          "overlap_positions": [
+            52,
+            2
+          ],
+          "prefixes": [
+            [
+              33,
+              21
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              33,
+              19
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "state": [
+            "b",
+            "b",
+            [
+              -1,
+              1
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 4,
+          "word_length": 55,
+          "return_positions": [
+            43,
+            4
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -23,
+            -16
+          ],
+          "overlap_positions": [
+            52,
+            14
+          ],
+          "prefixes": [
+            [
+              26,
+              17
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              33,
+              19
+            ],
+            [
+              9,
+              5
+            ]
+          ],
+          "state": [
+            "b",
+            "b",
+            [
+              -1,
+              2
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 4,
+          "word_length": 55,
+          "return_positions": [
+            53,
+            2
+          ],
+          "return_type": "b",
+          "return_vector": [
+            -31,
+            -20
+          ],
+          "overlap_positions": [
+            53,
+            2
+          ],
+          "prefixes": [
+            [
+              33,
+              20
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              33,
+              20
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "state": [
+            "b",
+            "b",
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 4,
+          "word_length": 55,
+          "return_positions": [
+            51,
+            15
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -23,
+            -13
+          ],
+          "overlap_positions": [
+            42,
+            5
+          ],
+          "prefixes": [
+            [
+              32,
+              19
+            ],
+            [
+              9,
+              6
+            ],
+            [
+              26,
+              16
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "state": [
+            "b",
+            "b",
+            [
+              1,
+              -2
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 4,
+          "word_length": 55,
+          "return_positions": [
+            51,
+            0
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -32,
+            -19
+          ],
+          "overlap_positions": [
+            53,
+            2
+          ],
+          "prefixes": [
+            [
+              32,
+              19
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              33,
+              20
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "state": [
+            "b",
+            "b",
+            [
+              1,
+              -1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "root": "b",
+      "depth": 4,
+      "word_length": 34,
+      "distinct_return_vectors": 129,
+      "source_state_count": 26,
+      "witnesses": [
+        {
+          "root": "b",
+          "depth": 4,
+          "word_length": 34,
+          "return_positions": [
+            30,
+            6
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -14,
+            -10
+          ],
+          "overlap_positions": [
+            25,
+            1
+          ],
+          "prefixes": [
+            [
+              18,
+              12
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              16,
+              9
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "state": [
+            "a",
+            "a",
+            [
+              -2,
+              2
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 4,
+          "word_length": 34,
+          "return_positions": [
+            30,
+            3
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -16,
+            -11
+          ],
+          "overlap_positions": [
+            28,
+            1
+          ],
+          "prefixes": [
+            [
+              18,
+              12
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              17,
+              11
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "state": [
+            "a",
+            "a",
+            [
+              -1,
+              1
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 4,
+          "word_length": 34,
+          "return_positions": [
+            28,
+            3
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -15,
+            -10
+          ],
+          "overlap_positions": [
+            25,
+            1
+          ],
+          "prefixes": [
+            [
+              17,
+              11
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              16,
+              9
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "state": [
+            "a",
+            "a",
+            [
+              -1,
+              2
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 4,
+          "word_length": 34,
+          "return_positions": [
+            27,
+            0
+          ],
+          "return_type": "b",
+          "return_vector": [
+            -17,
+            -10
+          ],
+          "overlap_positions": [
+            30,
+            2
+          ],
+          "prefixes": [
+            [
+              17,
+              10
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              18,
+              12
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "state": [
+            "a",
+            "a",
+            [
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 4,
+          "word_length": 34,
+          "return_positions": [
+            32,
+            1
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -20,
+            -11
+          ],
+          "overlap_positions": [
+            32,
+            1
+          ],
+          "prefixes": [
+            [
+              20,
+              12
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              20,
+              12
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "state": [
+            "a",
+            "a",
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 4,
+          "word_length": 34,
+          "return_positions": [
+            30,
+            2
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -17,
+            -11
+          ],
+          "overlap_positions": [
+            28,
+            1
+          ],
+          "prefixes": [
+            [
+              18,
+              12
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              17,
+              11
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "state": [
+            "a",
+            "a",
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 4,
+          "word_length": 34,
+          "return_positions": [
+            26,
+            0
+          ],
+          "return_type": "b",
+          "return_vector": [
+            -17,
+            -9
+          ],
+          "overlap_positions": [
+            30,
+            3
+          ],
+          "prefixes": [
+            [
+              17,
+              9
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              18,
+              12
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "state": [
+            "a",
+            "a",
+            [
+              1,
+              -2
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 4,
+          "word_length": 34,
+          "return_positions": [
+            27,
+            0
+          ],
+          "return_type": "b",
+          "return_vector": [
+            -17,
+            -10
+          ],
+          "overlap_positions": [
+            30,
+            3
+          ],
+          "prefixes": [
+            [
+              17,
+              10
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              18,
+              12
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "state": [
+            "a",
+            "a",
+            [
+              1,
+              -1
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 4,
+          "word_length": 34,
+          "return_positions": [
+            25,
+            1
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -16,
+            -8
+          ],
+          "overlap_positions": [
+            30,
+            6
+          ],
+          "prefixes": [
+            [
+              16,
+              9
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              18,
+              12
+            ],
+            [
+              4,
+              2
+            ]
+          ],
+          "state": [
+            "a",
+            "a",
+            [
+              2,
+              -2
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 4,
+          "word_length": 34,
+          "return_positions": [
+            28,
+            3
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -15,
+            -10
+          ],
+          "overlap_positions": [
+            25,
+            0
+          ],
+          "prefixes": [
+            [
+              17,
+              11
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              16,
+              9
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "state": [
+            "a",
+            "b",
+            [
+              -1,
+              1
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 4,
+          "word_length": 34,
+          "return_positions": [
+            30,
+            2
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -17,
+            -11
+          ],
+          "overlap_positions": [
+            28,
+            0
+          ],
+          "prefixes": [
+            [
+              18,
+              12
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              17,
+              11
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "state": [
+            "a",
+            "b",
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 4,
+          "word_length": 34,
+          "return_positions": [
+            28,
+            2
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -16,
+            -10
+          ],
+          "overlap_positions": [
+            25,
+            0
+          ],
+          "prefixes": [
+            [
+              17,
+              11
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              16,
+              9
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "state": [
+            "a",
+            "b",
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 4,
+          "word_length": 34,
+          "return_positions": [
+            26,
+            0
+          ],
+          "return_type": "b",
+          "return_vector": [
+            -17,
+            -9
+          ],
+          "overlap_positions": [
+            31,
+            4
+          ],
+          "prefixes": [
+            [
+              17,
+              9
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              19,
+              12
+            ],
+            [
+              3,
+              1
+            ]
+          ],
+          "state": [
+            "a",
+            "b",
+            [
+              1,
+              -2
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 4,
+          "word_length": 34,
+          "return_positions": [
+            32,
+            1
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -20,
+            -11
+          ],
+          "overlap_positions": [
+            31,
+            0
+          ],
+          "prefixes": [
+            [
+              20,
+              12
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              19,
+              12
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "state": [
+            "a",
+            "b",
+            [
+              1,
+              -1
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 4,
+          "word_length": 34,
+          "return_positions": [
+            26,
+            0
+          ],
+          "return_type": "b",
+          "return_vector": [
+            -17,
+            -9
+          ],
+          "overlap_positions": [
+            30,
+            4
+          ],
+          "prefixes": [
+            [
+              17,
+              9
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              18,
+              12
+            ],
+            [
+              3,
+              1
+            ]
+          ],
+          "state": [
+            "a",
+            "b",
+            [
+              2,
+              -2
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 4,
+          "word_length": 34,
+          "return_positions": [
+            28,
+            3
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -15,
+            -10
+          ],
+          "overlap_positions": [
+            26,
+            1
+          ],
+          "prefixes": [
+            [
+              17,
+              11
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              17,
+              9
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "state": [
+            "b",
+            "a",
+            [
+              -2,
+              2
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 4,
+          "word_length": 34,
+          "return_positions": [
+            30,
+            2
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -17,
+            -11
+          ],
+          "overlap_positions": [
+            29,
+            1
+          ],
+          "prefixes": [
+            [
+              18,
+              12
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              18,
+              11
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "state": [
+            "b",
+            "a",
+            [
+              -1,
+              1
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 4,
+          "word_length": 34,
+          "return_positions": [
+            30,
+            3
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -16,
+            -11
+          ],
+          "overlap_positions": [
+            27,
+            1
+          ],
+          "prefixes": [
+            [
+              18,
+              12
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              17,
+              10
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "state": [
+            "b",
+            "a",
+            [
+              -1,
+              2
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 4,
+          "word_length": 34,
+          "return_positions": [
+            26,
+            0
+          ],
+          "return_type": "b",
+          "return_vector": [
+            -17,
+            -9
+          ],
+          "overlap_positions": [
+            29,
+            2
+          ],
+          "prefixes": [
+            [
+              17,
+              9
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              18,
+              11
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "state": [
+            "b",
+            "a",
+            [
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 4,
+          "word_length": 34,
+          "return_positions": [
+            32,
+            1
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -20,
+            -11
+          ],
+          "overlap_positions": [
+            33,
+            2
+          ],
+          "prefixes": [
+            [
+              20,
+              12
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              21,
+              12
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "state": [
+            "b",
+            "a",
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 4,
+          "word_length": 34,
+          "return_positions": [
+            26,
+            0
+          ],
+          "return_type": "b",
+          "return_vector": [
+            -17,
+            -9
+          ],
+          "overlap_positions": [
+            29,
+            3
+          ],
+          "prefixes": [
+            [
+              17,
+              9
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              18,
+              11
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "state": [
+            "b",
+            "a",
+            [
+              1,
+              -1
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 4,
+          "word_length": 34,
+          "return_positions": [
+            30,
+            3
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -16,
+            -11
+          ],
+          "overlap_positions": [
+            27,
+            0
+          ],
+          "prefixes": [
+            [
+              18,
+              12
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              17,
+              10
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "state": [
+            "b",
+            "b",
+            [
+              -1,
+              1
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 4,
+          "word_length": 34,
+          "return_positions": [
+            30,
+            3
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -16,
+            -11
+          ],
+          "overlap_positions": [
+            26,
+            0
+          ],
+          "prefixes": [
+            [
+              18,
+              12
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              17,
+              9
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "state": [
+            "b",
+            "b",
+            [
+              -1,
+              2
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 4,
+          "word_length": 34,
+          "return_positions": [
+            33,
+            0
+          ],
+          "return_type": "b",
+          "return_vector": [
+            -21,
+            -12
+          ],
+          "overlap_positions": [
+            33,
+            0
+          ],
+          "prefixes": [
+            [
+              21,
+              12
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              21,
+              12
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "state": [
+            "b",
+            "b",
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 4,
+          "word_length": 34,
+          "return_positions": [
+            25,
+            1
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -16,
+            -8
+          ],
+          "overlap_positions": [
+            29,
+            4
+          ],
+          "prefixes": [
+            [
+              16,
+              9
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              18,
+              11
+            ],
+            [
+              3,
+              1
+            ]
+          ],
+          "state": [
+            "b",
+            "b",
+            [
+              1,
+              -2
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 4,
+          "word_length": 34,
+          "return_positions": [
+            26,
+            0
+          ],
+          "return_type": "b",
+          "return_vector": [
+            -17,
+            -9
+          ],
+          "overlap_positions": [
+            33,
+            7
+          ],
+          "prefixes": [
+            [
+              17,
+              9
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              21,
+              12
+            ],
+            [
+              5,
+              2
+            ]
+          ],
+          "state": [
+            "b",
+            "b",
+            [
+              1,
+              -1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "root": "a",
+      "depth": 5,
+      "word_length": 144,
+      "distinct_return_vectors": 643,
+      "source_state_count": 32,
+      "witnesses": [
+        {
+          "root": "a",
+          "depth": 5,
+          "word_length": 144,
+          "return_positions": [
+            140,
+            12
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -78,
+            -50
+          ],
+          "overlap_positions": [
+            135,
+            7
+          ],
+          "prefixes": [
+            [
+              86,
+              54
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              84,
+              51
+            ],
+            [
+              4,
+              3
+            ]
+          ],
+          "state": [
+            "a",
+            "a",
+            [
+              -2,
+              2
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 5,
+          "word_length": 144,
+          "return_positions": [
+            140,
+            1
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -85,
+            -54
+          ],
+          "overlap_positions": [
+            142,
+            3
+          ],
+          "prefixes": [
+            [
+              86,
+              54
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              88,
+              54
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "state": [
+            "a",
+            "a",
+            [
+              -1,
+              1
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 5,
+          "word_length": 144,
+          "return_positions": [
+            140,
+            4
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -83,
+            -53
+          ],
+          "overlap_positions": [
+            135,
+            0
+          ],
+          "prefixes": [
+            [
+              86,
+              54
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              84,
+              51
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "state": [
+            "a",
+            "a",
+            [
+              -1,
+              2
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 5,
+          "word_length": 144,
+          "return_positions": [
+            111,
+            12
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -60,
+            -39
+          ],
+          "overlap_positions": [
+            135,
+            38
+          ],
+          "prefixes": [
+            [
+              68,
+              43
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              84,
+              51
+            ],
+            [
+              23,
+              15
+            ]
+          ],
+          "state": [
+            "a",
+            "a",
+            [
+              -1,
+              3
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 5,
+          "word_length": 144,
+          "return_positions": [
+            142,
+            3
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -86,
+            -53
+          ],
+          "overlap_positions": [
+            140,
+            0
+          ],
+          "prefixes": [
+            [
+              88,
+              54
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              86,
+              54
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "state": [
+            "a",
+            "a",
+            [
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 5,
+          "word_length": 144,
+          "return_positions": [
+            142,
+            0
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -88,
+            -54
+          ],
+          "overlap_positions": [
+            142,
+            0
+          ],
+          "prefixes": [
+            [
+              88,
+              54
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              88,
+              54
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "state": [
+            "a",
+            "a",
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 5,
+          "word_length": 144,
+          "return_positions": [
+            140,
+            0
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -86,
+            -54
+          ],
+          "overlap_positions": [
+            142,
+            3
+          ],
+          "prefixes": [
+            [
+              86,
+              54
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              88,
+              54
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "state": [
+            "a",
+            "a",
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 5,
+          "word_length": 144,
+          "return_positions": [
+            135,
+            38
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -61,
+            -36
+          ],
+          "overlap_positions": [
+            111,
+            12
+          ],
+          "prefixes": [
+            [
+              84,
+              51
+            ],
+            [
+              23,
+              15
+            ],
+            [
+              68,
+              43
+            ],
+            [
+              8,
+              4
+            ]
+          ],
+          "state": [
+            "a",
+            "a",
+            [
+              1,
+              -3
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 5,
+          "word_length": 144,
+          "return_positions": [
+            135,
+            0
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -84,
+            -51
+          ],
+          "overlap_positions": [
+            140,
+            4
+          ],
+          "prefixes": [
+            [
+              84,
+              51
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              86,
+              54
+            ],
+            [
+              3,
+              1
+            ]
+          ],
+          "state": [
+            "a",
+            "a",
+            [
+              1,
+              -2
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 5,
+          "word_length": 144,
+          "return_positions": [
+            142,
+            3
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -86,
+            -53
+          ],
+          "overlap_positions": [
+            140,
+            1
+          ],
+          "prefixes": [
+            [
+              88,
+              54
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              86,
+              54
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "state": [
+            "a",
+            "a",
+            [
+              1,
+              -1
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 5,
+          "word_length": 144,
+          "return_positions": [
+            135,
+            7
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -80,
+            -48
+          ],
+          "overlap_positions": [
+            140,
+            12
+          ],
+          "prefixes": [
+            [
+              84,
+              51
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              86,
+              54
+            ],
+            [
+              8,
+              4
+            ]
+          ],
+          "state": [
+            "a",
+            "a",
+            [
+              2,
+              -2
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 5,
+          "word_length": 144,
+          "return_positions": [
+            140,
+            4
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -83,
+            -53
+          ],
+          "overlap_positions": [
+            142,
+            6
+          ],
+          "prefixes": [
+            [
+              86,
+              54
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              88,
+              54
+            ],
+            [
+              4,
+              2
+            ]
+          ],
+          "state": [
+            "a",
+            "b",
+            [
+              -1,
+              1
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 5,
+          "word_length": 144,
+          "return_positions": [
+            111,
+            12
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -60,
+            -39
+          ],
+          "overlap_positions": [
+            135,
+            37
+          ],
+          "prefixes": [
+            [
+              68,
+              43
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              84,
+              51
+            ],
+            [
+              23,
+              14
+            ]
+          ],
+          "state": [
+            "a",
+            "b",
+            [
+              -1,
+              2
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 5,
+          "word_length": 144,
+          "return_positions": [
+            140,
+            0
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -86,
+            -54
+          ],
+          "overlap_positions": [
+            142,
+            2
+          ],
+          "prefixes": [
+            [
+              86,
+              54
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              88,
+              54
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "state": [
+            "a",
+            "b",
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 5,
+          "word_length": 144,
+          "return_positions": [
+            138,
+            1
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -84,
+            -53
+          ],
+          "overlap_positions": [
+            142,
+            6
+          ],
+          "prefixes": [
+            [
+              85,
+              53
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              88,
+              54
+            ],
+            [
+              4,
+              2
+            ]
+          ],
+          "state": [
+            "a",
+            "b",
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 5,
+          "word_length": 144,
+          "return_positions": [
+            143,
+            6
+          ],
+          "return_type": "b",
+          "return_vector": [
+            -85,
+            -52
+          ],
+          "overlap_positions": [
+            140,
+            2
+          ],
+          "prefixes": [
+            [
+              89,
+              54
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              86,
+              54
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "state": [
+            "a",
+            "b",
+            [
+              1,
+              -2
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 5,
+          "word_length": 144,
+          "return_positions": [
+            142,
+            3
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -86,
+            -53
+          ],
+          "overlap_positions": [
+            141,
+            2
+          ],
+          "prefixes": [
+            [
+              88,
+              54
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              87,
+              54
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "state": [
+            "a",
+            "b",
+            [
+              1,
+              -1
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 5,
+          "word_length": 144,
+          "return_positions": [
+            135,
+            38
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -61,
+            -36
+          ],
+          "overlap_positions": [
+            111,
+            13
+          ],
+          "prefixes": [
+            [
+              84,
+              51
+            ],
+            [
+              23,
+              15
+            ],
+            [
+              68,
+              43
+            ],
+            [
+              9,
+              4
+            ]
+          ],
+          "state": [
+            "a",
+            "b",
+            [
+              2,
+              -3
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 5,
+          "word_length": 144,
+          "return_positions": [
+            135,
+            0
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -84,
+            -51
+          ],
+          "overlap_positions": [
+            140,
+            5
+          ],
+          "prefixes": [
+            [
+              84,
+              51
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              86,
+              54
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "state": [
+            "a",
+            "b",
+            [
+              2,
+              -2
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 5,
+          "word_length": 144,
+          "return_positions": [
+            140,
+            4
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -83,
+            -53
+          ],
+          "overlap_positions": [
+            136,
+            0
+          ],
+          "prefixes": [
+            [
+              86,
+              54
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              85,
+              51
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "state": [
+            "b",
+            "a",
+            [
+              -2,
+              2
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 5,
+          "word_length": 144,
+          "return_positions": [
+            111,
+            12
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -60,
+            -39
+          ],
+          "overlap_positions": [
+            136,
+            38
+          ],
+          "prefixes": [
+            [
+              68,
+              43
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              85,
+              51
+            ],
+            [
+              23,
+              15
+            ]
+          ],
+          "state": [
+            "b",
+            "a",
+            [
+              -2,
+              3
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 5,
+          "word_length": 144,
+          "return_positions": [
+            140,
+            0
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -86,
+            -54
+          ],
+          "overlap_positions": [
+            143,
+            3
+          ],
+          "prefixes": [
+            [
+              86,
+              54
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              89,
+              54
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "state": [
+            "b",
+            "a",
+            [
+              -1,
+              1
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 5,
+          "word_length": 144,
+          "return_positions": [
+            138,
+            1
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -84,
+            -53
+          ],
+          "overlap_positions": [
+            136,
+            0
+          ],
+          "prefixes": [
+            [
+              85,
+              53
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              85,
+              51
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "state": [
+            "b",
+            "a",
+            [
+              -1,
+              2
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 5,
+          "word_length": 144,
+          "return_positions": [
+            143,
+            6
+          ],
+          "return_type": "b",
+          "return_vector": [
+            -85,
+            -52
+          ],
+          "overlap_positions": [
+            139,
+            1
+          ],
+          "prefixes": [
+            [
+              89,
+              54
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              86,
+              53
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "state": [
+            "b",
+            "a",
+            [
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 5,
+          "word_length": 144,
+          "return_positions": [
+            142,
+            0
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -88,
+            -54
+          ],
+          "overlap_positions": [
+            143,
+            1
+          ],
+          "prefixes": [
+            [
+              88,
+              54
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              89,
+              54
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "state": [
+            "b",
+            "a",
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 5,
+          "word_length": 144,
+          "return_positions": [
+            135,
+            38
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -61,
+            -36
+          ],
+          "overlap_positions": [
+            110,
+            12
+          ],
+          "prefixes": [
+            [
+              84,
+              51
+            ],
+            [
+              23,
+              15
+            ],
+            [
+              68,
+              42
+            ],
+            [
+              8,
+              4
+            ]
+          ],
+          "state": [
+            "b",
+            "a",
+            [
+              1,
+              -2
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 5,
+          "word_length": 144,
+          "return_positions": [
+            135,
+            0
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -84,
+            -51
+          ],
+          "overlap_positions": [
+            139,
+            4
+          ],
+          "prefixes": [
+            [
+              84,
+              51
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              86,
+              53
+            ],
+            [
+              3,
+              1
+            ]
+          ],
+          "state": [
+            "b",
+            "a",
+            [
+              1,
+              -1
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 5,
+          "word_length": 144,
+          "return_positions": [
+            138,
+            1
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -84,
+            -53
+          ],
+          "overlap_positions": [
+            143,
+            6
+          ],
+          "prefixes": [
+            [
+              85,
+              53
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              89,
+              54
+            ],
+            [
+              4,
+              2
+            ]
+          ],
+          "state": [
+            "b",
+            "b",
+            [
+              -1,
+              1
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 5,
+          "word_length": 144,
+          "return_positions": [
+            140,
+            9
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -80,
+            -51
+          ],
+          "overlap_positions": [
+            136,
+            6
+          ],
+          "prefixes": [
+            [
+              86,
+              54
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              85,
+              51
+            ],
+            [
+              4,
+              2
+            ]
+          ],
+          "state": [
+            "b",
+            "b",
+            [
+              -1,
+              2
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 5,
+          "word_length": 144,
+          "return_positions": [
+            141,
+            0
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -87,
+            -54
+          ],
+          "overlap_positions": [
+            143,
+            2
+          ],
+          "prefixes": [
+            [
+              87,
+              54
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              89,
+              54
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "state": [
+            "b",
+            "b",
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 5,
+          "word_length": 144,
+          "return_positions": [
+            135,
+            7
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -80,
+            -48
+          ],
+          "overlap_positions": [
+            139,
+            10
+          ],
+          "prefixes": [
+            [
+              84,
+              51
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              86,
+              53
+            ],
+            [
+              7,
+              3
+            ]
+          ],
+          "state": [
+            "b",
+            "b",
+            [
+              1,
+              -2
+            ]
+          ]
+        },
+        {
+          "root": "a",
+          "depth": 5,
+          "word_length": 144,
+          "return_positions": [
+            143,
+            6
+          ],
+          "return_type": "b",
+          "return_vector": [
+            -85,
+            -52
+          ],
+          "overlap_positions": [
+            139,
+            2
+          ],
+          "prefixes": [
+            [
+              89,
+              54
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              86,
+              53
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "state": [
+            "b",
+            "b",
+            [
+              1,
+              -1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "root": "b",
+      "depth": 5,
+      "word_length": 89,
+      "distinct_return_vectors": 389,
+      "source_state_count": 32,
+      "witnesses": [
+        {
+          "root": "b",
+          "depth": 5,
+          "word_length": 89,
+          "return_positions": [
+            72,
+            6
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -40,
+            -26
+          ],
+          "overlap_positions": [
+            67,
+            1
+          ],
+          "prefixes": [
+            [
+              44,
+              28
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              42,
+              25
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "state": [
+            "a",
+            "a",
+            [
+              -2,
+              2
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 5,
+          "word_length": 89,
+          "return_positions": [
+            87,
+            4
+          ],
+          "return_type": "b",
+          "return_vector": [
+            -51,
+            -32
+          ],
+          "overlap_positions": [
+            84,
+            1
+          ],
+          "prefixes": [
+            [
+              54,
+              33
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              52,
+              32
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "state": [
+            "a",
+            "a",
+            [
+              -1,
+              1
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 5,
+          "word_length": 89,
+          "return_positions": [
+            88,
+            3
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -52,
+            -33
+          ],
+          "overlap_positions": [
+            85,
+            1
+          ],
+          "prefixes": [
+            [
+              54,
+              34
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              53,
+              32
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "state": [
+            "a",
+            "a",
+            [
+              -1,
+              2
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 5,
+          "word_length": 89,
+          "return_positions": [
+            77,
+            9
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -41,
+            -27
+          ],
+          "overlap_positions": [
+            67,
+            1
+          ],
+          "prefixes": [
+            [
+              47,
+              30
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              42,
+              25
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "state": [
+            "a",
+            "a",
+            [
+              -1,
+              3
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 5,
+          "word_length": 89,
+          "return_positions": [
+            86,
+            0
+          ],
+          "return_type": "b",
+          "return_vector": [
+            -54,
+            -32
+          ],
+          "overlap_positions": [
+            88,
+            1
+          ],
+          "prefixes": [
+            [
+              54,
+              32
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              54,
+              34
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "state": [
+            "a",
+            "a",
+            [
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 5,
+          "word_length": 89,
+          "return_positions": [
+            87,
+            0
+          ],
+          "return_type": "b",
+          "return_vector": [
+            -54,
+            -33
+          ],
+          "overlap_positions": [
+            88,
+            1
+          ],
+          "prefixes": [
+            [
+              54,
+              33
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              54,
+              34
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "state": [
+            "a",
+            "a",
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 5,
+          "word_length": 89,
+          "return_positions": [
+            87,
+            4
+          ],
+          "return_type": "b",
+          "return_vector": [
+            -51,
+            -32
+          ],
+          "overlap_positions": [
+            84,
+            2
+          ],
+          "prefixes": [
+            [
+              54,
+              33
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              52,
+              32
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "state": [
+            "a",
+            "a",
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 5,
+          "word_length": 89,
+          "return_positions": [
+            67,
+            1
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -42,
+            -24
+          ],
+          "overlap_positions": [
+            77,
+            9
+          ],
+          "prefixes": [
+            [
+              42,
+              25
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              47,
+              30
+            ],
+            [
+              6,
+              3
+            ]
+          ],
+          "state": [
+            "a",
+            "a",
+            [
+              1,
+              -3
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 5,
+          "word_length": 89,
+          "return_positions": [
+            85,
+            1
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -53,
+            -31
+          ],
+          "overlap_positions": [
+            88,
+            3
+          ],
+          "prefixes": [
+            [
+              53,
+              32
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              54,
+              34
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "state": [
+            "a",
+            "a",
+            [
+              1,
+              -2
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 5,
+          "word_length": 89,
+          "return_positions": [
+            86,
+            0
+          ],
+          "return_type": "b",
+          "return_vector": [
+            -54,
+            -32
+          ],
+          "overlap_positions": [
+            88,
+            2
+          ],
+          "prefixes": [
+            [
+              54,
+              32
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              54,
+              34
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "state": [
+            "a",
+            "a",
+            [
+              1,
+              -1
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 5,
+          "word_length": 89,
+          "return_positions": [
+            68,
+            0
+          ],
+          "return_type": "b",
+          "return_vector": [
+            -43,
+            -25
+          ],
+          "overlap_positions": [
+            77,
+            9
+          ],
+          "prefixes": [
+            [
+              43,
+              25
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              47,
+              30
+            ],
+            [
+              6,
+              3
+            ]
+          ],
+          "state": [
+            "a",
+            "a",
+            [
+              2,
+              -2
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 5,
+          "word_length": 89,
+          "return_positions": [
+            88,
+            3
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -52,
+            -33
+          ],
+          "overlap_positions": [
+            85,
+            0
+          ],
+          "prefixes": [
+            [
+              54,
+              34
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              53,
+              32
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "state": [
+            "a",
+            "b",
+            [
+              -1,
+              1
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 5,
+          "word_length": 89,
+          "return_positions": [
+            77,
+            9
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -41,
+            -27
+          ],
+          "overlap_positions": [
+            67,
+            0
+          ],
+          "prefixes": [
+            [
+              47,
+              30
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              42,
+              25
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "state": [
+            "a",
+            "b",
+            [
+              -1,
+              2
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 5,
+          "word_length": 89,
+          "return_positions": [
+            84,
+            2
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -51,
+            -31
+          ],
+          "overlap_positions": [
+            82,
+            0
+          ],
+          "prefixes": [
+            [
+              52,
+              32
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              51,
+              31
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "state": [
+            "a",
+            "b",
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 5,
+          "word_length": 89,
+          "return_positions": [
+            88,
+            2
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -53,
+            -33
+          ],
+          "overlap_positions": [
+            85,
+            0
+          ],
+          "prefixes": [
+            [
+              54,
+              34
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              53,
+              32
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "state": [
+            "a",
+            "b",
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 5,
+          "word_length": 89,
+          "return_positions": [
+            83,
+            0
+          ],
+          "return_type": "b",
+          "return_vector": [
+            -52,
+            -31
+          ],
+          "overlap_positions": [
+            88,
+            4
+          ],
+          "prefixes": [
+            [
+              52,
+              31
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              54,
+              34
+            ],
+            [
+              3,
+              1
+            ]
+          ],
+          "state": [
+            "a",
+            "b",
+            [
+              1,
+              -2
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 5,
+          "word_length": 89,
+          "return_positions": [
+            85,
+            1
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -53,
+            -31
+          ],
+          "overlap_positions": [
+            84,
+            0
+          ],
+          "prefixes": [
+            [
+              53,
+              32
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              52,
+              32
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "state": [
+            "a",
+            "b",
+            [
+              1,
+              -1
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 5,
+          "word_length": 89,
+          "return_positions": [
+            67,
+            1
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -42,
+            -24
+          ],
+          "overlap_positions": [
+            77,
+            10
+          ],
+          "prefixes": [
+            [
+              42,
+              25
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              47,
+              30
+            ],
+            [
+              7,
+              3
+            ]
+          ],
+          "state": [
+            "a",
+            "b",
+            [
+              2,
+              -3
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 5,
+          "word_length": 89,
+          "return_positions": [
+            85,
+            1
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -53,
+            -31
+          ],
+          "overlap_positions": [
+            88,
+            4
+          ],
+          "prefixes": [
+            [
+              53,
+              32
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              54,
+              34
+            ],
+            [
+              3,
+              1
+            ]
+          ],
+          "state": [
+            "a",
+            "b",
+            [
+              2,
+              -2
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 5,
+          "word_length": 89,
+          "return_positions": [
+            88,
+            3
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -52,
+            -33
+          ],
+          "overlap_positions": [
+            86,
+            1
+          ],
+          "prefixes": [
+            [
+              54,
+              34
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              54,
+              32
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "state": [
+            "b",
+            "a",
+            [
+              -2,
+              2
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 5,
+          "word_length": 89,
+          "return_positions": [
+            77,
+            9
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -41,
+            -27
+          ],
+          "overlap_positions": [
+            68,
+            1
+          ],
+          "prefixes": [
+            [
+              47,
+              30
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              43,
+              25
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "state": [
+            "b",
+            "a",
+            [
+              -2,
+              3
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 5,
+          "word_length": 89,
+          "return_positions": [
+            88,
+            2
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -53,
+            -33
+          ],
+          "overlap_positions": [
+            87,
+            1
+          ],
+          "prefixes": [
+            [
+              54,
+              34
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              54,
+              33
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "state": [
+            "b",
+            "a",
+            [
+              -1,
+              1
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 5,
+          "word_length": 89,
+          "return_positions": [
+            88,
+            2
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -53,
+            -33
+          ],
+          "overlap_positions": [
+            86,
+            1
+          ],
+          "prefixes": [
+            [
+              54,
+              34
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              54,
+              32
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "state": [
+            "b",
+            "a",
+            [
+              -1,
+              2
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 5,
+          "word_length": 89,
+          "return_positions": [
+            85,
+            1
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -53,
+            -31
+          ],
+          "overlap_positions": [
+            87,
+            2
+          ],
+          "prefixes": [
+            [
+              53,
+              32
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              54,
+              33
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "state": [
+            "b",
+            "a",
+            [
+              0,
+              -1
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 5,
+          "word_length": 89,
+          "return_positions": [
+            86,
+            0
+          ],
+          "return_type": "b",
+          "return_vector": [
+            -54,
+            -32
+          ],
+          "overlap_positions": [
+            87,
+            1
+          ],
+          "prefixes": [
+            [
+              54,
+              32
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              54,
+              33
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "state": [
+            "b",
+            "a",
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 5,
+          "word_length": 89,
+          "return_positions": [
+            67,
+            1
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -42,
+            -24
+          ],
+          "overlap_positions": [
+            76,
+            9
+          ],
+          "prefixes": [
+            [
+              42,
+              25
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              47,
+              29
+            ],
+            [
+              6,
+              3
+            ]
+          ],
+          "state": [
+            "b",
+            "a",
+            [
+              1,
+              -2
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 5,
+          "word_length": 89,
+          "return_positions": [
+            85,
+            1
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -53,
+            -31
+          ],
+          "overlap_positions": [
+            87,
+            3
+          ],
+          "prefixes": [
+            [
+              53,
+              32
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              54,
+              33
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "state": [
+            "b",
+            "a",
+            [
+              1,
+              -1
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 5,
+          "word_length": 89,
+          "return_positions": [
+            88,
+            2
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -53,
+            -33
+          ],
+          "overlap_positions": [
+            86,
+            0
+          ],
+          "prefixes": [
+            [
+              54,
+              34
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              54,
+              32
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "state": [
+            "b",
+            "b",
+            [
+              -1,
+              1
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 5,
+          "word_length": 89,
+          "return_positions": [
+            72,
+            3
+          ],
+          "return_type": "a",
+          "return_vector": [
+            -42,
+            -27
+          ],
+          "overlap_positions": [
+            68,
+            0
+          ],
+          "prefixes": [
+            [
+              44,
+              28
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              43,
+              25
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "state": [
+            "b",
+            "b",
+            [
+              -1,
+              2
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 5,
+          "word_length": 89,
+          "return_positions": [
+            87,
+            0
+          ],
+          "return_type": "b",
+          "return_vector": [
+            -54,
+            -33
+          ],
+          "overlap_positions": [
+            87,
+            0
+          ],
+          "prefixes": [
+            [
+              54,
+              33
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              54,
+              33
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "state": [
+            "b",
+            "b",
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 5,
+          "word_length": 89,
+          "return_positions": [
+            68,
+            0
+          ],
+          "return_type": "b",
+          "return_vector": [
+            -43,
+            -25
+          ],
+          "overlap_positions": [
+            76,
+            7
+          ],
+          "prefixes": [
+            [
+              43,
+              25
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              47,
+              29
+            ],
+            [
+              5,
+              2
+            ]
+          ],
+          "state": [
+            "b",
+            "b",
+            [
+              1,
+              -2
+            ]
+          ]
+        },
+        {
+          "root": "b",
+          "depth": 5,
+          "word_length": 89,
+          "return_positions": [
+            83,
+            0
+          ],
+          "return_type": "b",
+          "return_vector": [
+            -52,
+            -31
+          ],
+          "overlap_positions": [
+            87,
+            4
+          ],
+          "prefixes": [
+            [
+              52,
+              31
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              54,
+              33
+            ],
+            [
+              3,
+              1
+            ]
+          ],
+          "state": [
+            "b",
+            "b",
+            [
+              1,
+              -1
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "omitted_from_old_bound": {
+    "root": "a",
+    "depth": 4,
+    "word_length": 55,
+    "return_positions": [
+      17,
+      25
+    ],
+    "return_type": "a",
+    "return_vector": [
+      6,
+      2
+    ],
+    "overlap_positions": [
+      34,
+      43
+    ],
+    "prefixes": [
+      [
+        10,
+        7
+      ],
+      [
+        16,
+        9
+      ],
+      [
+        22,
+        12
+      ],
+      [
+        26,
+        17
+      ]
+    ],
+    "state": [
+      "b",
+      "a",
+      [
+        -2,
+        3
+      ]
+    ]
+  },
+  "unwitnessed_states_are_not_declared_illegal": true,
+  "pure_point_spectrum_claimed": false
+}
