@@ -100,5 +100,7 @@
   "full_witness_packet_sha256": "b6e1a918be98806c275c19f34fbdaa15c98b0abc5918b64c0754e3be8a424e7c",
   "checker_status": "independent region-count algorithm locally cross-checked; full committed-code replay and hosted checks still pending",
   "claim_status_changes": [],
-  "universal_matching_rule_or_aperiodicity_claim": false
+  "universal_matching_rule_or_aperiodicity_claim": false,
+  "independent_105_slice_region_counts_sha256": "a829577135da8dca3a380a5ca5b0b2108e4b8761996a5ab3164122b5009158f4",
+  "local_full_certificate_replay_scope": "Two separate exact algorithms (3D clipping and plane-section line counting), exact witnesses/classes, no hosted acceptance"
 }
