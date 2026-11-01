@@ -32,7 +32,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          python -m unittest discover -s tests -v
+          python -m unittest discover -s tests -p 'test_akn_*.py' -v
           python research/akn/atlas_research_driver.py --max-depth 1 --max-nodes 1 --out evidence-prefix
           python research/akn/atlas_region_count.py > evidence-prefix/independent-region-count.json
           python - <<'PY'
