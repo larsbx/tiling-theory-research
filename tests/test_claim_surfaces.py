@@ -21,6 +21,7 @@ class ClaimSurfaces(unittest.TestCase):
         dossier = {'KATZ-AKN-C1': 'docs/research/katz-akn-c1-local-completeness.md',
                    'KATZ-AKN-PERFECT': 'docs/research/katz-akn-c1-local-completeness.md',
                    'AKN-ATLAS-PERIODIC': 'docs/research/akn-vertex-atlas-periodic-approximant.md',
+                   'AKN-3-2-RADIUS2': 'docs/research/akn-radius2-exact-feasibility.md',
                    'PH4-OVERLAP-GRAPH': 'docs/research/phase4-exact-overlap-coverage.md',
                    'PH4-LEGAL-COVERAGE': 'docs/research/phase4-exact-overlap-coverage.md'}
         self.assertEqual({claim.name for claim in policy.ledger}, set(dossier))
