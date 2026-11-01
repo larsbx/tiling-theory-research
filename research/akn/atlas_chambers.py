@@ -205,9 +205,13 @@ def star_record(y, group, known):
     cp = CutProject(PERP_TRUE, tuple(x/2 for x in y))
     star = cp.star((0,)*6)
     key = canonical_star(star, group)
-    return {"orbit_class": known.get(key, -1),
-            "stabilizer_order": stabilizer_conjugacy(star, group)[0],
-            "stabilizer_conjugacy_sha256": stabilizer_conjugacy(star, group)[1]}
+    idx = known.get(key, -1)
+    order, conjugacy = stabilizer_conjugacy(star, group)
+    record = {"orbit_class": idx, "stabilizer_order": order,
+              "stabilizer_conjugacy_sha256": conjugacy}
+    if idx == -1:
+        record["counterexample_star"] = [list(cell) for cell in key]
+    return record
 
 
 def enumerate_partition(*, max_nodes=50, max_depth=15):
