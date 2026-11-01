@@ -141,6 +141,78 @@ which derives item 2 from bounded matching, without assuming it, and
 which survives all legal infinite tilings. A finite-box UNSAT search,
 four-wise checks on one period, or a radius-k atlas is not enough.
 
+## No-go lemma: finite-state exact internal-height potentials cannot work
+
+Suppose a putative facet-label proof assigns each vertex a state in a
+**finite** alphabet Σ, and an exact internal value g:Σ→ℝ³, with the
+edge equation
+
+    g(state(w)) − g(state(v)) = π_perp(h(w)−h(v))
+
+for *every* oriented edge of a complete infinite AKN-direction tiling.
+Summing along paths gives g(state(v))−π_perp(h(v))=constant. Since g(Σ)
+is finite, π_perp(h(V)) is finite. But π_perp is injective on the
+integer height group by det([A;B])=8, and a complete locally finite
+tiling has infinitely many distinct vertices: contradiction.
+
+**Conclusion:** a finite-label grammar cannot represent the *exact*
+irrational internal coordinate at each vertex by a finite-valued
+potential obeying this equality. A correct proof must exploit
+inequalities, multiscale transport, plane/hyperplane topology,
+or a different kind of cocycle. This explicitly rules out a tempting
+but impossible simplification of the phase-forcing step.
+
+## Sound finite counterexample mechanism for a specified facet grammar
+
+The executable `research/akn/decorated_quotient.py` reconstructs all
+**1,728** oriented face pairings of the certified 576-cell period
+quotient. A candidate grammar D specifies explicit oriented states:
+cell shape P/O, allowed zero-based 3-axis orientations, six face labels
+(low/high for each axis in sorted order), and ordered allowed
+(+normal, −normal) face-label pairs.
+
+**Proposition (SAT implies counterexample, for face-only rules).**
+If a total assignment of D-states to all periodic quotient cells
+passes the independently reconstructed face-gluing check, it extends
+periodically to a legal decorated tiling of ℝ³, provided the entire
+rule D consists of those facet-pair compatibility conditions and
+per-tile state restrictions. Since the undecorated tiling is
+periodic and the target AKN hull has no periodic member, D is **not**
+a globally perfect matching rule.
+
+**Proof.** Each finite quotient cell carries a permitted oriented
+state. Every quotient face is paired with exactly one opposite face;
+the complete check shows their labels form an allowed ordered pair.
+Replicate this finite labeling along all three spatial periods.
+The underlying certified quotient already glues to a face-to-face
+tiling, so every face in its infinite lift inherits one of the
+checked pairs. Therefore the decorated infinite lift is legal.
+Its undecorated geometry has nonzero periods, contradicting
+the claimed perfect target. QED.
+
+The converse is **not** established. An exhausted UNSAT search on
+one period *never proves D perfect*, does not exclude a larger
+decorated period, and does not exclude **nonperiodic** decorations of
+the same undecorated periodic tiling. A node cap returns
+`INCONCLUSIVE`, not UNSAT. A custom parser/independent witness
+checker must re-evaluate every selected tile state and every
+face pairing, rather than trusting the solver's state.
+
+The shipped `bare_control_grammar()` is an intentionally permissive
+**non-Katz** demonstration: plain labels on both shapes are legal
+everywhere, so the actual 576-cell periodic witness passes. The
+intentionally inconsistent plain/different grammar is a finite
+negative test. Neither says anything about the unpublished,
+untranscribed detailed Katz (1988) face inventory.
+
+**Primary source gate:** no variant table may be called
+`Katz-1988` or treated as a proof-relevant candidate until its
+orientation, rotation, reflection and decorated-prototile counting
+conventions are transcribed with exact page citations and audited
+against the paper. If Katz requires additional vertex/plane
+conditions, the grammar and checker must support them *before*
+the SAT soundness proposition is applied to Katz's full D.
+
 ## Proof routes and acceptance checkpoints
 
 | Route | Finite/reproducible stage | Global obligation | Status |
@@ -156,7 +228,9 @@ four-wise checks on one period, or a radius-k atlas is not enough.
 Run the standard-library-only obstruction checker and negative controls:
 
     python research/akn/global_rule_obstruction.py
+    python research/akn/decorated_quotient.py
     python -m unittest discover -s tests -p 'test_akn_global_rule_obstruction.py' -v
+    python -m unittest discover -s tests -p 'test_akn_decorated_quotient.py' -v
 
 The checker is independent of PR #22 (radius-two 286/287/3, provisional exact-head) and stacked PR #23 (generic chamber enumeration, also pending). The new spike does **not** silently import their pending findings.
 
