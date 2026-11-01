@@ -121,7 +121,7 @@ def _zero(a: V) -> bool:
     return all(sign(x) == 0 for x in a)
 
 
-def _compact(planes: list[Plane]) -> tuple[list[Plane], Plane | None]:
+def _compact(planes: list[Plane], strict: bool = True) -> tuple[list[Plane], Plane | None]:
     """Keep the strongest strict bound in each positive-ray direction.
 
     No inexact rounding, divisions, or tolerance comparisons are used.
@@ -129,7 +129,7 @@ def _compact(planes: list[Plane]) -> tuple[list[Plane], Plane | None]:
     out: list[Plane] = []
     for p in planes:
         if _zero(p.a):
-            if sign(p.b) <= 0:
+            if sign(p.b) < 0 or (strict and sign(p.b) == 0):
                 return [], p
             continue
         for k, old in enumerate(out):
@@ -150,15 +150,17 @@ def _compact(planes: list[Plane]) -> tuple[list[Plane], Plane | None]:
     return out, None
 
 
-def eliminate(planes: list[Plane]) -> Result:
+def eliminate(planes: list[Plane], strict: bool = True) -> Result:
     """Strict Fourier-Motzkin elimination, yielding exact feasibility.
 
-    Multipliers -n.a[j] and p.a[j] are *positive*, so elimination preserves
-    strict inequalities. A derived 0 < b with b <= 0 is a contradiction.
+    Multipliers -n.a[j] and p.a[j] are *positive*. They preserve
+    either strict inequalities (default) or non-strict closed inequalities.
+    For strict systems, 0 < b fails when b <= 0; for closed, 0 <= b
+    fails only when b < 0.
     Each step is reversible by choosing the eliminated variable between its
     strict lower and upper bounds.
     """
-    sys, bad = _compact(planes)
+    sys, bad = _compact(planes, strict=strict)
     stages = [len(sys)]
     if bad is not None:
         return Result(False, bad.b, bad.source, tuple(stages))
@@ -176,18 +178,18 @@ def eliminate(planes: list[Plane]) -> Result:
                 b = za(zm(v, p.b), zm(w, n.b))
                 derived = Plane(a, b, ("combine", v, w, p.source, n.source))
                 if _zero(a):
-                    if sign(b) <= 0:
+                    if sign(b) < 0 or (strict and sign(b) == 0):
                         return Result(False, b, derived.source, tuple(stages))
                 else:
                     projected.append(derived)
-        sys, bad = _compact(projected)
+        sys, bad = _compact(projected, strict=strict)
         stages.append(len(sys))
         if bad is not None:
             return Result(False, bad.b, bad.source, tuple(stages))
     return Result(True, None, None, tuple(stages))
 
 
-def check_obstruction(result: Result, originals: list[Plane]) -> bool:
+def check_obstruction(result: Result, originals: list[Plane], strict: bool = True) -> bool:
     """Replay a strict-infeasibility proof over the ORIGINAL inequalities.
 
     The derivation tree stores strictly positive Z[tau] multipliers for
@@ -217,7 +219,7 @@ def check_obstruction(result: Result, originals: list[Plane]) -> bool:
     except (AssertionError, KeyError, TypeError):
         return False
     return (_zero(final.a) and final.b == result.obstruction
-            and sign(final.b) <= 0)
+            and (sign(final.b) < 0 or (strict and sign(final.b) == 0)))
 
 
 # Every nonzero normal to a true perpendicular-space window facet is
@@ -355,9 +357,19 @@ def audit(cert: dict, radius: int) -> dict:
         result = eliminate(planes)
         if not result.feasible:
             assert check_obstruction(result, planes), "invalid strict-infeasibility proof"
-        name = ("feasible" if result.feasible else
-                "obstructed_strict" if sign(result.obstruction) < 0 else
-                "obstructed_at_boundary")
+        if result.feasible:
+            name = "feasible"
+        else:
+            # Strict open infeasibility alone CANNOT distinguish equality
+            # obstruction from a genuinely empty closed intersection.
+            closed = eliminate(planes, strict=False)
+            if closed.feasible:
+                name = "obstructed_at_boundary"
+            else:
+                assert check_obstruction(closed, planes, strict=False), (
+                    "invalid closed-infeasibility proof"
+                )
+                name = "obstructed_strict"
         results[name] += 1
         patch_sizes[len(patch)] += 1
         if name not in examples:
