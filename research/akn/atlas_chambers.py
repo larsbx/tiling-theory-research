@@ -214,6 +214,54 @@ def star_record(y, group, known):
     return record
 
 
+def incident_cell_intervals(normals, levels):
+    """All 160 signed cells, reconstructed as exact slab membership conditions."""
+    catalog = []
+    family_for_pair = {tuple(pair): f for f, pair in
+                       enumerate(combinations(range(6), 2))}
+    for axes in combinations(range(6), 3):
+        rest = [i for i in range(6) if i not in axes]
+        for bits in product((0, 1), repeat=3):
+            twice_center = tuple(sum(((1-2*b)*PERP_TRUE[axis][d]
+                                      for axis, b in zip(axes, bits)), ZERO)
+                                  for d in range(3))
+            conditions = []
+            for pair in combinations(rest, 2):
+                f = family_for_pair[pair]
+                n = normals[f]
+                width = sum((abs(dot(PERP_TRUE[j], n))
+                             for j in rest), ZERO)
+                shift = dot(n, twice_center)
+                low = shift-width
+                high = shift+width
+                assert low in levels[f] and high in levels[f]
+                conditions.append((f, levels[f].index(low),
+                                   levels[f].index(high)))
+            signed = frozenset((-(axis+1) if bit else axis+1)
+                               for axis, bit in zip(axes, bits))
+            catalog.append((signed, tuple(conditions)))
+    assert len(catalog) == 160
+    return catalog
+
+
+def classify_prefix(prefix, intervals, group, known, raw_cache, orbit_cache):
+    """Cell presence depends only on exact levels, never sampled rounding."""
+    raw = frozenset(cell for cell, cond in intervals
+                    if all(lo <= prefix[f] < hi for f, lo, hi in cond))
+    if raw not in raw_cache:
+        key = canonical_star(raw, group)
+        if key not in orbit_cache:
+            order, conjugacy = stabilizer_conjugacy(raw, group)
+            orbit_cache[key] = (known.get(key, -1), order, conjugacy)
+        raw_cache[raw] = (key, orbit_cache[key])
+    key, (idx, order, conjugacy) = raw_cache[raw]
+    record = {"orbit_class": idx, "stabilizer_order": order,
+              "stabilizer_conjugacy_sha256": conjugacy}
+    if idx == -1:
+        record["counterexample_star"] = [list(cell) for cell in key]
+    return record, raw, key
+
+
 def enumerate_partition(*, max_nodes=50, max_depth=15):
     if max_depth < 0 or max_depth > 15 or max_nodes < 0:
         raise ValueError("max_depth in [0,15] and max_nodes >= 0 required")
@@ -222,6 +270,10 @@ def enumerate_partition(*, max_nodes=50, max_depth=15):
     atlas = json.loads((HERE / "atlas.json").read_text())
     known = {tuple(map(tuple, row["star"])): i
              for i, row in enumerate(atlas["classes"])}
+    intervals = incident_cell_intervals(normals, levels)
+    raw_cache = {}
+    orbit_cache = {}
+    checked_orbits = set()
     stack = [((), initial_poly(normals, levels))]
     leaves = []
     expanded = 0
@@ -229,7 +281,16 @@ def enumerate_partition(*, max_nodes=50, max_depth=15):
         prefix, poly = stack.pop()
         result = {"prefix": list(prefix), "witness_y": encode(witness(poly))}
         if len(prefix) == 15:
-            result.update(star_record(witness(poly), group, known))
+            classification, raw, key = classify_prefix(
+                prefix, intervals, group, known, raw_cache, orbit_cache)
+            result.update(classification)
+            # Independent direct CutProject equality for one witness per
+            # distinct full-group orbit; no float or Monte Carlo sampling.
+            if key not in checked_orbits:
+                actual = CutProject(PERP_TRUE, tuple(x/2 for x in
+                                    witness(poly))).star((0,)*6)
+                assert actual == raw, "threshold star differs from exact selection"
+                checked_orbits.add(key)
             result["kind"] = "classified"
             leaves.append(result)
         elif len(prefix) >= max_depth or expanded >= max_nodes:
