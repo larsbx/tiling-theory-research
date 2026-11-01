@@ -26,12 +26,15 @@ limits and reproduction are in
 `docs/research/akn-atlas-open-chamber-certificate.md`.
 
 **Automated execution:** `docs/research/akn-automated-mathematics-research.md`
-defines the PR-head and scheduled research loop: full candidate
-enumeration, independent region-count and group-conjugacy replay,
-falsification/evidence retention, and an automatic exact 105-plane
-singular-probe follow-up. The manual full `workflow_dispatch` is no
-longer required. Scheduled runs begin only once the workflow reaches
-the default branch.
+defines the exact PR-head research cycle. Daily status monitoring and
+weekly full independent AKN experiments are now **owned by
+`larsbx/my-math-homelab`**, with schedule registration in
+`policy/research-schedules.toml` and an active mainline workflow
+since homelab PR #7 merged on November 1, 2026. The source PR workflow
+continues to validate code at exact PR heads, but its overlapping
+weekly cron was removed. The homelab full run records provenance,
+generates and replays exact open-chamber evidence, and continues with
+105 exact singular-plane probes. Neither schedule promotes claims.
 
 **Next acceptance obligation:** complete PR #22 exact-head tests and
 review, obtain a passing PR #23 *automatically triggered* full packet
