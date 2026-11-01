@@ -393,6 +393,8 @@ def verify_complete_packet(packet):
         "icosahedral_star_orbits": len(orbits),
         "stabilizer_subgroup_conjugacy_types": len(types),
         "concurrent_line_slices_counted": len(per_slice),
+        "slice_region_counts_sha256": sha256(
+            json.dumps(per_slice, separators=(",", ":")).encode()).hexdigest(),
         "coverage_verified_generic": True,
         "exactly_existing_24_orbits": set(orbits) == set(range(24)),
         "counterexample_to_24_orbits": -1 in orbits,
@@ -413,6 +415,8 @@ def main():
         record = {"generic_open_chambers": count,
                   "basis_sha256": basis_sha,
                   "active_internal_hyperplanes": len(slices),
+                  "slice_region_counts_sha256": sha256(
+                      json.dumps(slices, separators=(",", ":")).encode()).hexdigest(),
                   "boundary_supporting_planes": 30,
                   "singular_boundary_membership_verified": False}
     print(json.dumps(record, sort_keys=True, indent=2))
