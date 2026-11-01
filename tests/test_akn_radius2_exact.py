@@ -30,11 +30,17 @@ class RingAndSolver(unittest.TestCase):
         ])
         self.assertFalse(boundary.feasible)
         self.assertEqual(sign(boundary.obstruction), 0)
+        self.assertTrue(eliminate([
+            Plane(p, (0, 0)), Plane(n, (0, 0))
+        ], strict=False).feasible)
         impossible = eliminate([
             Plane(p, (-1, 0)), Plane(n, (0, 0))
         ])
         self.assertFalse(impossible.feasible)
         self.assertLess(sign(impossible.obstruction), 0)
+        self.assertFalse(eliminate([
+            Plane(p, (-1, 0)), Plane(n, (0, 0))
+        ], strict=False).feasible)
         proof_planes = [
             Plane(p, (0, 0), ("upper",)),
             Plane(n, (0, 0), ("lower",)),
@@ -42,6 +48,8 @@ class RingAndSolver(unittest.TestCase):
         certificate = eliminate(proof_planes)
         self.assertFalse(certificate.feasible)
         self.assertTrue(check_obstruction(certificate, proof_planes))
+        self.assertFalse(check_obstruction(certificate, proof_planes,
+                                          strict=False))
         self.assertFalse(check_obstruction(certificate, proof_planes[:1]))
 
 
@@ -78,8 +86,8 @@ class PeriodicPatches(unittest.TestCase):
             counts.get("obstructed_at_boundary", 0) +
             counts.get("obstructed_strict", 0), 290
         )
-        self.assertGreater(counts.get("obstructed_at_boundary", 0), 0)
-        self.assertGreater(counts.get("obstructed_strict", 0), 0)
+        self.assertEqual(counts.get("obstructed_at_boundary"), 287)
+        self.assertEqual(counts.get("obstructed_strict"), 3)
 
 
 if __name__ == "__main__":
