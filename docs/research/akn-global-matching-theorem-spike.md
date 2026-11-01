@@ -58,6 +58,89 @@ Proof: for a fixed T and each k pick S_k∈X_AKN whose central r_k patch agrees 
 
 This is mathematically valid but **not a finite certificate**: checking finitely many k does not imply all-k coverage. A possible finite-to-infinite bridge is a genuinely recognizable collared supertile hierarchy, with an exactly proved induction preserving *all* supertile interiors, boundaries and seam/corner configurations. No such induction is certified here.
 
+## Stronger bridge proved: four-wise *open* phase consistency forces the AKN hull
+
+The previous closed-Helly result is deliberately weak: it may select a
+singular phase, and it assumes a compact normalization box. For the actual
+**closed local-isomorphism hull**, both limitations can be avoided by
+working with open cell windows and finite-patch convergence.
+
+For a fixed oriented integer height h on an infinite, locally finite,
+complete face-to-face tiling T, every lifted cell c=(n,I) has an **open,
+convex, nonempty** true-perpendicular acceptance region
+
+    U_c = π_perp(n + 1_I/2) + int Z(W_{I^c})  ⊂ ℝ³,
+
+with W_i=A_i+(1−τ)B_i. Use one consistent global h for all cells; no
+independent relifting of distant patches is permitted.
+
+**Theorem (Helly–patch local-isomorphism criterion).** Assume every
+subcollection of at most four required cells of T has a common phase:
+
+    ∀F ⊂ Cells(T), |F| ≤ 4 :  ⋂_{c∈F} U_c ≠ ∅.
+
+Then **T belongs to the closed hull X_AKN of generic canonical AKN
+cut-and-project tilings** (with precisely these physical axes and
+orientation conventions).
+
+**Proof.** Fix any finite F of cells. Its open convex sets U_c satisfy
+the four-wise intersection hypothesis, so finite-dimensional Helly's
+theorem gives a nonempty **open** intersection U_F. The nongeneric
+shifts for the canonical selection are contained in a countable union
+of affine selection-boundary planes, and cannot exhaust U_F. Choose a
+fully generic γ_F∈U_F. The canonical cut-and-project tiling S_F
+contains each required cell of F **at exactly the same physical
+position**, after fixing the integer lift's origin.
+
+Now fix any growing ball B_R and let F_R be all tiles of T meeting a
+slightly larger ball B_{R+1}; local finiteness makes F_R finite. Since
+both T and S_{F_R} are complete tilings with disjoint cell interiors
+and S_{F_R} contains every T-cell covering B_R, no extra S-cell can
+intrude into B_R. Thus S_{F_R} and T agree on B_R. The sequence
+S_{F_R} converges locally to T, so T∈X_AKN by closedness. QED.
+
+**Why this is stronger than the closed-phase bridge:** There need not
+be one common γ for the **entire infinite tiling**. Compactness of a
+single phase box and an independent missing-cell/saturation check are
+not necessary for this *hull membership* conclusion. Complete
+face-to-face coverage, canonical tiling existence for generic phases,
+a consistent lifted origin, and the open four-wise assumption are all
+essential hypotheses. Singular limit tilings are allowed because the
+target hull is **closed**, even though the finite witnesses are generic.
+
+**What is still OPEN for a concrete finite matching rule D:**
+proving that *its local facet labels* force the four-wise condition for
+**arbitrarily distant** cells. This theorem converts the C2 goal to a
+precise globally quantified **4-cell consistency property**; it does
+not make that property locally decidable. It is not an unconditional
+Katz-rule proof.
+
+**Sharpness of the Helly number.** In ℝ³, the four open convex
+halfspaces x>0, y>0, z>0, x+y+z<0 have every triple intersecting but
+empty four-way intersection. The new fixture checks exact integral
+witnesses. Consequently, *3-wise* convex consistency is not a
+generally valid replacement for 4-wise consistency without extra
+special structure of the AKN windows.
+
+### New falsifiable local-to-global obligation
+
+To promote a **specific source-derived** decoration D to perfect, show:
+
+1. **Well-defined global lift.** Already holds by det([A;B])=8
+   for complete face-to-face tilings in the fixed AKN orientation.
+2. **Decoration-to-four-wise forcing.** For *all* D-legal complete
+   tilings and every four cells anywhere in the tiling, their true
+   internal open windows intersect. This is the nontrivial step.
+3. **Canonically selected generic tilings exist** for all generic
+   shifts (an imported cut-and-project geometric theorem with
+   audited hypotheses).
+4. **Apply the Helly–patch criterion** to obtain T∈X_AKN.
+
+For a finite verifier one needs a separate **uniform transport theorem**
+which derives item 2 from bounded matching, without assuming it, and
+which survives all legal infinite tilings. A finite-box UNSAT search,
+four-wise checks on one period, or a radius-k atlas is not enough.
+
 ## Proof routes and acceptance checkpoints
 
 | Route | Finite/reproducible stage | Global obligation | Status |
