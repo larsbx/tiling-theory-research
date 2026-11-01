@@ -21,11 +21,18 @@ registered conjecture and stated finite hypotheses
     -> reviewed claim-governance update (separate operation)
 ```
 
-The pipeline now runs **automatically on every PR-head update** and,
-after integration into `main`, on a **weekly schedule** (UTC Monday
-04:17). The manual dispatch remains optional, not a prerequisite.
-Concurrent superseded runs are cancelled. Both jobs check out the PR's
-exact `head.sha`, not the synthetic merge commit.
+The source workflow runs **automatically on every PR-head update**
+to validate the exact research implementation. **Durable scheduling is
+centralized in [my-math-homelab](https://github.com/larsbx/my-math-homelab)**:
+daily UTC 04:07 source/CI monitoring and Monday UTC 04:17 full
+independent mathematical experiments. The homelab workflow was merged
+on November 1, 2026 in PR #7; its root registry is
+`policy/research-schedules.toml` and its research record is
+`docs/research/akn-automated-research.md`. The source's own weekly
+cron is intentionally removed to avoid duplicate expensive runs.
+Manual source dispatch remains available for exact-head acceptance.
+Concurrent superseded source PR runs are cancelled. Source CI checks
+out the PR's exact `head.sha`, not the synthetic merge commit.
 
 The first job validates the exact arithmetic and deliberately incomplete
 eight-slab cover, plus an independent full 2D-section region count.
