@@ -31,6 +31,15 @@ class ChamberCertificate(unittest.TestCase):
         self.assertEqual(verified["unresolved_frontier"], 8)
         self.assertFalse(verified["complete_generic_coverage"])
 
+    def test_committed_independent_depth_one_fixture(self):
+        # These witnesses were constructed along a zonotope support vector,
+        # independently of the enumerator's polytope barycenters.
+        packet = json.loads((AKN/"atlas_chamber_depth1_exact.json").read_text())
+        self.assertEqual(packet["frontier_count"], 8)
+        checked = verify_packet(packet)
+        self.assertEqual(checked["verified_partition_prefixes"], 1)
+        self.assertFalse(checked["complete_generic_coverage"])
+
     def test_reproduction_is_byte_deterministic(self):
         another = enumerate_partition(max_depth=1, max_nodes=1)
         self.assertEqual(json.dumps(self.packet, sort_keys=True),
