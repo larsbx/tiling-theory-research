@@ -24,6 +24,7 @@ jobs:
           python research/akn/atlas_chambers.py --max-depth 1 --max-nodes 1 --out akn-chamber-depth1.json
           python research/akn/atlas_chamber_check.py akn-chamber-depth1.json > akn-chamber-depth1-replay.json
           python -m unittest discover -s tests -p 'test_akn_atlas_chambers.py' -v
+          python -m unittest discover -s tests -p 'test_akn_atlas_region_count.py' -v
           python research/akn/atlas_region_count.py > akn-independent-region-count.json
           python - <<'PY'
           import json
@@ -65,6 +66,14 @@ jobs:
           assert result["exactly_existing_24_orbits"] is True
           assert result["stabilizer_subgroup_conjugacy_types"] == 6
           assert result["singular_boundary_membership_verified"] is False
+          from hashlib import sha256
+          certificate = json.load(open("akn-full-chambers.json"))
+          manifest = json.load(open("research/akn/atlas_chamber_full_manifest.json"))
+          packed = b"".join(int("".join(map(str, item["prefix"])), 8).to_bytes(6, "big")
+                            for item in certificate["leaves"])
+          assert sha256(packed).hexdigest() == manifest["packed_prefixes_sha256"]
+          counts = {str(k): v for k, v in result["classified_orbits"].items()}
+          assert counts == manifest["orbit_class_chamber_counts"]
           PY
           sha256sum akn-full-chambers.json akn-full-verification.json > akn-full-sha256.txt
       - name: Upload full generic-chamber certificate, not singular proof
