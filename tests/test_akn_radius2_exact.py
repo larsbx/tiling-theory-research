@@ -6,8 +6,8 @@ from pathlib import Path
 
 AKN = Path(__file__).resolve().parents[1] / "research" / "akn"
 sys.path.insert(0, str(AKN))
-from radius2_exact import (Plane, audit, constraints, eliminate, patch_cells,
-                           projection, sign, za, zm, _star_map)  # noqa: E402
+from radius2_exact import (Plane, audit, check_obstruction, constraints, eliminate,
+                           patch_cells, projection, sign, za, zm, _star_map)  # noqa: E402
 
 CERT = json.loads((AKN / "certificate_3_2.json").read_text())
 
@@ -35,6 +35,14 @@ class RingAndSolver(unittest.TestCase):
         ])
         self.assertFalse(impossible.feasible)
         self.assertLess(sign(impossible.obstruction), 0)
+        proof_planes = [
+            Plane(p, (0, 0), ("upper",)),
+            Plane(n, (0, 0), ("lower",)),
+        ]
+        certificate = eliminate(proof_planes)
+        self.assertFalse(certificate.feasible)
+        self.assertTrue(check_obstruction(certificate, proof_planes))
+        self.assertFalse(check_obstruction(certificate, proof_planes[:1]))
 
 
 class PeriodicPatches(unittest.TestCase):
