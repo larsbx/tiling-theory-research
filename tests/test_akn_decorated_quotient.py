@@ -29,6 +29,15 @@ class DecoratedPeriodicQuotient(unittest.TestCase):
             g.negative.orientation == -1 for g in self.graph
         ))
 
+    def test_explicit_plain_grammar_fixture(self):
+        path = AKN / "decoration_plain_negative_control.json"
+        fixture = json.loads(path.read_text())
+        self.assertIn("NOT-KATZ", fixture["name"])
+        self.assertEqual(fixture["source_status"].split(";")[0],
+                         "synthetic negative control")
+        self.assertEqual(solve(CERT, fixture, max_nodes=2)["status"],
+                         "SAT_PERIODIC_WITNESS")
+
     def test_periodic_plain_label_rule_is_not_perfect(self):
         self.assertEqual(self.sat["status"], "SAT_PERIODIC_WITNESS")
         self.assertEqual(self.sat["face_pairs"], 1728)
