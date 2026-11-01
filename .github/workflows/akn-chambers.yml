@@ -1,89 +1,117 @@
-name: AKN chamber certificate (bounded pilot)
+# Continuous mathematical research: no manual dispatch required.
+# This workflow produces finite evidence, not authority to promote a theorem.
+name: AKN automated exact research
 
 on:
   pull_request:
-    paths:
-      - "research/akn/**"
-      - "tests/test_akn_atlas_chambers.py"
-      - ".github/workflows/akn-chambers.yml"
+  schedule:
+    # Runs on the default branch after integration; PRs run on every update.
+    - cron: "17 4 * * 1"
   workflow_dispatch:
 
-jobs:
-  exact-chamber-prefix:
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-      - name: Exact enumeration and independent replay
-        shell: bash
-        run: |
-          set -euo pipefail
-          python research/akn/atlas_chambers.py --max-depth 1 --max-nodes 1 --out akn-chamber-depth1.json
-          python research/akn/atlas_chamber_check.py akn-chamber-depth1.json > akn-chamber-depth1-replay.json
-          python -m unittest discover -s tests -p 'test_akn_atlas_chambers.py' -v
-          python -m unittest discover -s tests -p 'test_akn_atlas_region_count.py' -v
-          python research/akn/atlas_region_count.py > akn-independent-region-count.json
-          python - <<'PY'
-          import json
-          data = json.load(open("akn-independent-region-count.json"))
-          assert data["generic_open_chambers"] == 21840
-          assert data["active_internal_hyperplanes"] == 105
-          manifest = json.load(open("research/akn/atlas_chamber_full_manifest.json"))
-          assert data["slice_region_counts_sha256"] == manifest["independent_105_slice_region_counts_sha256"]
-          PY
-          sha256sum akn-chamber-depth1.json akn-chamber-depth1-replay.json akn-independent-region-count.json > akn-chamber-depth1-sha256.txt
-      - name: Upload deterministic bounded evidence (not an exhaustive proof)
-        uses: actions/upload-artifact@v4
-        with:
-          name: akn-chamber-depth1-exact-evidence
-          path: |
-            akn-chamber-depth1.json
-            akn-chamber-depth1-replay.json
-            akn-independent-region-count.json
-            akn-chamber-depth1-sha256.txt
+permissions:
+  contents: read
 
-  full-generic-certificate:
-    if: github.event_name == 'workflow_dispatch'
+concurrency:
+  group: akn-exact-research-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  exact-prefix-and-unit:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 35
     steps:
       - uses: actions/checkout@v4
+        with:
+          # A merge-result check is not an exact-PR-head acceptance check.
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: Enumerate all 15 families and replay independent region count
+      - name: Exact small-cover and independent arithmetic regressions
         shell: bash
         run: |
           set -euo pipefail
-          python research/akn/atlas_chambers.py --max-depth 15 --max-nodes 100000 --out akn-full-chambers.json
-          python research/akn/atlas_region_count.py --packet akn-full-chambers.json > akn-full-verification.json
+          python -m unittest discover -s tests -v
+          python research/akn/atlas_research_driver.py --max-depth 1 --max-nodes 1 --out evidence-prefix
+          python research/akn/atlas_region_count.py > evidence-prefix/independent-region-count.json
           python - <<'PY'
           import json
-          result = json.load(open("akn-full-verification.json"))
-          assert result["coverage_verified_generic"] is True
-          assert result["independently_counted_regions"] == 21840
-          assert result["exactly_existing_24_orbits"] is True
-          assert result["stabilizer_subgroup_conjugacy_types"] == 6
-          assert result["singular_boundary_membership_verified"] is False
-          from hashlib import sha256
-          certificate = json.load(open("akn-full-chambers.json"))
+          d = json.load(open("evidence-prefix/research-run.json"))
+          assert d["state"] == "frontier_inconclusive"
+          assert d["evidence"]["remaining_frontier_prefixes"] == 8
+          counts = json.load(open("evidence-prefix/independent-region-count.json"))
           manifest = json.load(open("research/akn/atlas_chamber_full_manifest.json"))
-          assert result["slice_region_counts_sha256"] == manifest["independent_105_slice_region_counts_sha256"]
-          packed = b"".join(int("".join(map(str, item["prefix"])), 8).to_bytes(6, "big")
-                            for item in certificate["leaves"])
-          assert sha256(packed).hexdigest() == manifest["packed_prefixes_sha256"]
-          counts = {str(k): v for k, v in result["classified_orbits"].items()}
-          assert counts == manifest["orbit_class_chamber_counts"]
+          assert counts["generic_open_chambers"] == 21840
+          assert counts["active_internal_hyperplanes"] == 105
+          assert counts["slice_region_counts_sha256"] == manifest["independent_105_slice_region_counts_sha256"]
           PY
-          sha256sum akn-full-chambers.json akn-full-verification.json > akn-full-sha256.txt
-      - name: Upload full generic-chamber certificate, not singular proof
+      - name: Retain exact bounded and independent counting evidence
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: akn-full-open-chambers-exact-evidence
-          path: |
-            akn-full-chambers.json
-            akn-full-verification.json
-            akn-full-sha256.txt
+          name: akn-bounded-prefix-and-region-evidence
+          path: evidence-prefix/
+          if-no-files-found: warn
+
+  full-generic-research:
+    needs: exact-prefix-and-unit
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Autonomous full 135-plane experiment and independent replay
+        shell: bash
+        run: |
+          set -euo pipefail
+          python research/akn/atlas_research_driver.py \
+            --max-depth 15 --max-nodes 100000 --require-full \
+            --out evidence-full
+      - name: Recheck canonical complete witness checksum
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from hashlib import sha256
+          import json
+          from pathlib import Path
+          packet = json.loads(Path("evidence-full/chambers.json").read_text())
+          manifest = json.loads(Path("research/akn/atlas_chamber_full_manifest.json").read_text())
+          prefixes = [leaf["prefix"] for leaf in packet["leaves"]]
+          assert len(prefixes) == 21840
+          packed = b"".join(
+              int("".join(map(str, prefix)), 8).to_bytes(6, "big")
+              for prefix in prefixes
+          )
+          assert sha256(packed).hexdigest() == manifest["packed_prefixes_sha256"]
+          result = json.loads(Path("evidence-full/research-run.json").read_text())
+          assert result["state"] == "generic_candidate_verified"
+          assert result["evidence"]["generic_coverage_verified"] is True
+          assert result["evidence"]["singular_boundary_membership_verified"] is False
+          print("Finite generic candidate verified; no universal theorem promoted.")
+          PY
+      - name: Publish research state to workflow summary
+        if: always()
+        shell: bash
+        run: |
+          if test -f evidence-full/research-run.json; then
+            echo "## AKN automated research result" >> "$GITHUB_STEP_SUMMARY"
+            echo '~~~json' >> "$GITHUB_STEP_SUMMARY"
+            cat evidence-full/research-run.json >> "$GITHUB_STEP_SUMMARY"
+            echo '~~~' >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "Full run failed before creating state; inspect job logs." >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Preserve evidence, errors, counterexamples and next obligations
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: akn-full-generic-research-evidence
+          path: evidence-full/
+          if-no-files-found: warn
+          retention-days: 90
