@@ -191,6 +191,13 @@ def eliminate(planes: list[Plane]) -> Result:
 # a cross-product W_i x W_j; there are only 15 such axis pairs.
 FACETS = tuple((i, j, zcross(W[i], W[j]))
                for i, j in combinations(range(6), 2))
+def sumz(items) -> Z:
+    s = ZERO
+    for v in items:
+        s = za(s, v)
+    return s
+
+
 CELL_WIDTHS: dict[tuple[int, int, int], dict[tuple[int, int], Z]] = {}
 for I in combinations(range(6), 3):
     rest = tuple(W[k] for k in range(6) if k not in I)
@@ -198,10 +205,159 @@ for I in combinations(range(6), 3):
         (i, j): sumz(zzabs(zdot(g, n)) for g in rest)
         for i, j, n in FACETS if i not in I and j not in I
     }
+WINDOW_WIDTHS = {
+    (i, j): sumz(zzabs(zdot(g, n)) for g in W)
+    for i, j, n in FACETS
+}
 
 
-def sumz(items) -> Z:
-    s = ZERO
-    for v in items:
-        s = za(s, v)
-    return s
+def _star_map(cert: dict) -> dict[tuple[int, int, int], set[tuple[int, ...]]]:
+    stars: dict[tuple[int, int, int], set[tuple[int, ...]]] = {}
+    for base, I in cert["cells"]:
+        for mask in range(8):
+            vertex = list(base)
+            signed = []
+            for k, axis in enumerate(I):
+                high = (mask >> k) & 1
+                vertex[axis] += high
+                signed.append(-(axis + 1) if high else axis + 1)
+            stars.setdefault(projection(tuple(vertex)), set()).add(
+                tuple(sorted(signed))
+            )
+    return stars
+
+
+def patch_cells(
+    center: tuple[int, ...],
+    stars: dict[tuple[int, int, int], set[tuple[int, ...]]],
+    radius: int,
+) -> tuple[tuple[tuple[int, ...], tuple[int, int, int]], ...]:
+    """Return relative lifted cell bases and axis triples.
+
+    Radius 1: all cells incident at center.
+    Radius 2: also all cells incident to edge-neighbors of center.
+    Lift each neighboring star relative to the SAME central Z^6 anchor, so
+    cell incidences crossing the periodic quotient are accounted for.
+    """
+    if radius not in (1, 2):
+        raise ValueError("implemented radii: 1, 2 (edge-neighbor-star convention)")
+    neighboring = {tuple(center)}
+    if radius == 2:
+        for tri in stars[projection(center)]:
+            for signed in tri:
+                v = list(center)
+                v[abs(signed) - 1] += 1 if signed > 0 else -1
+                neighboring.add(tuple(v))
+
+    out = set()
+    for v in neighboring:
+        for tri in stars[projection(v)]:
+            base = list(v)
+            I = tuple(sorted(abs(s) - 1 for s in tri))
+            for signed in tri:
+                if signed < 0:
+                    base[-signed - 1] -= 1
+            relative = tuple(base[i] - center[i] for i in range(6))
+            out.add((relative, I))
+    return tuple(sorted(out))
+
+
+def constraints(
+    cells: tuple[tuple[tuple[int, ...], tuple[int, int, int]], ...],
+) -> list[Plane]:
+    """Necessary and sufficient strict cell-inclusion halfspaces.
+
+    For N = W_i x W_j and a cell based at n with axes I, let
+        C = 2*pi_perp(n) + sum_{k in I} W_k
+        H = sum_{k not in I} |<W_k,N>|.
+    Cell inclusion is exactly
+        2<N,gamma> < <N,C> + H
+       -2<N,gamma> < H - <N,C>.
+    The central vertex's full 6-generator window is included as well.
+    Since every listed cell must appear, intersection of these convex open
+    regions is equivalent to existence of a generic common shift.
+    """
+    tight: dict[tuple[int, int, int], Plane] = {}
+
+    def record(base: tuple[int, ...], I: tuple[int, ...] | None) -> None:
+        twice_center = tuple(
+            sumz(zi(W[k][j], 2*base[k] + (int(k in I) if I else 0))
+                 for k in range(6))
+            for j in range(3)
+        )
+        widths = CELL_WIDTHS[I] if I is not None else WINDOW_WIDTHS
+        for f, (i, j, normal) in enumerate(FACETS):
+            width = widths.get((i, j))
+            if width is None:
+                continue
+            shift = zdot(normal, twice_center)
+            for side in (1, -1):
+                a: V = tuple(zi(x, 2*side) for x in normal)  # type: ignore[assignment]
+                b = za(width, zi(shift, side))
+                info = ("vertex" if I is None else "cell",
+                        tuple(base), I, (i, j), side)
+                item = Plane(a, b, info)
+                key = (f, side, 0)
+                prior = tight.get(key)
+                if prior is None or sign(zs(b, prior.b)) < 0:
+                    tight[key] = item
+
+    record((0, 0, 0, 0, 0, 0), None)
+    for relative, I in cells:
+        record(relative, I)
+    assert len(tight) == 30, "unexpected missing facet bound"
+    return list(tight.values())
+
+
+def audit(cert: dict, radius: int) -> dict:
+    stars = _star_map(cert)
+    vertices = [tuple(v) for v in cert["vertices"]]
+    assert len(vertices) == len(stars) == 576
+    results = Counter()
+    patch_sizes = Counter()
+    examples = {}
+    for index, center in enumerate(vertices):
+        patch = patch_cells(center, stars, radius)
+        result = eliminate(constraints(patch))
+        name = ("feasible" if result.feasible else
+                "obstructed_strict" if sign(result.obstruction) < 0 else
+                "obstructed_at_boundary")
+        results[name] += 1
+        patch_sizes[len(patch)] += 1
+        if name not in examples:
+            examples[name] = {
+                "vertex_index": index,
+                "vertex": list(center),
+                "patch_cells": len(patch),
+                "elimination_stages": list(result.stages),
+                "obstruction": (
+                    list(result.obstruction) if result.obstruction is not None
+                    else None
+                ),
+            }
+    return {
+        "radius_convention": "central full star and full edge-neighbor stars"
+        if radius == 2 else "central full star",
+        "arithmetic": "exact Z[tau] strict Fourier-Motzkin",
+        "radius": radius,
+        "vertices_checked": len(vertices),
+        "result_counts": dict(sorted(results.items())),
+        "patch_cell_counts": dict(sorted(patch_sizes.items())),
+        "examples": examples,
+        "caveat": ("Strict feasibility is generic AKN patch-language membership. "
+                   "Boundary obstruction does not decide singular shifts."),
+    }
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--json", action="store_true", help="print JSON")
+    args = parser.parse_args()
+    path = Path(__file__).resolve().parent / "certificate_3_2.json"
+    cert = json.loads(path.read_text())
+    result = {"radius_1": audit(cert, 1), "radius_2": audit(cert, 2)}
+    print(json.dumps(result, indent=2, sort_keys=True))
+
+
+if __name__ == "__main__":
+    main()
