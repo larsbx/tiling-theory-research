@@ -1,8 +1,8 @@
-# Exact AKN open-chamber cover: bounded reproducible pilot
+# Exact AKN open-chamber cover and stabilizer conjugacy census
 
 **Date:** 2026-11-01  
 **Upstream:** PR #22, `b0c07fd04862895ef512ede4b2f668f3f328e407`  
-**Status:** experimental finite enumeration and independent replay; **no completed 135-plane exhaustive certificate yet**.
+**Status:** preliminary full exact local enumeration with an independent arrangement-count cross-check; **hosted exact-head verification and research acceptance remain pending**.
 
 ## Mathematical object
 
@@ -105,6 +105,76 @@ coverage proof. For a future unbounded completion, use a cap above
 the actual number of expanded prefixes and obtain a packet with zero
 frontier leaves. Run the independent checker on that **exact** packet
 before proposing any alteration to `AKN-ATLAS-PERIODIC`.
+
+## Preliminary full finite calculation (not yet accepted on the hosted head)
+
+Two different exact algorithms were run locally against the fixed 135-plane
+basis. A polytope-splitting enumeration produced **21,840** distinct complete
+15-family open-chamber sign vectors with exact rational `Q(tau)`
+interior witnesses; every witness satisfies its strict 15 slab inequalities.
+An independent calculation inserts all 105 *interior* hyperplanes (the other
+30 support the window) and counts the induced line-arrangement regions
+of their planar window sections. It also produces **21,840**. The planar
+counter explicitly deduplicates coincident section lines and counts
+multiple-line intersections with the multiplicity-minus-one formula.
+
+All 21,840 resulting stars reduce to **exactly the existing 24 full
+`I_h` star orbits**. Their representative signed-cell keys agree
+byte-for-byte with the committed 24 representatives. The subgroup
+conjugacy classification is **six**, not 24:
+
+| Stabilizer order | Existing star-orbit IDs |
+| ---: | --- |
+| 1 | 0, 4, 5, 6, 7, 13, 14, 22 |
+| 2 | 1, 3, 10, 12, 15, 17, 20, 21, 23 |
+| 4 | 2, 9, 16, 18 |
+| 6 | 11 |
+| 10 | 19 |
+| 120 | 8 |
+
+An auxiliary exact facet adjacency scan of the 21,840
+polytope states found **94,440 nondegenerate chamber facets and zero
+missing internal chamber neighbors**. This is a secondary arithmetic
+cross-check, not a separate singular-boundary certification.
+
+The trace manifest is committed at
+`research/akn/atlas_chamber_full_manifest.json`, including all
+15 intermediate prefix counts, the canonical packed-sign-vector SHA-256,
+the local complete witness packet SHA-256, per-orbit counts, and the
+24-orbit representative-set digest. The complete local witness packet
+is reproducible through the generator and is intentionally kept as a
+large evidence artifact rather than a source file.
+
+`research/akn/atlas_region_count.py` is an independent **second
+exhaustiveness checker**: for a complete packet, it recomputes the
+region count without importing the enumerator, validates every strict
+witness and class assignment, checks conjugacy signatures, verifies
+the prefix-depth census and rejects missing or duplicated sign vectors.
+Equality between the independently proven 3D region count and the
+number of distinct strict full sign vectors is a finite coverage
+certificate.
+
+**Acceptance boundary:** These are *locally reproduced preliminary
+mathematical computations*. Before upgrading the registered atlas claim,
+the new source must pass hosted CI at its exact commit head and its
+full evidence packet must be replayed by the committed independent
+checker. Open/closed radius-two results on upstream PR #22 and
+singular-plane stars remain separately gated.
+
+Reproduce the full calculation and verifier (unlike the cheap bounded
+pilot above):
+
+```sh
+python research/akn/atlas_chambers.py --max-depth 15 --max-nodes 100000 --out akn-full-chambers.json
+python research/akn/atlas_region_count.py --packet akn-full-chambers.json
+```
+
+The full job is exposed by the manual GitHub Actions
+`workflow_dispatch` and uploads the certificate, independent verdict,
+and file checksums as durable artifacts. Resource caps below 81,425
+expanded prefixes leave an explicit frontier and cannot count as
+exhaustion. The separate original strict-FM trie checker remains
+available to replay bounded partial packets.
 
 ## Independent acceptance obligations
 
