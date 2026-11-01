@@ -1,8 +1,13 @@
 # AKN radius-two and exact atlas-arrangement research note
 
-**Date:** 2026-11-01
+**Claim ID:** AKN-3-2-RADIUS2  
+**Status:** finite-domain  
+**Date:** 2026-11-01  
 **Parent:** [AKN-ATLAS-PERIODIC](akn-vertex-atlas-periodic-approximant.md)
-**Status:** exploratory exact finite computation; **no claim-status promotion**.
+
+This registration is narrowly limited to the 576 centers of the specified
+3/2 certificate and *generic true-AKN common-shift feasibility* for one fixed
+signed-axis Z^6 lift, not a universal radius-two matching-rule statement.
 
 ## Input and scope
 
@@ -72,10 +77,16 @@ reconstructed all 576 periodic vertex patches and found:
 | Radius 1, generic feasible | 576 |
 | Radius 2, generic feasible | 286 |
 | Radius 2, no strict common-shift solution | 290 |
+| Of those, closed-halfspace intersection nonempty (boundary only) | 287 |
+| Of those, even the closed intersection is empty | 3 |
 
 These are **not atlas class counts**, nor do they show 290 distinct defect
-types. Some rejected patches have a zero-margin obstruction instead of a
-strictly negative one. The committed Python implementation and GitHub CI
+types. The first strict-elimination contradiction can be a zero-margin equality
+even when stronger constraints elsewhere make the **closed** system empty.
+Each rejected patch is therefore tested again using non-strict Fourier-Motzkin
+elimination. Only closed-feasible patches are classified boundary-only.
+All open and closed rejection proofs are replayed from strictly positive
+linear combinations of the original halfspaces. The committed Python implementation and GitHub CI
 must corroborate this preliminary count before treating the census as an
 accepted exact numerical result. A separate reproducible positive witness
 and contradiction trace for each distinct patch would strengthen the
@@ -132,6 +143,8 @@ does not import the earlier AKN geometry/checker or third-party packages.
 ## Mathematical firewalls
 
 - Existing AKN-ATLAS-PERIODIC remains finite-domain and unchanged.
+- The separately registered AKN-3-2-RADIUS2 is **only** this exact finite
+  576-center census and the associated generic patch-membership test.
 - Failure of radius-two admissibility for this single periodic approximant
   does **not** prove that every periodic tiling violates radius-two rules.
 - No claim of an all-radii aperiodicity theorem, minimal radius, perfect
