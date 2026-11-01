@@ -31,6 +31,22 @@
       ]
     },
     {
+      "id": "AKN-3-2-RADIUS2",
+      "status": "finite-domain",
+      "title": "Generic ideal-AKN radius-two patch feasibility for the fixed 3/2 periodic certificate",
+      "summary": "Exact 576-center census: 286 radius-two full edge-neighbor star patches admit one generic ideal AKN shift; 287 are open-infeasible but closed-feasible and 3 have empty closed intersection. Strict Fourier-Motzkin over Z[tau], with replayed positive-multiplier obstruction proofs; fixed six-axis lift and nonsingular membership only.",
+      "primary_surface": "docs/research/akn-radius2-exact-feasibility.md",
+      "evidence": [
+        "research/akn/certificate_3_2.json",
+        "research/akn/radius2_exact.py",
+        "research/akn/atlas_arrangement.py",
+        "research/akn/atlas_hyperplanes.json",
+        "tests/test_akn_radius2_exact.py",
+        "tests/test_akn_atlas_arrangement.py"
+      ],
+      "scope": "One 3/2 periodic tiling and its 576 centers; no universal claim about radius-two rules, singular boundary selection, or 24-atlas completeness."
+    },
+    {
       "id": "KATZ-AKN-PERFECT",
       "status": "open",
       "title": "Global perfection of Katz/AKN matching-rule decorations",
