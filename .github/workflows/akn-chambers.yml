@@ -24,7 +24,14 @@ jobs:
           python research/akn/atlas_chambers.py --max-depth 1 --max-nodes 1 --out akn-chamber-depth1.json
           python research/akn/atlas_chamber_check.py akn-chamber-depth1.json > akn-chamber-depth1-replay.json
           python -m unittest discover -s tests -p 'test_akn_atlas_chambers.py' -v
-          sha256sum akn-chamber-depth1.json akn-chamber-depth1-replay.json > akn-chamber-depth1-sha256.txt
+          python research/akn/atlas_region_count.py > akn-independent-region-count.json
+          python - <<'PY'
+          import json
+          data = json.load(open("akn-independent-region-count.json"))
+          assert data["generic_open_chambers"] == 21840
+          assert data["active_internal_hyperplanes"] == 105
+          PY
+          sha256sum akn-chamber-depth1.json akn-chamber-depth1-replay.json akn-independent-region-count.json > akn-chamber-depth1-sha256.txt
       - name: Upload deterministic bounded evidence (not an exhaustive proof)
         uses: actions/upload-artifact@v4
         with:
@@ -32,4 +39,39 @@ jobs:
           path: |
             akn-chamber-depth1.json
             akn-chamber-depth1-replay.json
+            akn-independent-region-count.json
             akn-chamber-depth1-sha256.txt
+
+  full-generic-certificate:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Enumerate all 15 families and replay independent region count
+        shell: bash
+        run: |
+          set -euo pipefail
+          python research/akn/atlas_chambers.py --max-depth 15 --max-nodes 100000 --out akn-full-chambers.json
+          python research/akn/atlas_region_count.py --packet akn-full-chambers.json > akn-full-verification.json
+          python - <<'PY'
+          import json
+          result = json.load(open("akn-full-verification.json"))
+          assert result["coverage_verified_generic"] is True
+          assert result["independently_counted_regions"] == 21840
+          assert result["exactly_existing_24_orbits"] is True
+          assert result["stabilizer_subgroup_conjugacy_types"] == 6
+          assert result["singular_boundary_membership_verified"] is False
+          PY
+          sha256sum akn-full-chambers.json akn-full-verification.json > akn-full-sha256.txt
+      - name: Upload full generic-chamber certificate, not singular proof
+        uses: actions/upload-artifact@v4
+        with:
+          name: akn-full-open-chambers-exact-evidence
+          path: |
+            akn-full-chambers.json
+            akn-full-verification.json
+            akn-full-sha256.txt
