@@ -212,7 +212,10 @@ def check_obstruction(result: Result, originals: list[Plane]) -> bool:
             raise AssertionError("proof leaf not among input halfspaces")
         return known[node]
 
-    final = replay(result.source)
+    try:
+        final = replay(result.source)
+    except (AssertionError, KeyError, TypeError):
+        return False
     return (_zero(final.a) and final.b == result.obstruction
             and sign(final.b) <= 0)
 
