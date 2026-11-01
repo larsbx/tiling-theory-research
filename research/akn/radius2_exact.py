@@ -174,7 +174,7 @@ def eliminate(planes: list[Plane]) -> Result:
                 a: V = tuple(za(zm(v, p.a[i]), zm(w, n.a[i]))
                              for i in range(3))  # type: ignore[assignment]
                 b = za(zm(v, p.b), zm(w, n.b))
-                derived = Plane(a, b, (p.source, n.source))
+                derived = Plane(a, b, ("combine", v, w, p.source, n.source))
                 if _zero(a):
                     if sign(b) <= 0:
                         return Result(False, b, derived.source, tuple(stages))
@@ -185,6 +185,36 @@ def eliminate(planes: list[Plane]) -> Result:
         if bad is not None:
             return Result(False, bad.b, bad.source, tuple(stages))
     return Result(True, None, None, tuple(stages))
+
+
+def check_obstruction(result: Result, originals: list[Plane]) -> bool:
+    """Replay a strict-infeasibility proof over the ORIGINAL inequalities.
+
+    The derivation tree stores strictly positive Z[tau] multipliers for
+    each Fourier-Motzkin pair. Equality 0<0 is a valid obstruction to an
+    *open* common-shift solution, but not to singular boundary selection.
+    """
+    if result.feasible or result.source is None:
+        return False
+    known = {p.source: p for p in originals}
+
+    def replay(node: object) -> Plane:
+        if isinstance(node, tuple) and node and node[0] == "combine":
+            _, v, w, p, n = node
+            if sign(v) <= 0 or sign(w) <= 0:
+                raise AssertionError("nonpositive elimination multiplier")
+            left, right = replay(p), replay(n)
+            a = tuple(za(zm(v, left.a[i]), zm(w, right.a[i]))
+                      for i in range(3))
+            b = za(zm(v, left.b), zm(w, right.b))
+            return Plane(a, b)
+        if node not in known:
+            raise AssertionError("proof leaf not among input halfspaces")
+        return known[node]
+
+    final = replay(result.source)
+    return (_zero(final.a) and final.b == result.obstruction
+            and sign(final.b) <= 0)
 
 
 # Every nonzero normal to a true perpendicular-space window facet is
@@ -318,7 +348,10 @@ def audit(cert: dict, radius: int) -> dict:
     examples = {}
     for index, center in enumerate(vertices):
         patch = patch_cells(center, stars, radius)
-        result = eliminate(constraints(patch))
+        planes = constraints(patch)
+        result = eliminate(planes)
+        if not result.feasible:
+            assert check_obstruction(result, planes), "invalid strict-infeasibility proof"
         name = ("feasible" if result.feasible else
                 "obstructed_strict" if sign(result.obstruction) < 0 else
                 "obstructed_at_boundary")
