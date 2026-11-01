@@ -1,0 +1,35 @@
+name: AKN chamber certificate (bounded pilot)
+
+on:
+  pull_request:
+    paths:
+      - "research/akn/**"
+      - "tests/test_akn_atlas_chambers.py"
+      - ".github/workflows/akn-chambers.yml"
+  workflow_dispatch:
+
+jobs:
+  exact-chamber-prefix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Exact enumeration and independent replay
+        shell: bash
+        run: |
+          set -euo pipefail
+          python research/akn/atlas_chambers.py --max-depth 1 --max-nodes 1 --out akn-chamber-depth1.json
+          python research/akn/atlas_chamber_check.py akn-chamber-depth1.json > akn-chamber-depth1-replay.json
+          python -m unittest discover -s tests -p 'test_akn_atlas_chambers.py' -v
+          sha256sum akn-chamber-depth1.json akn-chamber-depth1-replay.json > akn-chamber-depth1-sha256.txt
+      - name: Upload deterministic bounded evidence (not an exhaustive proof)
+        uses: actions/upload-artifact@v4
+        with:
+          name: akn-chamber-depth1-exact-evidence
+          path: |
+            akn-chamber-depth1.json
+            akn-chamber-depth1-replay.json
+            akn-chamber-depth1-sha256.txt
