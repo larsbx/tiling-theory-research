@@ -1,12 +1,10 @@
-# Continuous mathematical research: no manual dispatch required.
-# This workflow produces finite evidence, not authority to promote a theorem.
+# Exact mathematical research at PR heads. The durable daily/weekly
+# schedule is owned by larsbx/my-math-homelab (see PR #7 there).
+# This source workflow produces finite evidence, not theorem authority.
 name: AKN automated exact research
 
 on:
   pull_request:
-  schedule:
-    # Runs on the default branch after integration; PRs run on every update.
-    - cron: "17 4 * * 1"
   workflow_dispatch:
 
 permissions:
