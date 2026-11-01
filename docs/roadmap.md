@@ -25,13 +25,22 @@ independent slice-count checksums are recorded in
 limits and reproduction are in
 `docs/research/akn-atlas-open-chamber-certificate.md`.
 
+**Automated execution:** `docs/research/akn-automated-mathematics-research.md`
+defines the PR-head and scheduled research loop: full candidate
+enumeration, independent region-count and group-conjugacy replay,
+falsification/evidence retention, and an automatic exact 105-plane
+singular-probe follow-up. The manual full `workflow_dispatch` is no
+longer required. Scheduled runs begin only once the workflow reaches
+the default branch.
+
 **Next acceptance obligation:** complete PR #22 exact-head tests and
-review, run the PR #23 hosted full `workflow_dispatch` packet with the
-independent checker at its exact head, review exact witness/class/group
-classification, and only then consider a narrowly scoped registered
-generic-atlas coverage claim. Boundary/singular configurations remain
-open and require a different verifier. No local or generic finite
-count establishes a universal matching-rule or aperiodicity theorem.
+review, obtain a passing PR #23 *automatically triggered* full packet
+at its exact head, independently review the proof/data scope, then
+consider a narrowly scoped governed generic-atlas coverage claim.
+The next mathematical development is exhaustive singular **stratum**
+enumeration with a specified boundary-selection convention; the
+105-plane probe does not prove that. No generic finite count establishes
+a universal matching-rule or aperiodicity theorem.
 
 ## Near-term work
 
