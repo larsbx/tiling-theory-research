@@ -17,9 +17,16 @@ Governed research notes, candidate claims, and finite-computation plans for tili
 The [AKN global matching-rule spike](docs/research/akn-global-matching-theorem-spike.md)
 records exact integer-height and irrational-perpendicular-drift lemmas, a
 two-cell remote common-phase obstruction in the periodic 3/2 witness, and
-**conditional** Helly/compactness and all-scales patch-language theorem
-bridges. The executable negative-control packet is
-`research/akn/global_rule_obstruction.py`.
+**conditional** Helly and all-scales patch-language theorem
+bridges. The stronger open-window 4-cell Helly--patch criterion implies
+membership in the closed canonical AKN hull without assuming a single
+global phase; **deriving 4-wise consistency from an explicit local
+decoration remains open**. Exact negative controls are in
+`research/akn/global_rule_obstruction.py`. The separate
+`research/akn/decorated_quotient.py` reconstructs oriented face gluings
+and searches for verified periodic **counterexamples** to a supplied
+face-only decoration grammar; its bundled plain-label example is
+synthetic and is **not Katz's unpublished facet inventory**.
 
 This does **not** prove the global perfection of any concrete decorated
 Katz/AKN rule. `KATZ-AKN-PERFECT` stays `open`, and `KATZ-AKN-C1`
