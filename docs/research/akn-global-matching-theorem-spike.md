@@ -48,7 +48,7 @@ Proof: Helly's theorem in dimension 3 implies that each finite subfamily interse
 
 **Critical gap:** four-wise means cells anywhere in the infinite tiling. Helly bounds contradiction *cardinality*, not *spatial radius*. Also global weak containment of required cells does not establish that all and only the canonical cells occur; saturation and singular boundary choices remain.
 
-The missing local-to-global theorem must force a **uniform local transport bound** so that every remotely inconsistent four-cell phase constraint produces a bounded-radius forbidden decorated configuration. This is a specific falsifiable target for the Katz topological proof.
+The missing local-to-global theorem must prove that **globally** compatible local decorations exclude remote four-cell phase contradictions. A **uniform transport radius** would be one sufficient route, but it is **not necessary**: a topological propagation argument may use paths of arbitrarily large length while preserving a finite local rule. Forcing a uniform-radius contradiction is an optional stronger research target, not part of the definition of perfection.
 
 ## Conditional strong global theorem via patch-language exhaustion (proved)
 
@@ -136,10 +136,13 @@ To promote a **specific source-derived** decoration D to perfect, show:
    audited hypotheses).
 4. **Apply the Helly–patch criterion** to obtain T∈X_AKN.
 
-For a finite verifier one needs a separate **uniform transport theorem**
-which derives item 2 from bounded matching, without assuming it, and
-which survives all legal infinite tilings. A finite-box UNSAT search,
-four-wise checks on one period, or a radius-k atlas is not enough.
+For a *finite* local proof certificate one possible route is a
+**uniform transport theorem** deriving item 2 from bounded matching.
+A rigorous global proof can alternatively use an unbounded but
+mathematically controlled propagation/homotopy argument. In either
+case item 2 must be derived, not assumed, for **all complete** legal
+tilings. Finite-box UNSAT, four-wise tests on one period, and a
+radius-k atlas are not enough.
 
 ## No-go lemma: finite-state exact internal-height potentials cannot work
 
@@ -213,12 +216,45 @@ against the paper. If Katz requires additional vertex/plane
 conditions, the grammar and checker must support them *before*
 the SAT soundness proposition is applied to Katz's full D.
 
+## Historical guide: Katz's 1995 exposition of propagation
+
+A useful **secondary same-author methodological source** has been located:
+A. Katz, *Matching Rules and Quasiperiodicity: the Octagonal Tilings*,
+in *Beyond Quasicrystals* (1995), pp. 141–189,
+DOI 10.1007/978-3-662-03130-8_6.
+An accessible text extraction of pp. 163–170 was inspected; the PDF
+image renderer returned HTTP 403, so figures and geometry are still
+unverified against page images.
+
+- **pp. 163–165, §§6.2–6.3:** choices of sides of forbidden planes
+  propagate through shared fibers, intersections and sectors.
+- **p. 165–166, Theorem 1:** a topological compatibility condition
+  implies nonempty intersection of projected chosen closed half-planes.
+  The proof distinguishes globally correlated plane choices from
+  arbitrary independent local facet choices.
+- **pp. 166–170, §§6.4.1–6.4.2:** a *pushing procedure* excludes bad
+  strips, hence bad triangles, via an unbounded cone of forced plane
+  choices; the subsequent argument invokes Helly. This is **not**
+  a finite uniform-radius obstruction: it uses an infinite propagation
+  contradiction and projection-density arguments.
+- **pp. 170–171:** special tilings are treated separately as limits of
+  regular projected tilings, illuminating the need for a **closed hull**
+  and an explicit singular convention.
+
+This is a **two-dimensional octagonal exposition**, not the
+three-dimensional Katz (1988) construction or its complete decorated
+facet inventory. It supports investigating forbidden-plane/sector
+propagation and provides a warning against demanding a uniform
+contradiction radius without proof. The 1988 paper's complete body,
+specific 3D forbidden-plane types, and singular assumptions remain
+**unread**; do not transplant the 2D theorem unchanged to AKN.
+
 ## Proof routes and acceptance checkpoints
 
 | Route | Finite/reproducible stage | Global obligation | Status |
 | --- | --- | --- | --- |
 | Katz (1988) decorated facets | Transcribe the original oriented face-label inventory and matching table with page-level provenance. | Reconstruct its actual algebraic-topological forbidden-plane/phase-forcing argument and precise singular convention. | Published theorem reported in **abstract**, not machine-reproduced. |
-| Helly + height | Exact Z[τ] windows and 2–4-cell contradiction certificates. | Bounded-distance transport of remote phase contradictions, then canonical saturation and singular analysis. | Conditional bridge proved, transfer open. |
+| Helly + height | Exact Z[τ] windows and ≤4-cell contradiction certificates. | Global propagation (possibly unbounded) rules out remote empty *open* intersections, then apply the Helly–patch hull criterion. | Conditional bridge proved; propagation open. |
 | Hierarchical forcing | Explicit collared substitutions, child placements and all boundary contacts. | An all-level induction that forces the complete AKN patch language. | Proposed; no AKN induction certificate. |
 
 **Next concrete experiment:** obtain and inspect Katz (1988), CMP 118:263–288, DOI 10.1007/BF01218580; transcribe its facet decoration inventory. Build an orientation-aware constraint search on the committed periodic certificate. A **satisfying periodic decorated witness** disproves perfection for that D. An UNSAT periodic-box search is **inconclusive**: larger-period or nonperiodic decorations can still exist. Then attempt the uniform remote-conflict transport lemma, not another fixed-radius census.
