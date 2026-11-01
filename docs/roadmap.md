@@ -13,6 +13,26 @@ This repository tracks tiling-theory research candidates under lightweight estat
 | PH4-OVERLAP-GRAPH | finite-domain | Exact 64-state potential-overlap graph; every state reaches coincidence within five steps. | Retain the exact packet and provenance regressions. |
 | PH4-LEGAL-COVERAGE | conditional | Prefix-derived bound covers legal return-vector overlaps for the specified substitution-language tilings. | Audit any spectral transfer separately; no minimal-bound or exact-legality claim. |
 
+## Exact AKN generic-atlas chamber acceptance (stacked PR #23)
+
+The 15-family/135-plane reduction now has a **preliminary local full
+open-chamber enumeration** of 21,840 chambers and a separate exact
+line-arrangement region count of 21,840. All local complete stars fall in
+the established 24 full-icosahedral **star orbits**; their stabilizer
+subgroups fall into **six conjugacy types**. The canonical prefix and
+independent slice-count checksums are recorded in
+`research/akn/atlas_chamber_full_manifest.json`. Research method,
+limits and reproduction are in
+`docs/research/akn-atlas-open-chamber-certificate.md`.
+
+**Next acceptance obligation:** complete PR #22 exact-head tests and
+review, run the PR #23 hosted full `workflow_dispatch` packet with the
+independent checker at its exact head, review exact witness/class/group
+classification, and only then consider a narrowly scoped registered
+generic-atlas coverage claim. Boundary/singular configurations remain
+open and require a different verifier. No local or generic finite
+count establishes a universal matching-rule or aperiodicity theorem.
+
 ## Near-term work
 
 1. Add raw or generated AKN cell/face data with provenance. Partly done: `research/akn/` generates exact AKN cells and an atlas of 24 vertex stars with exact witnesses.
