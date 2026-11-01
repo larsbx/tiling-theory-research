@@ -1,0 +1,173 @@
+{
+  "format": "AKN-ATLAS-CHAMBERS-1",
+  "plane_fixture_sha256": "d31c3292b88fff8224ae7a75c5de58608741fd135ef3a90ad8701ff9a843863d",
+  "coordinates": "y=2gamma in Q(sqrt5), entries [rational_a, rational_b]",
+  "expanded_prefixes": 1,
+  "classified_count": 0,
+  "frontier_count": 8,
+  "search_exhausted": false,
+  "observed_orbit_class_ids": [],
+  "leaves": [
+    {
+      "kind": "frontier",
+      "prefix": [
+        0
+      ],
+      "witness_y": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "3/2",
+          "1/2"
+        ]
+      ]
+    },
+    {
+      "kind": "frontier",
+      "prefix": [
+        1
+      ],
+      "witness_y": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "1/2",
+          "1/2"
+        ]
+      ]
+    },
+    {
+      "kind": "frontier",
+      "prefix": [
+        2
+      ],
+      "witness_y": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "1",
+          "0"
+        ]
+      ]
+    },
+    {
+      "kind": "frontier",
+      "prefix": [
+        3
+      ],
+      "witness_y": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "3/2",
+          "-1/2"
+        ]
+      ]
+    },
+    {
+      "kind": "frontier",
+      "prefix": [
+        4
+      ],
+      "witness_y": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "-3/2",
+          "1/2"
+        ]
+      ]
+    },
+    {
+      "kind": "frontier",
+      "prefix": [
+        5
+      ],
+      "witness_y": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "-1",
+          "0"
+        ]
+      ]
+    },
+    {
+      "kind": "frontier",
+      "prefix": [
+        6
+      ],
+      "witness_y": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "-1/2",
+          "-1/2"
+        ]
+      ]
+    },
+    {
+      "kind": "frontier",
+      "prefix": [
+        7
+      ],
+      "witness_y": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ],
+        [
+          "-3/2",
+          "-1/2"
+        ]
+      ]
+    }
+  ],
+  "scope": "open generic chambers only; singular boundaries excluded"
+}
