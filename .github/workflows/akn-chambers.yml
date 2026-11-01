@@ -31,6 +31,8 @@ jobs:
           data = json.load(open("akn-independent-region-count.json"))
           assert data["generic_open_chambers"] == 21840
           assert data["active_internal_hyperplanes"] == 105
+          manifest = json.load(open("research/akn/atlas_chamber_full_manifest.json"))
+          assert data["slice_region_counts_sha256"] == manifest["independent_105_slice_region_counts_sha256"]
           PY
           sha256sum akn-chamber-depth1.json akn-chamber-depth1-replay.json akn-independent-region-count.json > akn-chamber-depth1-sha256.txt
       - name: Upload deterministic bounded evidence (not an exhaustive proof)
@@ -69,6 +71,7 @@ jobs:
           from hashlib import sha256
           certificate = json.load(open("akn-full-chambers.json"))
           manifest = json.load(open("research/akn/atlas_chamber_full_manifest.json"))
+          assert result["slice_region_counts_sha256"] == manifest["independent_105_slice_region_counts_sha256"]
           packed = b"".join(int("".join(map(str, item["prefix"])), 8).to_bytes(6, "big")
                             for item in certificate["leaves"])
           assert sha256(packed).hexdigest() == manifest["packed_prefixes_sha256"]
