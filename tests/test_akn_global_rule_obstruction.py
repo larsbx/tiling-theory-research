@@ -10,6 +10,7 @@ sys.path.insert(0, str(AKN))
 from global_rule_obstruction import (  # noqa: E402
     A, B, determinant, physical, perpendicular, qmul, qsign,
     rational_perp_zero, report, saturated_rank_three,
+    helly_dimension_three_sharpness,
     separating_periodic_cells,
 )
 
@@ -33,6 +34,14 @@ class GlobalMatchingRuleSpike(unittest.TestCase):
         self.assertEqual(total, (0,)*6)
         self.assertEqual(physical(total), ((0,0),)*3)
         self.assertEqual(perpendicular(total), ((0,0),)*3)
+
+    def test_dimension_three_helly_four_is_sharp(self):
+        result = helly_dimension_three_sharpness()
+        self.assertEqual(result["number_of_constraints"], 4)
+        self.assertTrue(result["all_three_subfamilies_strictly_feasible"])
+        self.assertTrue(result["all_four_infeasible_by_positive_sum"])
+        self.assertEqual(len(
+            result["three_subfamily_witnesses_omitting_index"]), 4)
 
     def test_exact_period_drift(self):
         self.assertTrue(saturated_rank_three(PERIODS))
