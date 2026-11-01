@@ -95,6 +95,25 @@ jobs:
           assert result["evidence"]["singular_boundary_membership_verified"] is False
           print("Finite generic candidate verified; no universal theorem promoted.")
           PY
+      - name: Automatically advance to bounded singular-boundary discovery
+        shell: bash
+        run: |
+          set -euo pipefail
+          python research/akn/atlas_singular_probe.py \
+            --packet evidence-full/chambers.json \
+            --out evidence-full/singular-plane-probes.json
+          python research/akn/atlas_singular_check.py \
+            evidence-full/singular-plane-probes.json \
+            --out evidence-full/singular-independent-replay.json
+          python - <<'PY'
+          import json
+          p = json.load(open("evidence-full/singular-plane-probes.json"))
+          r = json.load(open("evidence-full/singular-independent-replay.json"))
+          assert len(p["probes"]) == 105
+          assert r["exact_interior_plane_probes_verified"] == 105
+          assert r["all_singular_strata_covered"] is False
+          assert r["boundary_convention_decided"] is False
+          PY
       - name: Publish research state to workflow summary
         if: always()
         shell: bash
