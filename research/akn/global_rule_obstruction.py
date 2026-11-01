@@ -163,6 +163,43 @@ def separating_periodic_cells(cert: dict) -> dict:
             "meaning":"two remote required cells have disjoint CLOSED shift domains, not a finite-radius forbidden pattern"}
 
 
+def helly_dimension_three_sharpness() -> dict:
+    """Exact integer witnesses: every triple of four open halfspaces meets.
+
+    This is an ambient convex-geometry example, NOT four AKN tile windows.
+    The four inequalities have coefficient sum 0 < 0, a direct global
+    contradiction; omitting any one admits the listed integral witness.
+    """
+    planes = (
+        ((-1, 0, 0), 0),  # x > 0
+        ((0, -1, 0), 0),  # y > 0
+        ((0, 0, -1), 0),  # z > 0
+        ((1, 1, 1), 0),   # x+y+z < 0
+    )
+    witnesses = (
+        (-3, 1, 1),
+        (1, -3, 1),
+        (1, 1, -3),
+        (1, 1, 1),
+    )
+    for omitted, point in enumerate(witnesses):
+        for j, (normal, bound) in enumerate(planes):
+            if j != omitted:
+                assert sum(a*b for a, b in zip(normal, point)) < bound
+    assert tuple(map(sum, zip(*(n for n, _ in planes)))) == (0, 0, 0)
+    assert sum(b for _, b in planes) == 0
+    return {
+        "ambient_dimension": 3,
+        "number_of_constraints": 4,
+        "all_three_subfamilies_strictly_feasible": True,
+        "all_four_infeasible_by_positive_sum": True,
+        "three_subfamily_witnesses_omitting_index": [
+            list(point) for point in witnesses
+        ],
+        "scope": "generic open-convex Helly sharpness, not an AKN facet rule",
+    }
+
+
 def report(cert: dict) -> dict:
     if cert.get("x") != "-2/3":
         raise ValueError("expected certified 3/2 rational quotient")
@@ -188,6 +225,7 @@ def report(cert: dict) -> dict:
         "scope":"exact period-lattice necessary-condition check, conditional on original geometric certificate",
         "stacked_integer_projection_determinant":split,
         "periods":periods,
+        "helly_sharpness_control":helly_dimension_three_sharpness(),
         "remote_two_cell_obstruction":(
             separating_periodic_cells(cert) if "cells" in cert else None),
         "drift_statement":"perp displacement after k periods equals k times a nonzero Z[tau] vector",
