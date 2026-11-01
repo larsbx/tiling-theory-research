@@ -12,6 +12,27 @@ Governed research notes, candidate claims, and finite-computation plans for tili
 | PH4-OVERLAP-GRAPH | finite-domain | Exact 64-state potential-overlap graph; every state reaches coincidence within five steps. | `docs/research/phase4-exact-overlap-coverage.md` |
 | PH4-LEGAL-COVERAGE | conditional | Prefix-derived bound covers legal return-vector overlaps for the specified substitution-language tilings. | `docs/research/phase4-exact-overlap-coverage.md` |
 
+## AKN global matching-rule proof spike
+
+The [AKN global matching-rule spike](docs/research/akn-global-matching-theorem-spike.md)
+records exact integer-height and irrational-perpendicular-drift lemmas, a
+two-cell remote common-phase obstruction in the periodic 3/2 witness, and
+**conditional** Helly and all-scales patch-language theorem
+bridges. The stronger open-window 4-cell Helly--patch criterion implies
+membership in the closed canonical AKN hull without assuming a single
+global phase; **deriving 4-wise consistency from an explicit local
+decoration remains open**. Exact negative controls are in
+`research/akn/global_rule_obstruction.py`. The separate
+`research/akn/decorated_quotient.py` reconstructs oriented face gluings
+and searches for verified periodic **counterexamples** to a supplied
+face-only decoration grammar; its bundled plain-label example is
+synthetic and is **not Katz's unpublished facet inventory**.
+
+This does **not** prove the global perfection of any concrete decorated
+Katz/AKN rule. `KATZ-AKN-PERFECT` stays `open`, and `KATZ-AKN-C1`
+stays `candidate`; reproducing Katz's decorated-facet source and a
+uniform local-to-global transfer remains necessary.
+
 ## Post-PSC higher-dimensional substitution-tiling track
 
 A separate research track asks for a **class-wide** higher-dimensional analogue of the PSC proof architecture. Penrose is a calibration specimen, not the theorem target.
