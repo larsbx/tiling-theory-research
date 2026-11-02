@@ -1,8 +1,24 @@
 # AKN periodic-cover falsification: a finite quotient can give false confidence
 
+**Claim ID:** AKN-PARITY-FINITE-COVER
+**Status:** finite-domain
+
 **Date:** 2026-11-01  
 **Parent:** [Global matching-rule spike](akn-global-matching-theorem-spike.md)  
 **Claim scope:** synthetic finite mathematical negative control, **not** Katz's 1988 decoration and **not** a new accepted perfect-rule theorem.
+
+## Registered hypotheses and limits
+
+This repository-derived claim uses exactly `research/akn/certificate_3_2.json`,
+its ordered period generators, and `parity_face_grammar()` in
+`research/akn/decorated_covers.py`. The grammar's axis, shape, parity and
+ordered face-pair conditions are its complete constraints; no historical
+Katz labels, corner conditions or multibody rules are assumed. The only
+quotients claimed here have deck dimensions `(1,1,1)` and `(2,1,1)`.
+Python experiments remain evidence under `ESTATE.toml`, with no kernel
+acceptance authority. This advances the finite-cover falsification
+obligation; the actual Katz source inventory and global transport proof
+remain separate obligations.
 
 ## Sound finite-cover experiment
 
@@ -87,7 +103,25 @@ and the existing decorated-quotient solver. The cover module
 `decorated_covers.py` supports arbitrary positive three-component
 period multipliers, with fail-closed SAT, finite-cover UNSAT, and
 INCONCLUSIVE outcomes. Every claimed SAT witness is checked afresh by
-`verify_cover_assignment`.
+`verify_cover_assignment`. The regression also groups lifted 6D integer
+faces directly modulo the cover lattice, independently of the solver and
+`cover_graph`, and checks a damaged witness is rejected.
+
+The base search is exhaustive within `max_nodes=3`; only exhaustion of all
+branches permits `UNSAT_FINITE_COVER`. A node budget reached with pending
+work returns `INCONCLUSIVE` (`termination_reason=node_cap`); memory
+exhaustion during search/replay likewise returns `INCONCLUSIVE`. Search
+uses an iterative stack, so depth is independent of Python's recursion
+limit. Duplicating both plain-control variants leaves 1,152 ambiguous
+cells: the `(2,1,1)` regression must return a verified witness within
+1,200 nodes and `INCONCLUSIVE` at 1,000 nodes.
+
+For revision-specific acceptance, record the exact commit SHA and run
+both commands under README's Governance validation with the pinned shared
+checker, plus the pinned estate audit from `.github/workflows/estate.yml`.
+The claim's evidence and reproduction requirements are mirrored in
+`research/candidates.json`, with four status surfaces guarded by
+`claim_governance.toml`.
 
 No enumerated finite collection of covers, however large, can prove
 global perfection. The search could still miss infinitely aperiodic
