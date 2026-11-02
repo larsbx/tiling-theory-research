@@ -23,6 +23,7 @@ membership in the closed canonical AKN hull without assuming a single
 global phase; **deriving 4-wise consistency from an explicit local
 decoration remains open**. Exact negative controls are in
 `research/akn/global_rule_obstruction.py`. The separate
+`research/akn/decorated_covers.py` additionally tests exact finite period covers, including a reproducible **onefold UNSAT / twofold SAT** synthetic non-Katz counterexample showing why finite-quotient UNSAT cannot establish global perfection. 
 `research/akn/decorated_quotient.py` reconstructs oriented face gluings
 and searches for verified periodic **counterexamples** to a supplied
 face-only decoration grammar; its bundled plain-label example is
