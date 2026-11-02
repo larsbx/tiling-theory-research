@@ -74,7 +74,11 @@ convex, nonempty** true-perpendicular acceptance region
 with W_i=A_i+(1−τ)B_i. Use one consistent global h for all cells; no
 independent relifting of distant patches is permitted.
 
-**Theorem (Helly–patch local-isomorphism criterion).** Assume every
+**Theorem (Helly–patch local-isomorphism criterion).**
+
+**Status:** conditional — the all-four-cell *open* phase-intersection premise is not proved for any specific facet decoration.
+
+Assume every
 subcollection of at most four required cells of T has a common phase:
 
     ∀F ⊂ Cells(T), |F| ≤ 4 :  ⋂_{c∈F} U_c ≠ ∅.
@@ -175,6 +179,9 @@ cell shape P/O, allowed zero-based 3-axis orientations, six face labels
 (+normal, −normal) face-label pairs.
 
 **Proposition (SAT implies counterexample, for face-only rules).**
+
+**Status:** conditional — applies only when the supplied grammar captures *every* actual matching condition.
+
 If a total assignment of D-states to all periodic quotient cells
 passes the independently reconstructed face-gluing check, it extends
 periodically to a legal decorated tiling of ℝ³, provided the entire
