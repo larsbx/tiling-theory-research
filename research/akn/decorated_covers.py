@@ -9,11 +9,10 @@ INCONCLUSIVE. The included parity grammar is a synthetic NON-KATZ control.
 from __future__ import annotations
 
 import itertools
-from dataclasses import dataclass
 from fractions import Fraction
 
 from decorated_quotient import (
-    Face, Glue, _compatible, _domains, _parse_grammar, _propagate, glue_graph
+    Face, Glue, _domains, _parse_grammar, _propagate, glue_graph
 )
 from geometry import cell_shape
 
@@ -144,35 +143,49 @@ def solve_cover(cert: dict, grammar: dict, dims: tuple[int,int,int],
     domains=[set(d) for _ in deck_indices(dims) for d in base]
     explored=0
 
-    def walk(state):
+    def search():
         nonlocal explored
-        if explored>=max_nodes:
-            return "INCONCLUSIVE",None
-        explored+=1
-        if not _propagate(state,edges,variants,allowed):
-            return "UNSAT_FINITE_COVER",None
-        ambiguous=[i for i,d in enumerate(state) if len(d)>1]
-        if not ambiguous:
-            assignment=[next(iter(d)) for d in state]
-            if not verify_cover_assignment(cert,grammar,dims,assignment):
-                raise AssertionError("SAT witness failed independent replay")
-            return "SAT_PERIODIC_WITNESS",assignment
-        cell=min(ambiguous,key=lambda i:(len(state[i]),i))
-        capped=False
-        for name in sorted(state[cell]):
-            child=[set(d) for d in state]
-            child[cell]={name}
-            result,proof=walk(child)
-            if result=="SAT_PERIODIC_WITNESS":
-                return result,proof
-            if result=="INCONCLUSIVE":
-                capped=True
-        return ("INCONCLUSIVE" if capped else "UNSAT_FINITE_COVER"),None
+        state = domains
+        # Lazy DFS frames retain each parent's remaining choices. Propagation
+        # replaces domain sets rather than mutating them, so shallow list
+        # copies isolate siblings without duplicating every set at every depth.
+        stack = []
+        while True:
+            if explored >= max_nodes:
+                return "INCONCLUSIVE", None, "node_cap"
+            explored += 1
+            if _propagate(state, edges, variants, allowed):
+                ambiguous = [i for i, d in enumerate(state) if len(d) > 1]
+                if not ambiguous:
+                    assignment = [next(iter(d)) for d in state]
+                    if not verify_cover_assignment(cert, grammar, dims, assignment):
+                        raise AssertionError("SAT witness failed independent replay")
+                    return "SAT_PERIODIC_WITNESS", assignment, "verified_witness"
+                cell = min(ambiguous, key=lambda i: (len(state[i]), i))
+                stack.append((state, cell, iter(sorted(state[cell]))))
+            # A contradiction exhausts only this branch. UNSAT requires every
+            # pending choice to be exhausted, without hitting the node cap.
+            while stack:
+                parent, cell, choices = stack[-1]
+                name = next(choices, None)
+                if name is None:
+                    stack.pop()
+                    continue
+                state = parent.copy()
+                state[cell] = {name}
+                break
+            else:
+                return "UNSAT_FINITE_COVER", None, "exhaustive_search"
 
-    status,assignment=walk(domains)
+    try:
+        status, assignment, reason = search()
+    except MemoryError:
+        # Memory exhaustion cannot certify that the finite search is complete.
+        status, assignment, reason = "INCONCLUSIVE", None, "memory_exhaustion"
     return {
         "status":status,**stats,"explored_nodes":explored,
         "node_cap":max_nodes,"assignment":assignment,
+        "termination_reason":reason,
         "claim_limit":"SAT is a finite-cover counterexample to the COMPLETE grammar; "
                       "UNSAT of a specific cover is never a global matching theorem."
     }

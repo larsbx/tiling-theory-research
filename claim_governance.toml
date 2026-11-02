@@ -135,3 +135,23 @@ window_lines = 1
 path = "research/candidates.json"
 anchor = '"id": "PH4-LEGAL-COVERAGE"'
 window_lines = 1
+
+[[claim]]
+name = "AKN-PARITY-FINITE-COVER"
+status = "finite-domain"
+[[claim.surfaces]]
+path = "docs/research/akn-decorated-period-cover-falsification.md"
+anchor = '**Claim ID:** AKN-PARITY-FINITE-COVER'
+window_lines = 1
+[[claim.surfaces]]
+path = "README.md"
+anchor = '| AKN-PARITY-FINITE-COVER |'
+window_lines = 0
+[[claim.surfaces]]
+path = "docs/roadmap.md"
+anchor = '| AKN-PARITY-FINITE-COVER |'
+window_lines = 0
+[[claim.surfaces]]
+path = "research/candidates.json"
+anchor = '"id": "AKN-PARITY-FINITE-COVER"'
+window_lines = 1
