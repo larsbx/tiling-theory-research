@@ -132,3 +132,25 @@ jobs:
           path: evidence-full/
           if-no-files-found: warn
           retention-days: 90
+
+  full-singular-research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Enumerate and independently verify singular strata
+        run: python research/akn/atlas_strata_driver.py --out evidence-singular
+      - name: Preserve exact strata, independent verdict and counterexamples
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: akn-exact-singular-strata
+          path: evidence-singular/
+          if-no-files-found: error
+          retention-days: 90
