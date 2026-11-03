@@ -1,0 +1,49 @@
+{
+  "schema": "akn-facet-grammar/v0-exploratory",
+  "name": "plain-face-only-periodic-negative-control-NOT-KATZ",
+  "source_status": "synthetic negative control; no historical decoration claimed",
+  "variants": [
+    {
+      "id": "bare_P",
+      "shape": "P",
+      "faces": [
+        [
+          "plain",
+          "plain"
+        ],
+        [
+          "plain",
+          "plain"
+        ],
+        [
+          "plain",
+          "plain"
+        ]
+      ]
+    },
+    {
+      "id": "bare_O",
+      "shape": "O",
+      "faces": [
+        [
+          "plain",
+          "plain"
+        ],
+        [
+          "plain",
+          "plain"
+        ],
+        [
+          "plain",
+          "plain"
+        ]
+      ]
+    }
+  ],
+  "allowed_pairs": [
+    [
+      "plain",
+      "plain"
+    ]
+  ]
+}

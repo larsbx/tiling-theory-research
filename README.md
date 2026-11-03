@@ -9,9 +9,32 @@ Governed research notes, candidate claims, and finite-computation plans for tili
 | KATZ-AKN-C1 | candidate | Minimal local-complete decoration problem for Katz/AKN rhombohedral vertex atlases. This is a finite local condition, not a perfect matching-rule proof. | `docs/research/katz-akn-c1-local-completeness.md` |
 | AKN-ATLAS-PERIODIC | finite-domain | The 24 AKN vertex stars admit a periodic tiling (3/2 cubic approximant, 576 vertices per period), exactly certified; so the undecorated vertex atlas is not a local rule. | `docs/research/akn-vertex-atlas-periodic-approximant.md` |
 | AKN-3-2-RADIUS2 | finite-domain | Exact generic AKN common-shift feasibility for radius-two full edge-neighbor stars of the fixed 3/2 periodic certificate: 286/576 open-feasible, 287 boundary-only, 3 closed-infeasible. Not a global matching-rule result. | `docs/research/akn-radius2-exact-feasibility.md` |
+| AKN-PARITY-FINITE-COVER | finite-domain | Synthetic parity face grammar: base quotient UNSAT, twofold cover SAT with all 3,456 face pairs checked. Not Katz's decoration. | `docs/research/akn-decorated-period-cover-falsification.md` |
 | KATZ-AKN-PERFECT | open | Global perfection of a Katz/AKN matching rule: every everywhere-locally-legal tiling belongs to the intended AKN class. | `docs/research/katz-akn-c1-local-completeness.md` |
 | PH4-OVERLAP-GRAPH | finite-domain | Exact 64-state potential-overlap graph; every state reaches coincidence within five steps. | `docs/research/phase4-exact-overlap-coverage.md` |
 | PH4-LEGAL-COVERAGE | conditional | Prefix-derived bound covers legal return-vector overlaps for the specified substitution-language tilings. | `docs/research/phase4-exact-overlap-coverage.md` |
+
+## AKN global matching-rule proof spike
+
+The [AKN global matching-rule spike](docs/research/akn-global-matching-theorem-spike.md)
+records exact integer-height and irrational-perpendicular-drift lemmas, a
+two-cell remote common-phase obstruction in the periodic 3/2 witness, and
+**conditional** Helly and all-scales patch-language theorem
+bridges. The stronger open-window 4-cell Helly--patch criterion implies
+membership in the closed canonical AKN hull without assuming a single
+global phase; **deriving 4-wise consistency from an explicit local
+decoration remains open**. Exact negative controls are in
+`research/akn/global_rule_obstruction.py`. The separate
+`research/akn/decorated_covers.py` additionally tests exact finite period covers, including a reproducible **onefold UNSAT / twofold SAT** synthetic non-Katz counterexample showing why finite-quotient UNSAT cannot establish global perfection. 
+`research/akn/decorated_quotient.py` reconstructs oriented face gluings
+and searches for verified periodic **counterexamples** to a supplied
+face-only decoration grammar; its bundled plain-label example is
+synthetic and is **not Katz's unpublished facet inventory**.
+
+This does **not** prove the global perfection of any concrete decorated
+Katz/AKN rule. `KATZ-AKN-PERFECT` stays `open`, and `KATZ-AKN-C1`
+stays `candidate`; reproducing Katz's decorated-facet source and a
+uniform local-to-global transfer remains necessary.
 
 ## Post-PSC higher-dimensional substitution-tiling track
 
