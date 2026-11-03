@@ -180,9 +180,17 @@ jobs:
           python3 research/akn/atlas_perturbation_limits.py \
             --generic evidence-full --singular evidence-singular \
             --out perturbation-limits.json
+      - name: Enumerate exact local cone covers
+        run: |
+          python3 research/akn/atlas_singular_cone_covers.py \
+            --generic evidence-full/chambers.json \
+            --singular evidence-singular/singular-strata.json \
+            --limits perturbation-limits.json --out cone-covers.json
       - uses: actions/upload-artifact@v4
         with:
           name: akn-singular-translation-limits
-          path: perturbation-limits.json
+          path: |
+            perturbation-limits.json
+            cone-covers.json
           if-no-files-found: error
           retention-days: 90
