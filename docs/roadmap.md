@@ -14,6 +14,39 @@ This repository tracks tiling-theory research candidates under lightweight estat
 | PH4-OVERLAP-GRAPH | finite-domain | Exact 64-state potential-overlap graph; every state reaches coincidence within five steps. | Retain the exact packet and provenance regressions. |
 | PH4-LEGAL-COVERAGE | conditional | Prefix-derived bound covers legal return-vector overlaps for the specified substitution-language tilings. | Audit any spectral transfer separately; no minimal-bound or exact-legality claim. |
 
+## Exact AKN generic-atlas chamber acceptance (stacked PR #23)
+
+The 15-family/135-plane reduction now has a **preliminary local full
+open-chamber enumeration** of 21,840 chambers and a separate exact
+line-arrangement region count of 21,840. All local complete stars fall in
+the established 24 full-icosahedral **star orbits**; their stabilizer
+subgroups fall into **six conjugacy types**. The canonical prefix and
+independent slice-count checksums are recorded in
+`research/akn/atlas_chamber_full_manifest.json`. Research method,
+limits and reproduction are in
+`docs/research/akn-atlas-open-chamber-certificate.md`.
+
+**Automated execution:** `docs/research/akn-automated-mathematics-research.md`
+defines the exact PR-head research cycle. Daily status monitoring and
+weekly full independent AKN experiments are now **owned by
+`larsbx/my-math-homelab`**, with schedule registration in
+`policy/research-schedules.toml` and an active mainline workflow
+since homelab PR #7 merged on November 1, 2026. The source PR workflow
+continues to validate code at exact PR heads, but its overlapping
+weekly cron was removed. The homelab full run records provenance,
+generates and replays exact open-chamber evidence, and continues with
+105 exact singular-plane probes. Neither schedule promotes claims.
+
+**Next acceptance obligation:** PR #22's finite radius-two result was
+merged after exact-head estate and claim-governance checks. Verify the
+current PR #23 exact-head generic chamber AND singular-strata packet
+independently, review mathematical scope, and only then consider a
+separately governed finite generic-atlas or singular-strata claim.
+The PR #23 branch also implements a candidate exact finite singular
+stratification with an independent checker; it remains under hosted
+acceptance and does not decide a globally coherent selection convention. No generic finite count establishes
+a universal matching-rule or aperiodicity theorem.
+
 ## Near-term work
 
 1. Add raw or generated AKN cell/face data with provenance. Partly done: `research/akn/` generates exact AKN cells and an atlas of 24 vertex stars with exact witnesses.

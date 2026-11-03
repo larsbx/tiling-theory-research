@@ -1,0 +1,156 @@
+# Exact mathematical research at PR heads. The durable daily/weekly
+# schedule is owned by larsbx/my-math-homelab (see PR #7 there).
+# This source workflow produces finite evidence, not theorem authority.
+name: AKN automated exact research
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: akn-exact-research-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  exact-prefix-and-unit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # A merge-result check is not an exact-PR-head acceptance check.
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Exact small-cover and independent arithmetic regressions
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s tests -p 'test_akn_*.py' -v
+          python research/akn/atlas_research_driver.py --max-depth 1 --max-nodes 1 --out evidence-prefix
+          python research/akn/atlas_region_count.py > evidence-prefix/independent-region-count.json
+          python - <<'PY'
+          import json
+          d = json.load(open("evidence-prefix/research-run.json"))
+          assert d["state"] == "frontier_inconclusive"
+          assert d["evidence"]["remaining_frontier_prefixes"] == 8
+          counts = json.load(open("evidence-prefix/independent-region-count.json"))
+          manifest = json.load(open("research/akn/atlas_chamber_full_manifest.json"))
+          assert counts["generic_open_chambers"] == 21840
+          assert counts["active_internal_hyperplanes"] == 105
+          assert counts["slice_region_counts_sha256"] == manifest["independent_105_slice_region_counts_sha256"]
+          PY
+      - name: Retain exact bounded and independent counting evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: akn-bounded-prefix-and-region-evidence
+          path: evidence-prefix/
+          if-no-files-found: warn
+
+  full-generic-research:
+    needs: exact-prefix-and-unit
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Autonomous full 135-plane experiment and independent replay
+        shell: bash
+        run: |
+          set -euo pipefail
+          python research/akn/atlas_research_driver.py \
+            --max-depth 15 --max-nodes 100000 --require-full \
+            --out evidence-full
+      - name: Recheck canonical complete witness checksum
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from hashlib import sha256
+          import json
+          from pathlib import Path
+          packet = json.loads(Path("evidence-full/chambers.json").read_text())
+          manifest = json.loads(Path("research/akn/atlas_chamber_full_manifest.json").read_text())
+          prefixes = [leaf["prefix"] for leaf in packet["leaves"]]
+          assert len(prefixes) == 21840
+          packed = b"".join(
+              int("".join(map(str, prefix)), 8).to_bytes(6, "big")
+              for prefix in prefixes
+          )
+          assert sha256(packed).hexdigest() == manifest["packed_prefixes_sha256"]
+          result = json.loads(Path("evidence-full/research-run.json").read_text())
+          assert result["state"] == "generic_candidate_verified"
+          assert result["evidence"]["generic_coverage_verified"] is True
+          assert result["evidence"]["singular_boundary_membership_verified"] is False
+          print("Finite generic candidate verified; no universal theorem promoted.")
+          PY
+      - name: Automatically advance to bounded singular-boundary discovery
+        shell: bash
+        run: |
+          set -euo pipefail
+          python research/akn/atlas_singular_probe.py \
+            --packet evidence-full/chambers.json \
+            --out evidence-full/singular-plane-probes.json
+          python research/akn/atlas_singular_check.py \
+            evidence-full/singular-plane-probes.json \
+            --out evidence-full/singular-independent-replay.json
+          python - <<'PY'
+          import json
+          p = json.load(open("evidence-full/singular-plane-probes.json"))
+          r = json.load(open("evidence-full/singular-independent-replay.json"))
+          assert len(p["probes"]) == 105
+          assert r["exact_interior_plane_probes_verified"] == 105
+          assert r["all_singular_strata_covered"] is False
+          assert r["boundary_convention_decided"] is False
+          PY
+      - name: Publish research state to workflow summary
+        if: always()
+        shell: bash
+        run: |
+          if test -f evidence-full/research-run.json; then
+            echo "## AKN automated research result" >> "$GITHUB_STEP_SUMMARY"
+            echo '~~~json' >> "$GITHUB_STEP_SUMMARY"
+            cat evidence-full/research-run.json >> "$GITHUB_STEP_SUMMARY"
+            echo '~~~' >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "Full run failed before creating state; inspect job logs." >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Preserve evidence, errors, counterexamples and next obligations
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: akn-full-generic-research-evidence
+          path: evidence-full/
+          if-no-files-found: warn
+          retention-days: 90
+
+  full-singular-research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Enumerate and independently verify singular strata
+        run: python research/akn/atlas_strata_driver.py --out evidence-singular
+      - name: Preserve exact strata, independent verdict and counterexamples
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: akn-exact-singular-strata
+          path: evidence-singular/
+          if-no-files-found: error
+          retention-days: 90
