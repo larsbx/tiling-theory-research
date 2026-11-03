@@ -78,6 +78,31 @@
         "tests/test_phase4_overlap.py"
       ],
       "scope": "Audit any spectral transfer separately; no minimal-bound or exact-legality claim."
+    },
+    {
+      "id": "AKN-PARITY-FINITE-COVER",
+      "status": "finite-domain",
+      "title": "Synthetic parity grammar fails on the base quotient and admits a twofold-cover witness",
+      "summary": "For the committed 3/2 certificate and parity_face_grammar(), the (1,1,1) quotient is UNSAT and the (2,1,1) cover has a verified periodic assignment: 576/1152 cells and 1728/3456 face pairs respectively.",
+      "primary_surface": "docs/research/akn-decorated-period-cover-falsification.md",
+      "hypotheses": [
+        "The exact cells and ordered period_lattice in research/akn/certificate_3_2.json, with L0[0]=3 odd and L1[0], L2[0] even.",
+        "The complete synthetic face-only grammar parity_face_grammar(): one state per axis triple and parity, no additional corner or multibody constraints.",
+        "Deck dimensions (1,1,1) and (2,1,1), ordered by the committed period generators."
+      ],
+      "scope": "Repository-derived finite specimen negative control only. The grammar is synthetic, not Katz's actual decoration rules. No global perfection or universal matching-rule result; KATZ-AKN-PERFECT remains open.",
+      "evidence": [
+        "research/akn/certificate_3_2.json",
+        "research/akn/decorated_covers.py",
+        "tests/test_akn_decorated_covers.py",
+        "docs/research/akn-decorated-period-cover-falsification.md"
+      ],
+      "reproducibility_requirements": [
+        "Run python -m unittest discover -s tests -p 'test_akn_decorated_covers.py' -v at the reported exact repository revision (stdlib Python 3.11+).",
+        "Require exhaustive base UNSAT within max_nodes=3 and a twofold SAT witness; replay every tile and all 3456 face pairs, including a separate direct integer-face audit and a damaged-witness negative control.",
+        "Require cover counts and unique incidence of all six oriented faces per cell; any node or memory exhaustion is INCONCLUSIVE, never UNSAT.",
+        "Run the pinned shared claim-governance audit, status-surface mutation regressions, full mathematical suite, and pinned estate audit."
+      ]
     }
   ]
 }
