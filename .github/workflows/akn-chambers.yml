@@ -154,3 +154,35 @@ jobs:
           path: evidence-singular/
           if-no-files-found: error
           retention-days: 90
+
+  singular-translation-limits:
+    needs: [full-generic-research, full-singular-research]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: akn-full-generic-research-evidence
+          path: evidence-full
+      - uses: actions/download-artifact@v4
+        with:
+          name: akn-exact-singular-strata
+          path: evidence-singular
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Classify common-translation limits
+        run: |
+          python3 research/akn/atlas_perturbation_limits.py \
+            --generic evidence-full --singular evidence-singular \
+            --out perturbation-limits.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: akn-singular-translation-limits
+          path: perturbation-limits.json
+          if-no-files-found: error
+          retention-days: 90
