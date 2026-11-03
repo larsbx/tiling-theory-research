@@ -22,6 +22,7 @@ class ClaimSurfaces(unittest.TestCase):
         shared = {'README.md', 'docs/roadmap.md', 'research/candidates.json'}
         dossier = {'AKN-PARITY-FINITE-COVER': 'docs/research/akn-decorated-period-cover-falsification.md',
                    'KATZ-AKN-C1': 'docs/research/katz-akn-c1-local-completeness.md',
+                   'AKN-3-2-RADIUS2': 'docs/research/akn-radius2-exact-feasibility.md',
                    'KATZ-AKN-PERFECT': 'docs/research/katz-akn-c1-local-completeness.md',
                    'AKN-ATLAS-PERIODIC': 'docs/research/akn-vertex-atlas-periodic-approximant.md',
                    'PH4-OVERLAP-GRAPH': 'docs/research/phase4-exact-overlap-coverage.md',

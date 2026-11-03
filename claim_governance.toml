@@ -97,6 +97,26 @@ anchor = '"id": "AKN-ATLAS-PERIODIC"'
 window_lines = 1
 
 [[claim]]
+name = "AKN-3-2-RADIUS2"
+status = "finite-domain"
+[[claim.surfaces]]
+path = "docs/research/akn-radius2-exact-feasibility.md"
+anchor = "**Claim ID:** AKN-3-2-RADIUS2"
+window_lines = 1
+[[claim.surfaces]]
+path = "README.md"
+anchor = "| AKN-3-2-RADIUS2 |"
+window_lines = 0
+[[claim.surfaces]]
+path = "docs/roadmap.md"
+anchor = "| AKN-3-2-RADIUS2 |"
+window_lines = 0
+[[claim.surfaces]]
+path = "research/candidates.json"
+anchor = '"id": "AKN-3-2-RADIUS2"'
+window_lines = 1
+
+[[claim]]
 name = "PH4-OVERLAP-GRAPH"
 status = "finite-domain"
 [[claim.surfaces]]
